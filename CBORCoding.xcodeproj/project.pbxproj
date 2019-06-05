@@ -917,6 +917,7 @@
 				PRODUCT_NAME = CBORCoding;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Debug;
@@ -941,6 +942,7 @@
 				PRODUCT_NAME = CBORCoding;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Test;
@@ -965,6 +967,7 @@
 				PRODUCT_NAME = CBORCoding;
 				SDKROOT = appletvos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
 				TARGETED_DEVICE_FAMILY = 3;
 			};
 			name = Release;
@@ -1047,6 +1050,7 @@
 				PRODUCT_NAME = CBORCoding;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
@@ -1072,6 +1076,7 @@
 				PRODUCT_NAME = CBORCoding;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Test;
@@ -1097,6 +1102,7 @@
 				PRODUCT_NAME = CBORCoding;
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "watchsimulator watchos";
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
@@ -1159,7 +1165,6 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator appletvos watchsimulator watchos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1222,7 +1227,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator appletvos watchsimulator watchos";
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
@@ -1255,6 +1259,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -1279,6 +1284,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Release;
 		};
@@ -1372,7 +1378,6 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator appletvos watchsimulator watchos";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = UNIT_TEST;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -1404,6 +1409,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Test;
