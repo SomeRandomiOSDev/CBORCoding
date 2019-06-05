@@ -1,10 +1,10 @@
 CBORCoding
 ========
 
-[![License MIT](https://img.shields.io/cocoapods/l/CBORCoding.svg?style=flat)](https://cocoapods.org/pods/CBORCoding)
-[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CBORCoding.svg?style=flat)](https://cocoapods.org/pods/CBORCoding) 
+[![License MIT](https://img.shields.io/cocoapods/l/CBORCoding.svg)](https://cocoapods.org/pods/CBORCoding)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CBORCoding.svg)](https://cocoapods.org/pods/CBORCoding) 
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
-[![Platform](https://img.shields.io/cocoapods/p/CBORCoding.svg?style=flat)](https://cocoapods.org/pods/CBORCoding)
+[![Platform](https://img.shields.io/cocoapods/p/CBORCoding.svg)](https://cocoapods.org/pods/CBORCoding)
 
 **CBORCoding** is a lightweight framework containing a coder pair for encoding and decoding `Codable` conforming types to and from [CBOR](https://cbor.io) document format for iOS, macOS, tvOS, and watchOS.
 
