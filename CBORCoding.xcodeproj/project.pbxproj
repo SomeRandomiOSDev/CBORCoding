@@ -1,0 +1,1523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		DD12989722A48C30005CEB9A /* Run SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DD12989822A48C30005CEB9A /* Build configuration list for PBXAggregateTarget "Run SwiftLint" */;
+			buildPhases = (
+				DD12989D22A48C47005CEB9A /* Run SwiftLint */,
+			);
+			dependencies = (
+			);
+			name = "Run SwiftLint";
+			productName = "Run Swiftlint";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		DD0812F7229CD69B0003E3F6 /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0812F6229CD69B0003E3F6 /* CBORParser.swift */; };
+		DD0812FA229CE1840003E3F6 /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0812F9229CE1840003E3F6 /* CBORParserTests.swift */; };
+		DD12988922A47C4B005CEB9A /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12988822A47C4B005CEB9A /* CBOR+Equatable.swift */; };
+		DD12989422A487FB005CEB9A /* CBORCoding.podspec in Resources */ = {isa = PBXBuildFile; fileRef = DD12989122A487FB005CEB9A /* CBORCoding.podspec */; };
+		DD12989522A487FB005CEB9A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = DD12989222A487FB005CEB9A /* LICENSE */; };
+		DD12989622A487FB005CEB9A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DD12989322A487FB005CEB9A /* README.md */; };
+		DD1298B122A563BE005CEB9A /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1298A822A563BE005CEB9A /* CBORCoding.framework */; };
+		DD1298C122A563E0005CEB9A /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6922942D98000127A3 /* CBORTests.swift */; };
+		DD1298C222A563E0005CEB9A /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6D2296B6B7000127A3 /* ContainersTests.swift */; };
+		DD1298C322A563E0005CEB9A /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E377228DDCFB002D9067 /* CBOREncoderTests.swift */; };
+		DD1298C422A563E0005CEB9A /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E722296D514000127A3 /* CBORDecoderTests.swift */; };
+		DD1298C522A563E0005CEB9A /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0812F9229CE1840003E3F6 /* CBORParserTests.swift */; };
+		DD1298C622A563EA005CEB9A /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6B2296B63E000127A3 /* Containers.swift */; };
+		DD1298C722A563EA005CEB9A /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E39C228E0EBA002D9067 /* CBOR.swift */; };
+		DD1298C822A563EA005CEB9A /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12988822A47C4B005CEB9A /* CBOR+Equatable.swift */; };
+		DD1298C922A563EA005CEB9A /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E9C2299CE1C000127A3 /* CBOR+Codable.swift */; };
+		DD1298CA22A563EA005CEB9A /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E39A228DE3E2002D9067 /* CBOREncoder.swift */; };
+		DD1298CB22A563EA005CEB9A /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E383228DDD27002D9067 /* CBORDecoder.swift */; };
+		DD1298CC22A563EA005CEB9A /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0812F6229CD69B0003E3F6 /* CBORParser.swift */; };
+		DD1298E922A56431005CEB9A /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1298E022A56430005CEB9A /* CBORCoding.framework */; };
+		DD12990722A56455005CEB9A /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6B2296B63E000127A3 /* Containers.swift */; };
+		DD12990822A56455005CEB9A /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E39C228E0EBA002D9067 /* CBOR.swift */; };
+		DD12990922A56455005CEB9A /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12988822A47C4B005CEB9A /* CBOR+Equatable.swift */; };
+		DD12990A22A56455005CEB9A /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E9C2299CE1C000127A3 /* CBOR+Codable.swift */; };
+		DD12990B22A56455005CEB9A /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E39A228DE3E2002D9067 /* CBOREncoder.swift */; };
+		DD12990C22A56455005CEB9A /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E383228DDD27002D9067 /* CBORDecoder.swift */; };
+		DD12990D22A56455005CEB9A /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0812F6229CD69B0003E3F6 /* CBORParser.swift */; };
+		DD12990E22A56456005CEB9A /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6B2296B63E000127A3 /* Containers.swift */; };
+		DD12990F22A56456005CEB9A /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E39C228E0EBA002D9067 /* CBOR.swift */; };
+		DD12991022A56456005CEB9A /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12988822A47C4B005CEB9A /* CBOR+Equatable.swift */; };
+		DD12991122A56456005CEB9A /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E9C2299CE1C000127A3 /* CBOR+Codable.swift */; };
+		DD12991222A56456005CEB9A /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E39A228DE3E2002D9067 /* CBOREncoder.swift */; };
+		DD12991322A56456005CEB9A /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E383228DDD27002D9067 /* CBORDecoder.swift */; };
+		DD12991422A56456005CEB9A /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0812F6229CD69B0003E3F6 /* CBORParser.swift */; };
+		DD12991522A5645A005CEB9A /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6922942D98000127A3 /* CBORTests.swift */; };
+		DD12991622A5645A005CEB9A /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6D2296B6B7000127A3 /* ContainersTests.swift */; };
+		DD12991722A5645A005CEB9A /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E377228DDCFB002D9067 /* CBOREncoderTests.swift */; };
+		DD12991822A5645A005CEB9A /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E722296D514000127A3 /* CBORDecoderTests.swift */; };
+		DD12991922A5645A005CEB9A /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0812F9229CE1840003E3F6 /* CBORParserTests.swift */; };
+		DD32E373228DDCFB002D9067 /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD32E369228DDCFB002D9067 /* CBORCoding.framework */; };
+		DD32E378228DDCFB002D9067 /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E377228DDCFB002D9067 /* CBOREncoderTests.swift */; };
+		DD32E39B228DE3E2002D9067 /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E39A228DE3E2002D9067 /* CBOREncoder.swift */; };
+		DD32E39D228E0EBA002D9067 /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E39C228E0EBA002D9067 /* CBOR.swift */; };
+		DD957E6A22942D98000127A3 /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6922942D98000127A3 /* CBORTests.swift */; };
+		DD957E6C2296B63E000127A3 /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6B2296B63E000127A3 /* Containers.swift */; };
+		DD957E6E2296B6B7000127A3 /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6D2296B6B7000127A3 /* ContainersTests.swift */; };
+		DD957E732296D514000127A3 /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E722296D514000127A3 /* CBORDecoderTests.swift */; };
+		DD957E9D2299CE1C000127A3 /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E9C2299CE1C000127A3 /* CBOR+Codable.swift */; };
+		DDA7181C22A017CF008C85B7 /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E383228DDD27002D9067 /* CBORDecoder.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD12989F22A48C6C005CEB9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD12989722A48C30005CEB9A;
+			remoteInfo = "Run SwiftLint";
+		};
+		DD1298B222A563BE005CEB9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD1298A722A563BE005CEB9A;
+			remoteInfo = "CBORCoding macOS";
+		};
+		DD1298EA22A56431005CEB9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD1298DF22A56430005CEB9A;
+			remoteInfo = "CBORCoding tvOS";
+		};
+		DD12991A22A56494005CEB9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD12989722A48C30005CEB9A;
+			remoteInfo = "Run SwiftLint";
+		};
+		DD12991C22A5649B005CEB9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD12989722A48C30005CEB9A;
+			remoteInfo = "Run SwiftLint";
+		};
+		DD12991E22A564A0005CEB9A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD12989722A48C30005CEB9A;
+			remoteInfo = "Run SwiftLint";
+		};
+		DD32E374228DDCFB002D9067 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD32E368228DDCFB002D9067;
+			remoteInfo = CBORCoding;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD0812F6229CD69B0003E3F6 /* CBORParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBORParser.swift; sourceTree = "<group>"; };
+		DD0812F9229CE1840003E3F6 /* CBORParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBORParserTests.swift; sourceTree = "<group>"; };
+		DD12988822A47C4B005CEB9A /* CBOR+Equatable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBOR+Equatable.swift"; sourceTree = "<group>"; };
+		DD12989122A487FB005CEB9A /* CBORCoding.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CBORCoding.podspec; sourceTree = SOURCE_ROOT; };
+		DD12989222A487FB005CEB9A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		DD12989322A487FB005CEB9A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		DD1298A122A546B4005CEB9A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		DD1298A822A563BE005CEB9A /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1298B022A563BE005CEB9A /* CBORCoding macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CBORCoding macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1298E022A56430005CEB9A /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1298E822A56430005CEB9A /* CBORCoding tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CBORCoding tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD1298FE22A5644C005CEB9A /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD12992022A5680A005CEB9A /* ATTRIBUTIONS */ = {isa = PBXFileReference; lastKnownFileType = text; path = ATTRIBUTIONS; sourceTree = SOURCE_ROOT; };
+		DD32E369228DDCFB002D9067 /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD32E36D228DDCFB002D9067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD32E372228DDCFB002D9067 /* CBORCodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBORCodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD32E377228DDCFB002D9067 /* CBOREncoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBOREncoderTests.swift; sourceTree = "<group>"; };
+		DD32E379228DDCFB002D9067 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD32E383228DDD27002D9067 /* CBORDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORDecoder.swift; sourceTree = "<group>"; };
+		DD32E39A228DE3E2002D9067 /* CBOREncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBOREncoder.swift; sourceTree = "<group>"; };
+		DD32E39C228E0EBA002D9067 /* CBOR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBOR.swift; sourceTree = "<group>"; };
+		DD957E6922942D98000127A3 /* CBORTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBORTests.swift; sourceTree = "<group>"; };
+		DD957E6B2296B63E000127A3 /* Containers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Containers.swift; sourceTree = "<group>"; };
+		DD957E6D2296B6B7000127A3 /* ContainersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainersTests.swift; sourceTree = "<group>"; };
+		DD957E722296D514000127A3 /* CBORDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBORDecoderTests.swift; sourceTree = "<group>"; };
+		DD957E9C2299CE1C000127A3 /* CBOR+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBOR+Codable.swift"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD1298A522A563BE005CEB9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298AD22A563BE005CEB9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1298B122A563BE005CEB9A /* CBORCoding.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298DD22A56430005CEB9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298E522A56430005CEB9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1298E922A56431005CEB9A /* CBORCoding.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298FB22A5644C005CEB9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD32E366228DDCFB002D9067 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD32E36F228DDCFB002D9067 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD32E373228DDCFB002D9067 /* CBORCoding.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD12988A22A47EF2005CEB9A /* CBOR */ = {
+			isa = PBXGroup;
+			children = (
+				DD32E39C228E0EBA002D9067 /* CBOR.swift */,
+				DD12988822A47C4B005CEB9A /* CBOR+Equatable.swift */,
+				DD957E9C2299CE1C000127A3 /* CBOR+Codable.swift */,
+			);
+			name = CBOR;
+			sourceTree = "<group>";
+		};
+		DD12988B22A47EFD005CEB9A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				DD957E6B2296B63E000127A3 /* Containers.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		DD12988C22A47F0D005CEB9A /* Coder */ = {
+			isa = PBXGroup;
+			children = (
+				DD32E39A228DE3E2002D9067 /* CBOREncoder.swift */,
+				DD32E383228DDD27002D9067 /* CBORDecoder.swift */,
+				DD0812F6229CD69B0003E3F6 /* CBORParser.swift */,
+			);
+			name = Coder;
+			sourceTree = "<group>";
+		};
+		DD12988F22A4876F005CEB9A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD12989122A487FB005CEB9A /* CBORCoding.podspec */,
+				DD1298A122A546B4005CEB9A /* .swiftlint.yml */,
+				DD12989322A487FB005CEB9A /* README.md */,
+				DD12992022A5680A005CEB9A /* ATTRIBUTIONS */,
+				DD12989222A487FB005CEB9A /* LICENSE */,
+				DD32E36D228DDCFB002D9067 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD32E35F228DDCFB002D9067 = {
+			isa = PBXGroup;
+			children = (
+				DD32E36B228DDCFB002D9067 /* CBORCoding */,
+				DD32E376228DDCFB002D9067 /* CBORCodingTests */,
+				DD32E36A228DDCFB002D9067 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD32E36A228DDCFB002D9067 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD32E369228DDCFB002D9067 /* CBORCoding.framework */,
+				DD32E372228DDCFB002D9067 /* CBORCodingTests.xctest */,
+				DD1298A822A563BE005CEB9A /* CBORCoding.framework */,
+				DD1298B022A563BE005CEB9A /* CBORCoding macOS Tests.xctest */,
+				DD1298E022A56430005CEB9A /* CBORCoding.framework */,
+				DD1298E822A56430005CEB9A /* CBORCoding tvOS Tests.xctest */,
+				DD1298FE22A5644C005CEB9A /* CBORCoding.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD32E36B228DDCFB002D9067 /* CBORCoding */ = {
+			isa = PBXGroup;
+			children = (
+				DD12988B22A47EFD005CEB9A /* Common */,
+				DD12988A22A47EF2005CEB9A /* CBOR */,
+				DD12988C22A47F0D005CEB9A /* Coder */,
+				DD12988F22A4876F005CEB9A /* Supporting Files */,
+			);
+			path = CBORCoding;
+			sourceTree = "<group>";
+		};
+		DD32E376228DDCFB002D9067 /* CBORCodingTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD957E6922942D98000127A3 /* CBORTests.swift */,
+				DD957E6D2296B6B7000127A3 /* ContainersTests.swift */,
+				DD32E377228DDCFB002D9067 /* CBOREncoderTests.swift */,
+				DD957E722296D514000127A3 /* CBORDecoderTests.swift */,
+				DD0812F9229CE1840003E3F6 /* CBORParserTests.swift */,
+				DD32E379228DDCFB002D9067 /* Info.plist */,
+			);
+			path = CBORCodingTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		DD1298A322A563BE005CEB9A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298DB22A56430005CEB9A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298F922A5644C005CEB9A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD32E364228DDCFB002D9067 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		DD1298A722A563BE005CEB9A /* CBORCoding macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD1298B922A563BE005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding macOS" */;
+			buildPhases = (
+				DD1298A322A563BE005CEB9A /* Headers */,
+				DD1298A422A563BE005CEB9A /* Sources */,
+				DD1298A522A563BE005CEB9A /* Frameworks */,
+				DD1298A622A563BE005CEB9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD12991B22A56494005CEB9A /* PBXTargetDependency */,
+			);
+			name = "CBORCoding macOS";
+			productName = "CBORCoding macOS";
+			productReference = DD1298A822A563BE005CEB9A /* CBORCoding.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DD1298AF22A563BE005CEB9A /* CBORCoding macOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD1298BD22A563BE005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding macOS Tests" */;
+			buildPhases = (
+				DD1298AC22A563BE005CEB9A /* Sources */,
+				DD1298AD22A563BE005CEB9A /* Frameworks */,
+				DD1298AE22A563BE005CEB9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD1298B322A563BE005CEB9A /* PBXTargetDependency */,
+			);
+			name = "CBORCoding macOS Tests";
+			productName = "CBORCoding macOSTests";
+			productReference = DD1298B022A563BE005CEB9A /* CBORCoding macOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD1298DF22A56430005CEB9A /* CBORCoding tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD1298F122A56431005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding tvOS" */;
+			buildPhases = (
+				DD1298DB22A56430005CEB9A /* Headers */,
+				DD1298DC22A56430005CEB9A /* Sources */,
+				DD1298DD22A56430005CEB9A /* Frameworks */,
+				DD1298DE22A56430005CEB9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD12991D22A5649B005CEB9A /* PBXTargetDependency */,
+			);
+			name = "CBORCoding tvOS";
+			productName = "CBORCoding tvOS";
+			productReference = DD1298E022A56430005CEB9A /* CBORCoding.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DD1298E722A56430005CEB9A /* CBORCoding tvOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD1298F522A56431005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding tvOS Tests" */;
+			buildPhases = (
+				DD1298E422A56430005CEB9A /* Sources */,
+				DD1298E522A56430005CEB9A /* Frameworks */,
+				DD1298E622A56430005CEB9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD1298EB22A56431005CEB9A /* PBXTargetDependency */,
+			);
+			name = "CBORCoding tvOS Tests";
+			productName = "CBORCoding tvOSTests";
+			productReference = DD1298E822A56430005CEB9A /* CBORCoding tvOS Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD1298FD22A5644C005CEB9A /* CBORCoding watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD12990322A5644C005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding watchOS" */;
+			buildPhases = (
+				DD1298F922A5644C005CEB9A /* Headers */,
+				DD1298FA22A5644C005CEB9A /* Sources */,
+				DD1298FB22A5644C005CEB9A /* Frameworks */,
+				DD1298FC22A5644C005CEB9A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD12991F22A564A0005CEB9A /* PBXTargetDependency */,
+			);
+			name = "CBORCoding watchOS";
+			productName = "CBORCoding watchOS";
+			productReference = DD1298FE22A5644C005CEB9A /* CBORCoding.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DD32E368228DDCFB002D9067 /* CBORCoding */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD32E37D228DDCFB002D9067 /* Build configuration list for PBXNativeTarget "CBORCoding" */;
+			buildPhases = (
+				DD32E364228DDCFB002D9067 /* Headers */,
+				DD32E365228DDCFB002D9067 /* Sources */,
+				DD32E366228DDCFB002D9067 /* Frameworks */,
+				DD32E367228DDCFB002D9067 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD1298A022A48C6C005CEB9A /* PBXTargetDependency */,
+			);
+			name = CBORCoding;
+			productName = CBORCoding;
+			productReference = DD32E369228DDCFB002D9067 /* CBORCoding.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DD32E371228DDCFB002D9067 /* CBORCodingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD32E380228DDCFB002D9067 /* Build configuration list for PBXNativeTarget "CBORCodingTests" */;
+			buildPhases = (
+				DD32E36E228DDCFB002D9067 /* Sources */,
+				DD32E36F228DDCFB002D9067 /* Frameworks */,
+				DD32E370228DDCFB002D9067 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD32E375228DDCFB002D9067 /* PBXTargetDependency */,
+			);
+			name = CBORCodingTests;
+			productName = CBORCodingTests;
+			productReference = DD32E372228DDCFB002D9067 /* CBORCodingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD32E360228DDCFB002D9067 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Some Random iOS Dev";
+				TargetAttributes = {
+					DD12989722A48C30005CEB9A = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					DD1298A722A563BE005CEB9A = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					DD1298AF22A563BE005CEB9A = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					DD1298DF22A56430005CEB9A = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					DD1298E722A56430005CEB9A = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					DD1298FD22A5644C005CEB9A = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					DD32E368228DDCFB002D9067 = {
+						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
+					};
+					DD32E371228DDCFB002D9067 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = DD32E363228DDCFB002D9067 /* Build configuration list for PBXProject "CBORCoding" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = DD32E35F228DDCFB002D9067;
+			productRefGroup = DD32E36A228DDCFB002D9067 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD32E368228DDCFB002D9067 /* CBORCoding */,
+				DD32E371228DDCFB002D9067 /* CBORCodingTests */,
+				DD1298A722A563BE005CEB9A /* CBORCoding macOS */,
+				DD1298AF22A563BE005CEB9A /* CBORCoding macOS Tests */,
+				DD1298DF22A56430005CEB9A /* CBORCoding tvOS */,
+				DD1298E722A56430005CEB9A /* CBORCoding tvOS Tests */,
+				DD1298FD22A5644C005CEB9A /* CBORCoding watchOS */,
+				DD12989722A48C30005CEB9A /* Run SwiftLint */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD1298A622A563BE005CEB9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298AE22A563BE005CEB9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298DE22A56430005CEB9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298E622A56430005CEB9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298FC22A5644C005CEB9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD32E367228DDCFB002D9067 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD12989622A487FB005CEB9A /* README.md in Resources */,
+				DD12989522A487FB005CEB9A /* LICENSE in Resources */,
+				DD12989422A487FB005CEB9A /* CBORCoding.podspec in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD32E370228DDCFB002D9067 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DD12989D22A48C47005CEB9A /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n    swiftlint\nelse\n    echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD1298A422A563BE005CEB9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1298CB22A563EA005CEB9A /* CBORDecoder.swift in Sources */,
+				DD1298C922A563EA005CEB9A /* CBOR+Codable.swift in Sources */,
+				DD1298CA22A563EA005CEB9A /* CBOREncoder.swift in Sources */,
+				DD1298CC22A563EA005CEB9A /* CBORParser.swift in Sources */,
+				DD1298C822A563EA005CEB9A /* CBOR+Equatable.swift in Sources */,
+				DD1298C622A563EA005CEB9A /* Containers.swift in Sources */,
+				DD1298C722A563EA005CEB9A /* CBOR.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298AC22A563BE005CEB9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD1298C522A563E0005CEB9A /* CBORParserTests.swift in Sources */,
+				DD1298C422A563E0005CEB9A /* CBORDecoderTests.swift in Sources */,
+				DD1298C122A563E0005CEB9A /* CBORTests.swift in Sources */,
+				DD1298C222A563E0005CEB9A /* ContainersTests.swift in Sources */,
+				DD1298C322A563E0005CEB9A /* CBOREncoderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298DC22A56430005CEB9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD12990C22A56455005CEB9A /* CBORDecoder.swift in Sources */,
+				DD12990A22A56455005CEB9A /* CBOR+Codable.swift in Sources */,
+				DD12990B22A56455005CEB9A /* CBOREncoder.swift in Sources */,
+				DD12990D22A56455005CEB9A /* CBORParser.swift in Sources */,
+				DD12990922A56455005CEB9A /* CBOR+Equatable.swift in Sources */,
+				DD12990722A56455005CEB9A /* Containers.swift in Sources */,
+				DD12990822A56455005CEB9A /* CBOR.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298E422A56430005CEB9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD12991922A5645A005CEB9A /* CBORParserTests.swift in Sources */,
+				DD12991822A5645A005CEB9A /* CBORDecoderTests.swift in Sources */,
+				DD12991522A5645A005CEB9A /* CBORTests.swift in Sources */,
+				DD12991622A5645A005CEB9A /* ContainersTests.swift in Sources */,
+				DD12991722A5645A005CEB9A /* CBOREncoderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD1298FA22A5644C005CEB9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD12991322A56456005CEB9A /* CBORDecoder.swift in Sources */,
+				DD12991122A56456005CEB9A /* CBOR+Codable.swift in Sources */,
+				DD12991222A56456005CEB9A /* CBOREncoder.swift in Sources */,
+				DD12991422A56456005CEB9A /* CBORParser.swift in Sources */,
+				DD12991022A56456005CEB9A /* CBOR+Equatable.swift in Sources */,
+				DD12990E22A56456005CEB9A /* Containers.swift in Sources */,
+				DD12990F22A56456005CEB9A /* CBOR.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD32E365228DDCFB002D9067 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DDA7181C22A017CF008C85B7 /* CBORDecoder.swift in Sources */,
+				DD12988922A47C4B005CEB9A /* CBOR+Equatable.swift in Sources */,
+				DD957E6C2296B63E000127A3 /* Containers.swift in Sources */,
+				DD32E39D228E0EBA002D9067 /* CBOR.swift in Sources */,
+				DD957E9D2299CE1C000127A3 /* CBOR+Codable.swift in Sources */,
+				DD0812F7229CD69B0003E3F6 /* CBORParser.swift in Sources */,
+				DD32E39B228DE3E2002D9067 /* CBOREncoder.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD32E36E228DDCFB002D9067 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0812FA229CE1840003E3F6 /* CBORParserTests.swift in Sources */,
+				DD957E732296D514000127A3 /* CBORDecoderTests.swift in Sources */,
+				DD957E6E2296B6B7000127A3 /* ContainersTests.swift in Sources */,
+				DD32E378228DDCFB002D9067 /* CBOREncoderTests.swift in Sources */,
+				DD957E6A22942D98000127A3 /* CBORTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD1298A022A48C6C005CEB9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD12989722A48C30005CEB9A /* Run SwiftLint */;
+			targetProxy = DD12989F22A48C6C005CEB9A /* PBXContainerItemProxy */;
+		};
+		DD1298B322A563BE005CEB9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD1298A722A563BE005CEB9A /* CBORCoding macOS */;
+			targetProxy = DD1298B222A563BE005CEB9A /* PBXContainerItemProxy */;
+		};
+		DD1298EB22A56431005CEB9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD1298DF22A56430005CEB9A /* CBORCoding tvOS */;
+			targetProxy = DD1298EA22A56431005CEB9A /* PBXContainerItemProxy */;
+		};
+		DD12991B22A56494005CEB9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD12989722A48C30005CEB9A /* Run SwiftLint */;
+			targetProxy = DD12991A22A56494005CEB9A /* PBXContainerItemProxy */;
+		};
+		DD12991D22A5649B005CEB9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD12989722A48C30005CEB9A /* Run SwiftLint */;
+			targetProxy = DD12991C22A5649B005CEB9A /* PBXContainerItemProxy */;
+		};
+		DD12991F22A564A0005CEB9A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD12989722A48C30005CEB9A /* Run SwiftLint */;
+			targetProxy = DD12991E22A564A0005CEB9A /* PBXContainerItemProxy */;
+		};
+		DD32E375228DDCFB002D9067 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD32E368228DDCFB002D9067 /* CBORCoding */;
+			targetProxy = DD32E374228DDCFB002D9067 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		DD12989922A48C30005CEB9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DD12989A22A48C30005CEB9A /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Test;
+		};
+		DD12989B22A48C30005CEB9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DD1298BA22A563BE005CEB9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Debug;
+		};
+		DD1298BB22A563BE005CEB9A /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Test;
+		};
+		DD1298BC22A563BE005CEB9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = macosx;
+			};
+			name = Release;
+		};
+		DD1298BE22A563BE005CEB9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CBORCodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		DD1298BF22A563BE005CEB9A /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CBORCodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Test;
+		};
+		DD1298C022A563BE005CEB9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = CBORCodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		DD1298F222A56431005CEB9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		DD1298F322A56431005CEB9A /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Test;
+		};
+		DD1298F422A56431005CEB9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+		DD1298F622A56431005CEB9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CBORCodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Debug;
+		};
+		DD1298F722A56431005CEB9A /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CBORCodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Test;
+		};
+		DD1298F822A56431005CEB9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CBORCodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = appletvos;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 12.2;
+			};
+			name = Release;
+		};
+		DD12990422A5644C005CEB9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		DD12990522A5644C005CEB9A /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Test;
+		};
+		DD12990622A5644C005CEB9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Release;
+		};
+		DD32E37B228DDCFB002D9067 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator appletvos watchsimulator watchos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		DD32E37C228DDCFB002D9067 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator appletvos watchsimulator watchos";
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		DD32E37E228DDCFB002D9067 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		DD32E37F228DDCFB002D9067 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		DD32E381228DDCFB002D9067 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CBORCodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DD32E382228DDCFB002D9067 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CBORCodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DD957E6F2296C1F5000127A3 /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos appletvsimulator appletvos watchsimulator watchos";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = UNIT_TEST;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Test;
+		};
+		DD957E702296C1F5000127A3 /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = CBORCoding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Test;
+		};
+		DD957E712296C1F5000127A3 /* Test */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = CBORCodingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Test;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD12989822A48C30005CEB9A /* Build configuration list for PBXAggregateTarget "Run SwiftLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD12989922A48C30005CEB9A /* Debug */,
+				DD12989A22A48C30005CEB9A /* Test */,
+				DD12989B22A48C30005CEB9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD1298B922A563BE005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD1298BA22A563BE005CEB9A /* Debug */,
+				DD1298BB22A563BE005CEB9A /* Test */,
+				DD1298BC22A563BE005CEB9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD1298BD22A563BE005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding macOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD1298BE22A563BE005CEB9A /* Debug */,
+				DD1298BF22A563BE005CEB9A /* Test */,
+				DD1298C022A563BE005CEB9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD1298F122A56431005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD1298F222A56431005CEB9A /* Debug */,
+				DD1298F322A56431005CEB9A /* Test */,
+				DD1298F422A56431005CEB9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD1298F522A56431005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding tvOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD1298F622A56431005CEB9A /* Debug */,
+				DD1298F722A56431005CEB9A /* Test */,
+				DD1298F822A56431005CEB9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD12990322A5644C005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD12990422A5644C005CEB9A /* Debug */,
+				DD12990522A5644C005CEB9A /* Test */,
+				DD12990622A5644C005CEB9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD32E363228DDCFB002D9067 /* Build configuration list for PBXProject "CBORCoding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD32E37B228DDCFB002D9067 /* Debug */,
+				DD957E6F2296C1F5000127A3 /* Test */,
+				DD32E37C228DDCFB002D9067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD32E37D228DDCFB002D9067 /* Build configuration list for PBXNativeTarget "CBORCoding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD32E37E228DDCFB002D9067 /* Debug */,
+				DD957E702296C1F5000127A3 /* Test */,
+				DD32E37F228DDCFB002D9067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD32E380228DDCFB002D9067 /* Build configuration list for PBXNativeTarget "CBORCodingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD32E381228DDCFB002D9067 /* Debug */,
+				DD957E712296C1F5000127A3 /* Test */,
+				DD32E382228DDCFB002D9067 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD32E360228DDCFB002D9067 /* Project object */;
+}
