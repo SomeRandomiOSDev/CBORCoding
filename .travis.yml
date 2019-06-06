@@ -1,0 +1,13 @@
+os: osx
+language: swift
+osx_image: xcode10.2
+xcode_project: CBORCoding.xcodeproj
+
+script:
+  - set -o pipefail && travis_retry xcodebuild -scheme "CBORCoding" -destination "platform=iOS Simulator,name=iPhone XS Max" -configuration Test ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
+  - set -o pipefail && travis_retry xcodebuild -scheme "CBORCoding tvOS" -destination "platform=tvOS Simulator,name=Apple TV 4K" -configuration Test ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
+  - set -o pipefail && travis_retry xcodebuild -scheme "CBORCoding watchOS" -destination "platform=watchOS Simulator,name=Apple Watch Series 4 - 44mm" -configuration Debug ONLY_ACTIVE_ARCH=YES
+  - set -o pipefail && travis_retry xcodebuild -scheme "CBORCoding macOS" -destination "platform=macOS" -configuration Test ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)

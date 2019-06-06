@@ -24,9 +24,6 @@
 		DD0812F7229CD69B0003E3F6 /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0812F6229CD69B0003E3F6 /* CBORParser.swift */; };
 		DD0812FA229CE1840003E3F6 /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0812F9229CE1840003E3F6 /* CBORParserTests.swift */; };
 		DD12988922A47C4B005CEB9A /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12988822A47C4B005CEB9A /* CBOR+Equatable.swift */; };
-		DD12989422A487FB005CEB9A /* CBORCoding.podspec in Resources */ = {isa = PBXBuildFile; fileRef = DD12989122A487FB005CEB9A /* CBORCoding.podspec */; };
-		DD12989522A487FB005CEB9A /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = DD12989222A487FB005CEB9A /* LICENSE */; };
-		DD12989622A487FB005CEB9A /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = DD12989322A487FB005CEB9A /* README.md */; };
 		DD1298B122A563BE005CEB9A /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1298A822A563BE005CEB9A /* CBORCoding.framework */; };
 		DD1298C122A563E0005CEB9A /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6922942D98000127A3 /* CBORTests.swift */; };
 		DD1298C222A563E0005CEB9A /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6D2296B6B7000127A3 /* ContainersTests.swift */; };
@@ -151,6 +148,7 @@
 		DD957E6D2296B6B7000127A3 /* ContainersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainersTests.swift; sourceTree = "<group>"; };
 		DD957E722296D514000127A3 /* CBORDecoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBORDecoderTests.swift; sourceTree = "<group>"; };
 		DD957E9C2299CE1C000127A3 /* CBOR+Codable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBOR+Codable.swift"; sourceTree = "<group>"; };
+		DDF755AB22A80069002E11D4 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -242,6 +240,7 @@
 			children = (
 				DD12989122A487FB005CEB9A /* CBORCoding.podspec */,
 				DD1298A122A546B4005CEB9A /* .swiftlint.yml */,
+				DDF755AB22A80069002E11D4 /* .travis.yml */,
 				DD12989322A487FB005CEB9A /* README.md */,
 				DD12992022A5680A005CEB9A /* ATTRIBUTIONS */,
 				DD12989222A487FB005CEB9A /* LICENSE */,
@@ -562,9 +561,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD12989622A487FB005CEB9A /* README.md in Resources */,
-				DD12989522A487FB005CEB9A /* LICENSE in Resources */,
-				DD12989422A487FB005CEB9A /* CBORCoding.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
