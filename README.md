@@ -13,7 +13,7 @@ CBORCoding
 Installation
 --------
 
-**CBORCoding** is available through [CocoaPods](https://cocoapods.org) and [Carthage](https://github.com/Carthage/Carthage). 
+**CBORCoding** is available through [CocoaPods](https://cocoapods.org), [Carthage](https://github.com/Carthage/Carthage) and the [Swift Package Manager](https://swift.org/package-manager/). 
 
 To install via CocoaPods, simply add the following line to your Podfile:
 
@@ -25,6 +25,12 @@ To install via Carthage, simply add the following line to your Cartfile:
 
 ```ruby
 github "SomeRandomiOSDev/CBORCoding"
+```
+
+To install via the Swift Package Manager add the following line to your `Package.swift` file's `dependencies`:
+
+```swift
+.package(url: "https://github.com/SomeRandomiOSDev/CBORCoding.git", from: "1.0.0")
 ```
 
 Usage
@@ -85,7 +91,7 @@ TODO
 Contributing
 --------
 
-If you have need for a specific feature or you encounter a bug, please open an issue. If you extend the functionality of CBORCoding yourself or you feel like fixing a bug yoruself, please submit a pull request.
+If you have need for a specific feature or you encounter a bug, please open an issue. If you extend the functionality of **CBORCoding** yourself or you feel like fixing a bug yoruself, please submit a pull request.
 
 Author
 --------

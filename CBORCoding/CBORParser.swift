@@ -899,7 +899,7 @@ internal class CBORParser {
 
     // MARK: Unit Testing
 
-    #if UNIT_TEST
+    #if DEBUG
     // The only method that the consumer of CBORParser should be able to call is
     // `parse(_:)` but we'd still like to be able to unit test the private method.
     // These proxies will allow us to directly test edge cases inside of the private
@@ -966,7 +966,7 @@ internal class CBORParser {
         // swiftlint:enable force_cast force_unwrapping
         return dictionary.keys[0]
     }
-    #endif // #if UNIT_TEST
+    #endif // #if DEBUG
 
     // MARK: Private Types
 
