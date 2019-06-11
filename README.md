@@ -1,6 +1,7 @@
 CBORCoding
 ========
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8ad52c117e4a46d9aa4699d22fc0bf49)](https://app.codacy.com/app/SomeRandomiOSDev/CBORCoding?utm_source=github.com&utm_medium=referral&utm_content=SomeRandomiOSDev/CBORCoding&utm_campaign=Badge_Grade_Dashboard)
 [![License MIT](https://img.shields.io/cocoapods/l/CBORCoding.svg)](https://cocoapods.org/pods/CBORCoding)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CBORCoding.svg)](https://cocoapods.org/pods/CBORCoding) 
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
