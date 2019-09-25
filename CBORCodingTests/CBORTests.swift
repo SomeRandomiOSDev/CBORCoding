@@ -495,8 +495,8 @@ class CBORTests: XCTestCase {
         let dataToEncode = Data("CBOR".utf8)
         var encoded1 = Data(), encoded2 = Data()
 
-        XCTAssertNoThrow(encoded1 = try encoder.encode(dataToEncode))
-        XCTAssertNoThrow(encoded2 = try encoder.encode(CBOR.CBOREncoded(encodedData: dataToEncode)))
+        XCTAssertNoThrow(encoded1 = try encoder.encode([dataToEncode]))
+        XCTAssertNoThrow(encoded2 = try encoder.encode([CBOR.CBOREncoded(encodedData: dataToEncode)]))
         XCTAssertEqual(encoded1, encoded2)
     }
 
