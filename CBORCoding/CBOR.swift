@@ -200,7 +200,13 @@ public struct CBOR {
 
         // MARK: - Fields
 
-        let encodedData: Data
+        public let encodedData: Data
+
+        // MARK: - Initialization
+
+        public init(encodedData: Data) {
+            self.encodedData = encodedData
+        }
     }
 }
 
