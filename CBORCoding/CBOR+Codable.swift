@@ -334,8 +334,13 @@ extension CBOR.IndefiniteLengthString: Codable {
 
 extension CBOR.CBOREncoded: Encodable {
 
-    func encode(to encoder: Encoder) throws {
-        var container = encoder.singleValueContainer()
-        try container.encode(self)
+    public func encode(to encoder: Encoder) throws {
+        if let encoder = encoder as? __CBOREncoder {
+            var container = encoder.singleValueContainer()
+            try container.encode(self)
+        } else {
+            var container = encoder.singleValueContainer()
+            try container.encode(encodedData)
+        }
     }
 }
