@@ -193,6 +193,15 @@ public struct CBOR {
             self.chunks = chunks
         }
     }
+
+    /// A type that asserts its data is already in CBOR encoded format. No additional
+    /// encoding is done on the contained byte data
+    public struct CBOREncoded {
+
+        // MARK: - Fields
+
+        let encodedData: Data
+    }
 }
 
 // MARK: - CBOR Extension
@@ -395,15 +404,6 @@ extension CBOR {
         // swiftlint:disable force_unwrapping
         internal static let `super` = CodingKey(stringValue: "super")!
         // swiftlint:enable force_unwrapping
-    }
-
-    /// A type that asserts its data is already in CBOR encoded format. No additional
-    /// encoding is done on the contained byte data
-    internal struct CBOREncoded {
-
-        // MARK: - Fields
-
-        let encodedData: Data
     }
 
     // MARK: Internal Methods
