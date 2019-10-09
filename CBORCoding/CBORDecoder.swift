@@ -8,6 +8,10 @@
 
 import Foundation
 
+#if canImport(Combine)
+import Combine
+#endif // #if canImport(Combine)
+
 // MARK: - CBORDecoder Definition
 
 /// An object that decodes instances of a data type from CBOR objects.
@@ -1058,3 +1062,9 @@ extension DecodingError {
         return .typeMismatch(expectation, Context(codingPath: path, debugDescription: description))
     }
 }
+
+// MARK: - CBORDecoder Extension
+
+#if canImport(Combine)
+extension CBORDecoder: TopLevelDecoder { }
+#endif // #if canImport(Combine)

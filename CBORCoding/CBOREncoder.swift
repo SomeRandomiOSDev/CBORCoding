@@ -8,6 +8,10 @@
 
 import Foundation
 
+#if canImport(Combine)
+import Combine
+#endif // #if canImport(Combine)
+
 // MARK: - CBOREncoder Definition
 
 /// An object that encodes instances of a data type as CBOR objects.
@@ -1119,3 +1123,9 @@ private class __CBORReferencingEncoder: __CBOREncoder {
         return storage.count == codingPath.count - encoder.codingPath.count - 1
     }
 }
+
+// MARK: - CBOREncoder Extension
+
+#if canImport(Combine)
+extension CBOREncoder: TopLevelEncoder { }
+#endif // #if canImport(Combine)
