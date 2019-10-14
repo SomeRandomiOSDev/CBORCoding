@@ -1,9 +1,9 @@
 //
 //  CBOREncoder.swift
-//  AppleCore
+//  CBORCoding
 //
 //  Created by Joseph Newton on 5/12/19.
-//  Copyright © 2019 Diligent Corportation. All rights reserved.
+//  Copyright © 2019 SomeRandomiOSDev. All rights reserved.
 //
 
 import Foundation

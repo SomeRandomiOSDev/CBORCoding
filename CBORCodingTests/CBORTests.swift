@@ -3,7 +3,7 @@
 //  CBORCodingTests
 //
 //  Created by Joseph Newton on 5/18/19.
-//  Copyright © 2019 Some Random iOS Dev. All rights reserved.
+//  Copyright © 2019 SomeRandomiOSDev. All rights reserved.
 //
 
 // swiftlint:disable comma nesting force_try implicitly_unwrapped_optional
