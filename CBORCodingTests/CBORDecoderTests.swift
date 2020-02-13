@@ -9,6 +9,7 @@
 // swiftlint:disable nesting function_body_length force_cast identifier_name opening_brace comma implicitly_unwrapped_optional number_separator force_unwrapping
 
 @testable import CBORCoding
+import Half
 import XCTest
 
 // MARK: - CBORDecoderTests Definition
@@ -82,23 +83,23 @@ class CBORDecoderTests: XCTestCase {
         XCTAssertNoThrow(value = try decoder.decode(Int64.self, from: convertFromHexString("0x3B7FFFFFFFFFFFFFFF"))) // NOT part of RFC 7049 examples
         XCTAssertEqual(value as! Int64, .min)
 
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF90000"))) // Half
-        XCTAssertEqual(value as! Float, 0.0)
+        XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF90000")))
+        XCTAssertEqual(value as! Half, 0.0)
 
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF98000"))) // Half
-        XCTAssertEqual(value as! Float, -0.0)
+        XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF98000")))
+        XCTAssertEqual(value as! Half, -0.0)
 
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF93C00"))) // Half
-        XCTAssertEqual(value as! Float, 1.0)
+        XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF93C00")))
+        XCTAssertEqual(value as! Half, 1.0)
 
         XCTAssertNoThrow(value = try decoder.decode(Double.self, from: convertFromHexString("0xFB3FF199999999999A")))
         XCTAssertEqual(value as! Double, 1.1)
 
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF93E00"))) // Half
-        XCTAssertEqual(value as! Float, 1.5)
+        XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF93E00")))
+        XCTAssertEqual(value as! Half, 1.5)
 
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF97BFF"))) // Half
-        XCTAssertEqual(value as! Float, 65504.0)
+        XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF97BFF")))
+        XCTAssertEqual(value as! Half, 65504.0)
 
         XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xFA47C35000")))
         XCTAssertEqual(value as! Float, 100000.0)
@@ -109,41 +110,59 @@ class CBORDecoderTests: XCTestCase {
         XCTAssertNoThrow(value = try decoder.decode(Double.self, from: convertFromHexString("0xFB7E37E43C8800759C")))
         XCTAssertEqual(value as! Double, 1.0e+300)
 
-//        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF90001"))) // Half
-//        XCTAssertEqual(value as! Float, 5.960464477539063e-8)
+        XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF90001")))
+        XCTAssertEqual(value as! Half, 5.960464477539063e-8)
 
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF90400"))) // Half
-        XCTAssertEqual(value as! Float, 0.00006103515625)
+        XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF90400")))
+        XCTAssertEqual(value as! Half, 0.00006103515625)
 
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF9C400"))) // Half
-        XCTAssertEqual(value as! Float, -4.0)
+        XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF9C400")))
+        XCTAssertEqual(value as! Half, -4.0)
 
         XCTAssertNoThrow(value = try decoder.decode(Double.self, from: convertFromHexString("0xFBC010666666666666")))
         XCTAssertEqual(value as! Double, -4.1)
 
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF97C00"))) // Half
-        XCTAssertEqual(value as! Float, .infinity)
+        // Half, Float, and Double should be able to decode each other's NaN values
+        for quietNaN in ["0xF97E00", "0xFA7FC00000", "0xFB7FF8000000000000"].map(convertFromHexString) {
+            XCTAssertNoThrow(value = try decoder.decode(Half.self, from: quietNaN))
+            XCTAssertTrue((value as! Half).isNaN)
+            XCTAssertFalse((value as! Half).isSignalingNaN)
 
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF97E00"))) // Half
-        XCTAssertTrue((value as! Float).isNaN)
+            XCTAssertNoThrow(value = try decoder.decode(Float.self, from: quietNaN))
+            XCTAssertTrue((value as! Float).isNaN)
+            XCTAssertFalse((value as! Float).isSignalingNaN)
 
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xF9FC00"))) // Half
-        XCTAssertEqual(value as! Float, -.infinity)
+            XCTAssertNoThrow(value = try decoder.decode(Double.self, from: quietNaN))
+            XCTAssertTrue((value as! Double).isNaN)
+            XCTAssertFalse((value as! Double).isSignalingNaN)
+        }
+
+         // NOT part of RFC 7049 examples
+        for signalingNaN in ["0xF97D00", "0xFA7FA00000", "0xFB7FF4000000000000"].map(convertFromHexString) {
+            XCTAssertNoThrow(value = try decoder.decode(Half.self, from: signalingNaN))
+            XCTAssertTrue((value as! Half).isSignalingNaN)
+
+            XCTAssertNoThrow(value = try decoder.decode(Float.self, from: signalingNaN))
+            XCTAssertTrue((value as! Float).isSignalingNaN)
+
+            XCTAssertNoThrow(value = try decoder.decode(Double.self, from: signalingNaN))
+            XCTAssertTrue((value as! Double).isSignalingNaN)
+        }
+
+        XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF97C00")))
+        XCTAssertEqual(value as! Half, .infinity)
+
+        XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF9FC00")))
+        XCTAssertEqual(value as! Half, -.infinity)
 
         XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xFA7F800000")))
         XCTAssertEqual(value as! Float, .infinity)
-
-        XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xFA7FC00000")))
-        XCTAssertTrue((value as! Float).isNaN)
 
         XCTAssertNoThrow(value = try decoder.decode(Float.self, from: convertFromHexString("0xFAFF800000")))
         XCTAssertEqual(value as! Float, -.infinity)
 
         XCTAssertNoThrow(value = try decoder.decode(Double.self, from: convertFromHexString("0xFB7FF0000000000000")))
         XCTAssertEqual(value as! Double, .infinity)
-
-        XCTAssertNoThrow(value = try decoder.decode(Double.self, from: convertFromHexString("0xFB7FF8000000000000")))
-        XCTAssertTrue((value as! Double).isNaN)
 
         XCTAssertNoThrow(value = try decoder.decode(Double.self, from: convertFromHexString("0xFBFFF0000000000000")))
         XCTAssertEqual(value as! Double, -.infinity)
@@ -695,6 +714,8 @@ class CBORDecoderTests: XCTestCase {
         TestDecodeSingleValue.decode(from: convertFromHexString("0x3BFFFFFFFFFFFFFFFE")) { try $0.decode(UInt64.self) } // Decode unsigned from large signed
         TestDecodeSingleValue.decode(from: convertFromHexString("0x01"))                 { try $0.decode(String.self) } // Decode string from other type
         TestDecodeSingleValue.decode(from: convertFromHexString("0xFB3FF199999999999A")) { try $0.decode(Float.self) } // Precise Double into Float
+        TestDecodeSingleValue.decode(from: convertFromHexString("0xFB3FF199999999999A")) { try $0.decode(Float.self) } // Precise Double into Half
+        TestDecodeSingleValue.decode(from: convertFromHexString("0xFA3F8CCCCD"))         { try $0.decode(Half.self) } // Precise Float into Half
     }
 
     func testDecodeStringKeyedValues() {
@@ -721,7 +742,7 @@ class CBORDecoderTests: XCTestCase {
                 XCTAssertEqual(try container.decode(UInt16.self, forKey: .l), 25091)
                 XCTAssertEqual(try container.decode(UInt32.self, forKey: .m), 2354019811)
                 XCTAssertEqual(try container.decode(UInt64.self, forKey: .n), .max)
-                XCTAssertEqual(try container.decode(Float.self, forKey: .o), 1.0)
+                XCTAssertEqual(try container.decode(Half.self, forKey: .o), 1.0)
                 XCTAssertEqual(try container.decode(Float.self, forKey: .p), 100000.0)
                 XCTAssertEqual(try container.decode(Double.self, forKey: .q), 1.1)
                 XCTAssertEqual(try container.decode(String.self, forKey: .r), "CBOR")
@@ -770,7 +791,7 @@ class CBORDecoderTests: XCTestCase {
                 XCTAssertEqual(try container.decode(UInt16.self, forKey: .l), 25091)
                 XCTAssertEqual(try container.decode(UInt32.self, forKey: .m), 2354019811)
                 XCTAssertEqual(try container.decode(UInt64.self, forKey: .n), .max)
-                XCTAssertEqual(try container.decode(Float.self, forKey: .o), 1.0)
+                XCTAssertEqual(try container.decode(Half.self, forKey: .o), 1.0)
                 XCTAssertEqual(try container.decode(Float.self, forKey: .p), 100000.0)
                 XCTAssertEqual(try container.decode(Double.self, forKey: .q), 1.1)
                 XCTAssertEqual(try container.decode(String.self, forKey: .r), "CBOR")
@@ -857,7 +878,7 @@ class CBORDecoderTests: XCTestCase {
                 XCTAssertEqual(try container.decode(UInt16.self), 25091)
                 XCTAssertEqual(try container.decode(UInt32.self), 2354019811)
                 XCTAssertEqual(try container.decode(UInt64.self), .max)
-                XCTAssertEqual(try container.decode(Float.self), 1.0)
+                XCTAssertEqual(try container.decode(Half.self), 1.0)
                 XCTAssertEqual(try container.decode(Float.self), 100000.0)
                 XCTAssertEqual(try container.decode(Double.self), 1.1)
                 XCTAssertEqual(try container.decode(String.self), "CBOR")

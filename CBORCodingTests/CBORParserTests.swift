@@ -9,6 +9,7 @@
 // swiftlint:disable function_body_length force_cast comma force_try implicitly_unwrapped_optional number_separator force_unwrapping
 
 @testable import CBORCoding
+import Half
 import XCTest
 
 // MARK: - CBORParserTests Definition
@@ -100,29 +101,29 @@ class CBORParserTests: XCTestCase {
         XCTAssertTrue(value is Int64)
         XCTAssertEqual(value as! Int64, .min)
 
-        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF90000"))) // Half
-        XCTAssertTrue(value is Float)
-        XCTAssertEqual(value as! Float, 0.0)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF90000")))
+        XCTAssertTrue(value is Half)
+        XCTAssertEqual(value as! Half, 0.0)
 
-        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF98000"))) // Half
-        XCTAssertTrue(value is Float)
-        XCTAssertEqual(value as! Float, -0.0)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF98000")))
+        XCTAssertTrue(value is Half)
+        XCTAssertEqual(value as! Half, -0.0)
 
-        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF93C00"))) // Half
-        XCTAssertTrue(value is Float)
-        XCTAssertEqual(value as! Float, 1.0)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF93C00")))
+        XCTAssertTrue(value is Half)
+        XCTAssertEqual(value as! Half, 1.0)
 
         XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xFB3FF199999999999A")))
         XCTAssertTrue(value is Double)
         XCTAssertEqual(value as! Double, 1.1)
 
-        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF93E00"))) // Half
-        XCTAssertTrue(value is Float)
-        XCTAssertEqual(value as! Float, 1.5)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF93E00")))
+        XCTAssertTrue(value is Half)
+        XCTAssertEqual(value as! Half, 1.5)
 
-        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF97BFF"))) // Half
-        XCTAssertTrue(value is Float)
-        XCTAssertEqual(value as! Float, 65504.0)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF97BFF")))
+        XCTAssertTrue(value is Half)
+        XCTAssertEqual(value as! Half, 65504.0)
 
         XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xFA47C35000")))
         XCTAssertTrue(value is Float)
@@ -136,33 +137,33 @@ class CBORParserTests: XCTestCase {
         XCTAssertTrue(value is Double)
         XCTAssertEqual(value as! Double, 1.0e+300)
 
-//        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF90001"))) // Half
-//        XCTAssertTrue(value is Float)
-//        XCTAssertEqual(value as! Float, 5.960464477539063e-8)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF90001")))
+        XCTAssertTrue(value is Half)
+        XCTAssertEqual(value as! Half, 5.960464477539063e-8)
 
-        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF90400"))) // Half
-        XCTAssertTrue(value is Float)
-        XCTAssertEqual(value as! Float, 0.00006103515625)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF90400")))
+        XCTAssertTrue(value is Half)
+        XCTAssertEqual(value as! Half, 0.00006103515625)
 
-        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF9C400"))) // Half
-        XCTAssertTrue(value is Float)
-        XCTAssertEqual(value as! Float, -4.0)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF9C400")))
+        XCTAssertTrue(value is Half)
+        XCTAssertEqual(value as! Half, -4.0)
 
         XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xFBC010666666666666")))
         XCTAssertTrue(value is Double)
         XCTAssertEqual(value as! Double, -4.1)
 
-        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF97C00"))) // Half
-        XCTAssertTrue(value is Float)
-        XCTAssertEqual(value as! Float, .infinity)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF97C00")))
+        XCTAssertTrue(value is Half)
+        XCTAssertEqual(value as! Half, .infinity)
 
-        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF97E00"))) // Half
-        XCTAssertTrue(value is Float)
-        XCTAssertTrue((value as! Float).isNaN)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF97E00")))
+        XCTAssertTrue(value is Half)
+        XCTAssertTrue((value as! Half).isNaN)
 
-        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF9FC00"))) // Half
-        XCTAssertTrue(value is Float)
-        XCTAssertEqual(value as! Float, -.infinity)
+        XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xF9FC00")))
+        XCTAssertTrue(value is Half)
+        XCTAssertEqual(value as! Half, -.infinity)
 
         XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0xFA7F800000")))
         XCTAssertTrue(value is Float)

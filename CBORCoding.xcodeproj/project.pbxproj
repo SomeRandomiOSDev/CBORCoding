@@ -61,11 +61,22 @@
 		DD32E378228DDCFB002D9067 /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E377228DDCFB002D9067 /* CBOREncoderTests.swift */; };
 		DD32E39B228DE3E2002D9067 /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E39A228DE3E2002D9067 /* CBOREncoder.swift */; };
 		DD32E39D228E0EBA002D9067 /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E39C228E0EBA002D9067 /* CBOR.swift */; };
+		DD3E07B923F48F5E00D1BBF8 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07B823F48F5E00D1BBF8 /* Half.framework */; };
+		DD3E07BA23F48F5E00D1BBF8 /* Half.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07B823F48F5E00D1BBF8 /* Half.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD3E07BC23F48F7C00D1BBF8 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BB23F48F7C00D1BBF8 /* Half.framework */; };
+		DD3E07BD23F48F7C00D1BBF8 /* Half.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BB23F48F7C00D1BBF8 /* Half.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD3E07BF23F48F8200D1BBF8 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BE23F48F8200D1BBF8 /* Half.framework */; };
+		DD3E07C023F48F8200D1BBF8 /* Half.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BE23F48F8200D1BBF8 /* Half.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD3E07C223F48F8800D1BBF8 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07C123F48F8800D1BBF8 /* Half.framework */; };
+		DD3E07C323F48F8800D1BBF8 /* Half.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07C123F48F8800D1BBF8 /* Half.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DD3E07C423F4920A00D1BBF8 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07B823F48F5E00D1BBF8 /* Half.framework */; };
 		DD957E6A22942D98000127A3 /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6922942D98000127A3 /* CBORTests.swift */; };
 		DD957E6C2296B63E000127A3 /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6B2296B63E000127A3 /* Containers.swift */; };
 		DD957E6E2296B6B7000127A3 /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E6D2296B6B7000127A3 /* ContainersTests.swift */; };
 		DD957E732296D514000127A3 /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E722296D514000127A3 /* CBORDecoderTests.swift */; };
 		DD957E9D2299CE1C000127A3 /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD957E9C2299CE1C000127A3 /* CBOR+Codable.swift */; };
+		DDA0F92423F4924A00218569 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BB23F48F7C00D1BBF8 /* Half.framework */; };
+		DDA0F92523F4924F00218569 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BE23F48F8200D1BBF8 /* Half.framework */; };
 		DDA7181C22A017CF008C85B7 /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD32E383228DDD27002D9067 /* CBORDecoder.swift */; };
 /* End PBXBuildFile section */
 
@@ -121,6 +132,53 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		DD7B003323F46F08008AD6A7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DD3E07BA23F48F5E00D1BBF8 /* Half.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD7B003723F46F18008AD6A7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DD3E07BD23F48F7C00D1BBF8 /* Half.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD7B003B23F46F24008AD6A7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DD3E07C023F48F8200D1BBF8 /* Half.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD7B003F23F46F2E008AD6A7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DD3E07C323F48F8800D1BBF8 /* Half.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		DD0812F6229CD69B0003E3F6 /* CBORParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBORParser.swift; sourceTree = "<group>"; };
 		DD0812F9229CE1840003E3F6 /* CBORParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBORParserTests.swift; sourceTree = "<group>"; };
@@ -143,6 +201,11 @@
 		DD32E383228DDD27002D9067 /* CBORDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORDecoder.swift; sourceTree = "<group>"; };
 		DD32E39A228DE3E2002D9067 /* CBOREncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBOREncoder.swift; sourceTree = "<group>"; };
 		DD32E39C228E0EBA002D9067 /* CBOR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBOR.swift; sourceTree = "<group>"; };
+		DD3E07B823F48F5E00D1BBF8 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/iOS/Half.framework; sourceTree = "<group>"; };
+		DD3E07BB23F48F7C00D1BBF8 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/Mac/Half.framework; sourceTree = "<group>"; };
+		DD3E07BE23F48F8200D1BBF8 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/tvOS/Half.framework; sourceTree = "<group>"; };
+		DD3E07C123F48F8800D1BBF8 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/watchOS/Half.framework; sourceTree = "<group>"; };
+		DD7BFFD823F4652B008AD6A7 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		DD957E6922942D98000127A3 /* CBORTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CBORTests.swift; sourceTree = "<group>"; };
 		DD957E6B2296B63E000127A3 /* Containers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Containers.swift; sourceTree = "<group>"; };
 		DD957E6D2296B6B7000127A3 /* ContainersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainersTests.swift; sourceTree = "<group>"; };
@@ -157,6 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3E07BC23F48F7C00D1BBF8 /* Half.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1298B122A563BE005CEB9A /* CBORCoding.framework in Frameworks */,
+				DDA0F92423F4924A00218569 /* Half.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3E07BF23F48F8200D1BBF8 /* Half.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1298E922A56431005CEB9A /* CBORCoding.framework in Frameworks */,
+				DDA0F92523F4924F00218569 /* Half.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +254,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3E07C223F48F8800D1BBF8 /* Half.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,6 +262,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD3E07B923F48F5E00D1BBF8 /* Half.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD32E373228DDCFB002D9067 /* CBORCoding.framework in Frameworks */,
+				DD3E07C423F4920A00D1BBF8 /* Half.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,6 +311,7 @@
 			children = (
 				DD12989122A487FB005CEB9A /* CBORCoding.podspec */,
 				DDF755AC22A8649F002E11D4 /* Package.swift */,
+				DD7BFFD823F4652B008AD6A7 /* Cartfile */,
 				DD1298A122A546B4005CEB9A /* .swiftlint.yml */,
 				DDF755AB22A80069002E11D4 /* .travis.yml */,
 				DD12989322A487FB005CEB9A /* README.md */,
@@ -257,6 +328,7 @@
 				DD32E36B228DDCFB002D9067 /* CBORCoding */,
 				DD32E376228DDCFB002D9067 /* CBORCodingTests */,
 				DD32E36A228DDCFB002D9067 /* Products */,
+				DD3E07B723F48F5E00D1BBF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -296,6 +368,17 @@
 				DD32E379228DDCFB002D9067 /* Info.plist */,
 			);
 			path = CBORCodingTests;
+			sourceTree = "<group>";
+		};
+		DD3E07B723F48F5E00D1BBF8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DD3E07B823F48F5E00D1BBF8 /* Half.framework */,
+				DD3E07C123F48F8800D1BBF8 /* Half.framework */,
+				DD3E07BE23F48F8200D1BBF8 /* Half.framework */,
+				DD3E07BB23F48F7C00D1BBF8 /* Half.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,6 +423,7 @@
 				DD1298A422A563BE005CEB9A /* Sources */,
 				DD1298A522A563BE005CEB9A /* Frameworks */,
 				DD1298A622A563BE005CEB9A /* Resources */,
+				DD7B003723F46F18008AD6A7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -377,6 +461,7 @@
 				DD1298DC22A56430005CEB9A /* Sources */,
 				DD1298DD22A56430005CEB9A /* Frameworks */,
 				DD1298DE22A56430005CEB9A /* Resources */,
+				DD7B003B23F46F24008AD6A7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -414,6 +499,7 @@
 				DD1298FA22A5644C005CEB9A /* Sources */,
 				DD1298FB22A5644C005CEB9A /* Frameworks */,
 				DD1298FC22A5644C005CEB9A /* Resources */,
+				DD7B003F23F46F2E008AD6A7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -433,6 +519,7 @@
 				DD32E365228DDCFB002D9067 /* Sources */,
 				DD32E366228DDCFB002D9067 /* Frameworks */,
 				DD32E367228DDCFB002D9067 /* Resources */,
+				DD7B003323F46F08008AD6A7 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -505,6 +592,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = DD32E35F228DDCFB002D9067;
 			productRefGroup = DD32E36A228DDCFB002D9067 /* Products */;
@@ -758,6 +846,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = CBORCoding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -784,6 +876,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = CBORCoding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -803,15 +899,19 @@
 		DD1298BE22A563BE005CEB9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = CBORCodingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
+					"\"${PROJECT_DIR}/Carthage/Build/Mac\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
@@ -823,15 +923,19 @@
 		DD1298C022A563BE005CEB9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = CBORCodingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 					"@loader_path/../Frameworks",
+					"\"${PROJECT_DIR}/Carthage/Build/Mac\"",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
@@ -849,6 +953,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = CBORCoding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -874,6 +982,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = CBORCoding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -893,13 +1005,17 @@
 		DD1298F622A56431005CEB9A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = CBORCodingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"\"${PROJECT_DIR}/Carthage/Build/tvOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -912,13 +1028,17 @@
 		DD1298F822A56431005CEB9A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
+				);
 				INFOPLIST_FILE = CBORCodingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"\"${PROJECT_DIR}/Carthage/Build/tvOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -938,6 +1058,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				INFOPLIST_FILE = CBORCoding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -964,6 +1088,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/watchOS",
+				);
 				INFOPLIST_FILE = CBORCoding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1122,6 +1250,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CBORCoding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1147,6 +1279,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CBORCoding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1164,13 +1300,17 @@
 		DD32E381228DDCFB002D9067 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CBORCodingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"\"${PROJECT_DIR}/Carthage/Build/iOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1180,13 +1320,17 @@
 		DD32E382228DDCFB002D9067 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = CBORCodingTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
+					"\"${PROJECT_DIR}/Carthage/Build/iOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

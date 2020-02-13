@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Half
 
 // MARK: - CBORParser Definition
 
@@ -225,7 +226,13 @@ internal class CBORParser {
 
                         index += simple.decodedBytes
 
-                    case 25, 26: // Decode Half-precision as Float
+                    case 25:
+                        let half = try decode(Half.self, from: Data(data[index...]))
+                        try storage.append(half.value)
+
+                        index += half.decodedBytes
+
+                    case 26:
                         let float = try decode(Float.self, from: Data(data[index...]))
                         try storage.append(float.value)
 
@@ -624,28 +631,19 @@ internal class CBORParser {
         if header == CBOR.Bits.half.rawValue { // Half
             if data.count >= 3 {
                 // swiftlint:disable force_unwrapping
-                let half = data[1 ..< 3].reversed().withUnsafeBytes { $0.bindMemory(to: UInt16.self).baseAddress!.pointee }
+                let half = data[1 ..< 3].reversed().withUnsafeBytes { $0.bindMemory(to: Half.self).baseAddress!.pointee }
                 // swiftlint:enable force_unwrapping
 
-                let sign = (half & 0x8000) != 0 ? FloatingPointSign.minus : .plus
-                let exponent = T.RawExponent((half & 0x7C00) >> 10)
-                let significand = T.RawSignificand((half & 0x03FF))
-
-                if exponent == 0 {
-                    result = (T(sign: sign,
-                                exponentBitPattern: exponent,
-                                significandBitPattern: significand << (T.significandBitCount - 10)), 3)
-                } else if exponent == 0x1F {
-                    if (half & 0x03FF) == 0 {
-                        result = (sign == .minus ? -.infinity : .infinity, 3)
+                if half.isNaN {
+                    if half.isSignalingNaN {
+                        result = (.signalingNaN, 3)
                     } else {
                         result = (.nan, 3)
                     }
+                } else if let value = T(exactly: half) {
+                    result = (value, 3)
                 } else {
-                    let floatingBias = T.RawExponent((1 << (T.exponentBitCount - 1)) - 1)
-                    let halfBias = T.RawExponent((1 << 4) - 1)
-
-                    result = (T(sign: sign, exponentBitPattern: exponent + floatingBias - halfBias, significandBitPattern: significand << (T.significandBitCount - 10)), 3)
+                    throw CBOR.DecodingError.dataCorrupted(description: "Decoded number <\(half)> does not fit in \(type).")
                 }
             } else {
                 throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
@@ -657,7 +655,11 @@ internal class CBORParser {
                 // swiftlint:enable force_unwrapping
 
                 if float.isNaN {
-                    result = (.nan, 5)
+                    if float.isSignalingNaN {
+                        result = (.signalingNaN, 5)
+                    } else {
+                        result = (.nan, 5)
+                    }
                 } else if let value = T(exactly: float) {
                     result = (value, 5)
                 } else {
@@ -673,7 +675,11 @@ internal class CBORParser {
                 // swiftlint:enable force_unwrapping
 
                 if double.isNaN {
-                    result = (.nan, 9)
+                    if double.isSignalingNaN {
+                        result = (.signalingNaN, 9)
+                    } else {
+                        result = (.nan, 9)
+                    }
                 } else if let value = T(exactly: double) {
                     result = (value, 9)
                 } else {
