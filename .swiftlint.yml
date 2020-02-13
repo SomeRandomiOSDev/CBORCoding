@@ -1,9 +1,10 @@
-disabled_rules: 
+disabled_rules:
   - file_length
   - line_length
   - cyclomatic_complexity
   - type_body_length
   - type_name
+  - function_body_length
 
 opt_in_rules:
   - anyobject_protocol
@@ -57,6 +58,10 @@ opt_in_rules:
   - unavailable_function
   - unneeded_parentheses_in_closure_argument
   - yoda_condition
+
+excluded:
+  - Pods
+  - Carthage
 
 reporter: "xcode"
 

@@ -9,6 +9,7 @@
 // swiftlint:disable comma nesting function_body_length identifier_name force_try force_cast number_separator force_unwrapping
 
 @testable import CBORCoding
+import Half
 import XCTest
 
 // MARK: - CBORTests Definition
@@ -45,22 +46,22 @@ class CBOREncoderTests: XCTestCase {
             (try! encoder.encode(Int64(-100)),                                "0x3863"),
             (try! encoder.encode(Int64(-1000)),                               "0x3903E7"),
             (try! encoder.encode(Int64.min),                                  "0x3B7FFFFFFFFFFFFFFF"), // NOT part of RFC 7049 examples
-            // Half 0.0
-            // Half -0.0
-            // Half 1.0
+            (try! encoder.encode(Half(0.0)),                                  "0xF90000"),
+            (try! encoder.encode(Half(-0.0)),                                 "0xF98000"),
+            (try! encoder.encode(Half(1.0)),                                  "0xF93C00"),
             (try! encoder.encode(Double(1.1)),                                "0xFB3FF199999999999A"),
-            // Half 1.5
-            // Half 65504.0
+            (try! encoder.encode(Half(1.5)),                                  "0xF93E00"),
+            (try! encoder.encode(Half(65504.0)),                              "0xF97BFF"),
             (try! encoder.encode(Float(100000.0)),                            "0xFA47C35000"),
             (try! encoder.encode(Float(3.4028234663852886e+38)),              "0xFA7F7FFFFF"),
             (try! encoder.encode(Double(1.0e+300)),                           "0xFB7E37E43C8800759C"),
-            // Half 5.960464477539063e-8
-            // Half 0.00006103515625
-            // Half -4.0
+            (try! encoder.encode(Half(5.960464477539063e-8)),                 "0xF90001"),
+            (try! encoder.encode(Half(0.00006103515625)),                     "0xF90400"),
+            (try! encoder.encode(Half(-4.0)),                                 "0xF9C400"),
             (try! encoder.encode(Double(-4.1)),                               "0xFBC010666666666666"),
-            // Half .infinity
-            // Half .nan
-            // Half -.infinity
+            (try! encoder.encode(Half.infinity),                              "0xF97C00"),
+            (try! encoder.encode(Half.nan),                                   "0xF97E00"),
+            (try! encoder.encode(-Half.infinity),                             "0xF9FC00"),
             (try! encoder.encode(Float.infinity),                             "0xFA7F800000"),
             (try! encoder.encode(Float.nan),                                  "0xFA7FC00000"),
             (try! encoder.encode(-Float.infinity),                            "0xFAFF800000"),

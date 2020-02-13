@@ -15,8 +15,12 @@ let package = Package(
         .library(name: "CBORCoding", targets: ["CBORCoding"])
     ],
 
+    dependencies: [
+        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.0.0")
+    ],
+
     targets: [
-        .target(name: "CBORCoding", path: "CBORCoding"),
+        .target(name: "CBORCoding", dependencies: ["Half"], path: "CBORCoding"),
         .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding"], path: "CBORCodingTests")
     ]
 )

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Half
 
 #if canImport(Combine)
 import Combine
@@ -292,6 +293,8 @@ internal class __CBORDecoder: Decoder, SingleValueDecodingContainer {
             result = decodedValue
         } else if let decodedValue = value as? T {
             result = decodedValue
+        } else if type == Half.self {
+            result = try decodeFloatingPoint(value, as: Half.self) as! T
         } else {
             storage.push(container: value)
             defer { storage.popContainer() }
@@ -366,9 +369,27 @@ internal class __CBORDecoder: Decoder, SingleValueDecodingContainer {
 
     fileprivate func decodeFloatingPoint<T>(_ value: Any, as type: T.Type) throws -> T where T: BinaryFloatingPoint {
         let floatingPoint: T
-        if let float = value as? Float {
+        if let half = value as? Half {
+            if half.isNaN {
+                if half.isSignalingNaN {
+                    floatingPoint = .signalingNaN
+                } else {
+                    floatingPoint = .nan
+                }
+            } else {
+                guard let value = T(exactly: half) else {
+                    throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: codingPath, debugDescription: "Decoded CBOR number <\(half)> does not fit in \(type)."))
+                }
+
+                floatingPoint = value
+            }
+        } else if let float = value as? Float {
             if float.isNaN {
-                floatingPoint = .nan
+                if float.isSignalingNaN {
+                    floatingPoint = .signalingNaN
+                } else {
+                    floatingPoint = .nan
+                }
             } else {
                 guard let value = T(exactly: float) else {
                     throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: codingPath, debugDescription: "Decoded CBOR number <\(float)> does not fit in \(type)."))
@@ -378,7 +399,11 @@ internal class __CBORDecoder: Decoder, SingleValueDecodingContainer {
             }
         } else if let double = value as? Double {
             if double.isNaN {
-                floatingPoint = .nan
+                if double.isSignalingNaN {
+                    floatingPoint = .signalingNaN
+                } else {
+                    floatingPoint = .nan
+                }
             } else {
                 guard let value = T(exactly: double) else {
                     throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: codingPath, debugDescription: "Decoded CBOR number <\(double)> does not fit in \(type)."))

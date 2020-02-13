@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Half
 
 #if canImport(Combine)
 import Combine
@@ -206,6 +207,13 @@ open class CBOREncoder {
         }
 
         return Data(bytes)
+    }
+
+    internal static func encode(_ value: Half) -> Data {
+        var half = value
+        let data = Data(bytes: &half, count: MemoryLayout.size(ofValue: half))
+
+        return Data([CBOR.Bits.half.rawValue]) + data.reversed()
     }
 
     internal static func encode(_ value: Float) -> Data {
@@ -678,6 +686,8 @@ internal class __CBOREncoder: CBOREncoderProtocol, SingleValueEncodingContainer 
         } else if let string = value as? CBOR.IndefiniteLengthString {
             result = try encode(string)
         } else if let value = value as? CBOR.NegativeUInt64 {
+            result = CBOREncoder.encode(value)
+        } else if let value = value as? Half {
             result = CBOREncoder.encode(value)
         } else {
             let action: () throws -> Any? = {
