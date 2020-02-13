@@ -78,7 +78,6 @@ CBOR
 
 While this framework implements as much of the specification as possible, there are a few notable exceptions:
 
-* Although CBOR supports Half-precision floating point numbers, given the lack of a native type in Swift `CBOREncoder` does not support encoding these types of numbers. Any Half-precision numbers that `CBORDecoder` encounters will be decoded as `Float`.
 * CBOR supports keys of any defined type, however, since `Codable` relies on `CodingKey` for encoding/decoding its keyed containers, this framework is limited in its supported key types to `Int` and `String`.
 * CBOR supports DecimalFractions and Bigfloats whose mantissa is a Bignum. With the current implementation, this is limited to Bignums whose content fits into either a `Int64` or `UInt64` type.
 
