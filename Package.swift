@@ -20,7 +20,7 @@ let package = Package(
     ],
 
     targets: [
-        .target(name: "CBORCoding", dependencies: ["Half"], path: "CBORCoding"),
-        .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding"], path: "CBORCodingTests")
+        .target(name: "CBORCoding", dependencies: ["Half"]),
+        .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding"])
     ]
 )
