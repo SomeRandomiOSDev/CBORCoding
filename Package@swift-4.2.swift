@@ -1,15 +1,8 @@
-// swift-tools-version:5.0
+// swift-tools-version:4.2
 import PackageDescription
 
 let package = Package(
     name: "CBORCoding",
-
-    platforms: [
-        .iOS("8.0"),
-        .macOS("10.10"),
-        .tvOS("9.0"),
-        .watchOS("2.0")
-    ],
 
     products: [
         .library(name: "CBORCoding", targets: ["CBORCoding"])
@@ -24,5 +17,5 @@ let package = Package(
         .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding", "Half"])
     ],
 
-    swiftLanguageVersions: [.version("4.2"), .version("5")]
+    swiftLanguageVersions: [.v4_2]
 )

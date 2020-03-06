@@ -5,6 +5,7 @@ CBORCoding
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/CBORCoding.svg)](https://cocoapods.org/pods/CBORCoding) 
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) 
 [![Platform](https://img.shields.io/cocoapods/p/CBORCoding.svg)](https://cocoapods.org/pods/CBORCoding)
+![Linux](https://img.shields.io/badge/platform-linux-lightgrey)
 [![Build](https://travis-ci.com/SomeRandomiOSDev/CBORCoding.svg?branch=master)](https://travis-ci.com/SomeRandomiOSDev/CBORCoding)
 [![Code Coverage](https://codecov.io/gh/SomeRandomiOSDev/CBORCoding/branch/master/graph/badge.svg)](https://codecov.io/gh/SomeRandomiOSDev/CBORCoding)
 [![Codacy](https://api.codacy.com/project/badge/Grade/8ad52c117e4a46d9aa4699d22fc0bf49)](https://app.codacy.com/app/SomeRandomiOSDev/CBORCoding?utm_source=github.com&utm_medium=referral&utm_content=SomeRandomiOSDev/CBORCoding&utm_campaign=Badge_Grade_Dashboard)
@@ -93,8 +94,6 @@ Contributing
 --------
 
 If you have need for a specific feature or you encounter a bug, please open an issue. If you extend the functionality of **CBORCoding** yourself or you feel like fixing a bug yourself, please submit a pull request.
-
-Note: You'll need to run `carthage bootstrap` upon downloading to resolve and build **CBORCoding**'s dependencies before being able to develop locally. Please look [here](https://github.com/Carthage/Carthage) for more info on installing Carthage on your local machine.
 
 Author
 --------

@@ -2,14 +2,8 @@ os: osx
 language: swift
 osx_image: xcode11.3
 xcode_project: CBORCoding.xcodeproj
-addons:
-  homebrew:
-    packages:
-      carthage
 
 script:
-  - carthage bootstrap
-
   - set -o pipefail && travis_retry xcodebuild -scheme "CBORCodingTests" -destination "platform=iOS Simulator,name=iPhone 11 Pro Max" -configuration Debug ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
   - set -o pipefail && travis_retry xcodebuild -scheme "CBORCoding macOS Tests" -destination "platform=macOS" -configuration Debug ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
   - set -o pipefail && travis_retry xcodebuild -scheme "CBORCoding tvOS Tests" -destination "platform=tvOS Simulator,name=Apple TV 4K" -configuration Debug ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test

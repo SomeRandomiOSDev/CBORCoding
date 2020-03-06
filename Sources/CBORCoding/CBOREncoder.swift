@@ -965,8 +965,8 @@ private struct __CBORKeyedEncodingContainer<K>: KeyedEncodingContainerProtocol w
         self.codingPath.append(key)
         defer { self.codingPath.removeLast() }
 
-        let container = __CBORKeyedEncodingContainer<NestedKey>(referencing: encoder, codingPath: codingPath, wrapping: dictionary)
-        return KeyedEncodingContainer<NestedKey>(container)
+        let keyedContainer = __CBORKeyedEncodingContainer<NestedKey>(referencing: encoder, codingPath: codingPath, wrapping: dictionary)
+        return KeyedEncodingContainer<NestedKey>(keyedContainer)
     }
 
     mutating func nestedUnkeyedContainer(forKey key: Key) -> UnkeyedEncodingContainer {
@@ -1046,8 +1046,8 @@ private struct __CBORUnkeyedEncodingContainer: UnkeyedEncodingContainer {
         let dictionary = CodingKeyDictionary<Any>(indefiniteLength: encoder.newContainerLength.contains(.indefinite))
         container.append(dictionary)
 
-        let container = __CBORKeyedEncodingContainer<NestedKey>(referencing: encoder, codingPath: codingPath, wrapping: dictionary)
-        return KeyedEncodingContainer<NestedKey>(container)
+        let keyedContainer = __CBORKeyedEncodingContainer<NestedKey>(referencing: encoder, codingPath: codingPath, wrapping: dictionary)
+        return KeyedEncodingContainer<NestedKey>(keyedContainer)
     }
 
     mutating func nestedUnkeyedContainer() -> UnkeyedEncodingContainer {
@@ -1117,7 +1117,7 @@ private class __CBORReferencingEncoder: __CBOREncoder {
         }
 
         switch reference {
-        case .array(var array, let index):
+        case let .array(array, index):
             array.insert(value, at: index)
 
         case let .dictionary(dictionary, key):

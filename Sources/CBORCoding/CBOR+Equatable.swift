@@ -43,7 +43,7 @@ extension CBOR.Bignum: Equatable {
 
 // MARK: - CBOR.DecimalFraction Extension
 
-extension CBOR.DecimalFraction: Equatable where I1: Equatable, I2: Equatable {
+extension CBOR.DecimalFraction: Equatable {
 
     public static func == (lhs: CBOR.DecimalFraction<I1, I2>, rhs: CBOR.DecimalFraction<I1, I2>) -> Bool {
         return lhs.exponent == rhs.exponent && lhs.mantissa == rhs.mantissa
@@ -52,7 +52,7 @@ extension CBOR.DecimalFraction: Equatable where I1: Equatable, I2: Equatable {
 
 // MARK: - CBOR.Bigfloat Extension
 
-extension CBOR.Bigfloat: Equatable where I1: Equatable, I2: Equatable {
+extension CBOR.Bigfloat: Equatable {
 
     public static func == (lhs: CBOR.Bigfloat<I1, I2>, rhs: CBOR.Bigfloat<I1, I2>) -> Bool {
         return lhs.exponent == rhs.exponent && lhs.mantissa == rhs.mantissa
