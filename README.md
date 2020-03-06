@@ -93,8 +93,6 @@ Contributing
 
 If you have need for a specific feature or you encounter a bug, please open an issue. If you extend the functionality of **CBORCoding** yourself or you feel like fixing a bug yourself, please submit a pull request.
 
-Note: You'll need to run `carthage bootstrap` upon downloading to resolve and build **CBORCoding**'s dependencies before being able to develop locally. Please look [here](https://github.com/Carthage/Carthage) for more info on installing Carthage on your local machine.
-
 Author
 --------
 

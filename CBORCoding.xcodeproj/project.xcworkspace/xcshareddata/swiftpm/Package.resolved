@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "Half",
-        "repositoryURL": "https://github.com/SomeRandomiOSDev/Half",
+        "repositoryURL": "https://github.com/SomeRandomiOSDev/Half.git",
         "state": {
           "branch": null,
           "revision": "f40c243c767459426fdbbb5aad44f4a0d853542e",

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXAggregateTarget section */
@@ -24,17 +24,6 @@
 		DD1298B122A563BE005CEB9A /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1298A822A563BE005CEB9A /* CBORCoding.framework */; };
 		DD1298E922A56431005CEB9A /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1298E022A56430005CEB9A /* CBORCoding.framework */; };
 		DD32E373228DDCFB002D9067 /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD32E369228DDCFB002D9067 /* CBORCoding.framework */; };
-		DD3E07B923F48F5E00D1BBF8 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07B823F48F5E00D1BBF8 /* Half.framework */; };
-		DD3E07BA23F48F5E00D1BBF8 /* Half.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07B823F48F5E00D1BBF8 /* Half.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DD3E07BC23F48F7C00D1BBF8 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BB23F48F7C00D1BBF8 /* Half.framework */; };
-		DD3E07BD23F48F7C00D1BBF8 /* Half.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BB23F48F7C00D1BBF8 /* Half.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DD3E07BF23F48F8200D1BBF8 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BE23F48F8200D1BBF8 /* Half.framework */; };
-		DD3E07C023F48F8200D1BBF8 /* Half.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BE23F48F8200D1BBF8 /* Half.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DD3E07C223F48F8800D1BBF8 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07C123F48F8800D1BBF8 /* Half.framework */; };
-		DD3E07C323F48F8800D1BBF8 /* Half.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07C123F48F8800D1BBF8 /* Half.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DD3E07C423F4920A00D1BBF8 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07B823F48F5E00D1BBF8 /* Half.framework */; };
-		DDA0F92423F4924A00218569 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BB23F48F7C00D1BBF8 /* Half.framework */; };
-		DDA0F92523F4924F00218569 /* Half.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD3E07BE23F48F8200D1BBF8 /* Half.framework */; };
 		DDB1DF0A2409E72400C20FED /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF032409E72400C20FED /* Containers.swift */; };
 		DDB1DF0B2409E72400C20FED /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF032409E72400C20FED /* Containers.swift */; };
 		DDB1DF0C2409E72400C20FED /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF032409E72400C20FED /* Containers.swift */; };
@@ -78,6 +67,10 @@
 		DDB1DF3B2409E76500C20FED /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2E2409E76500C20FED /* CBOREncoderTests.swift */; };
 		DDB1DF3C2409E76500C20FED /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2E2409E76500C20FED /* CBOREncoderTests.swift */; };
 		DDB1DF3D2409E76600C20FED /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2E2409E76500C20FED /* CBOREncoderTests.swift */; };
+		DDB1DF6E240B38A000C20FED /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DDB1DF6D240B38A000C20FED /* Half */; };
+		DDB1DF71240B38CB00C20FED /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DDB1DF70240B38CB00C20FED /* Half */; };
+		DDB1DF73240B38D100C20FED /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DDB1DF72240B38D100C20FED /* Half */; };
+		DDB1DF75240B38D600C20FED /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DDB1DF74240B38D600C20FED /* Half */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -139,7 +132,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DD3E07BA23F48F5E00D1BBF8 /* Half.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -150,7 +142,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DD3E07BD23F48F7C00D1BBF8 /* Half.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -161,7 +152,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DD3E07C023F48F8200D1BBF8 /* Half.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,7 +162,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				DD3E07C323F48F8800D1BBF8 /* Half.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -192,11 +181,6 @@
 		DD12992022A5680A005CEB9A /* ATTRIBUTIONS */ = {isa = PBXFileReference; lastKnownFileType = text; path = ATTRIBUTIONS; sourceTree = SOURCE_ROOT; };
 		DD32E369228DDCFB002D9067 /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD32E372228DDCFB002D9067 /* CBORCodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBORCodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD3E07B823F48F5E00D1BBF8 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/iOS/Half.framework; sourceTree = "<group>"; };
-		DD3E07BB23F48F7C00D1BBF8 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/Mac/Half.framework; sourceTree = "<group>"; };
-		DD3E07BE23F48F8200D1BBF8 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/tvOS/Half.framework; sourceTree = "<group>"; };
-		DD3E07C123F48F8800D1BBF8 /* Half.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Half.framework; path = Carthage/Build/watchOS/Half.framework; sourceTree = "<group>"; };
-		DD7BFFD823F4652B008AD6A7 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
 		DDB1DF012409E71200C20FED /* CBORCoding-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CBORCoding-Info.plist"; path = "Plists/CBORCoding-Info.plist"; sourceTree = "<group>"; };
 		DDB1DF032409E72400C20FED /* Containers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Containers.swift; sourceTree = "<group>"; };
 		DDB1DF042409E72400C20FED /* CBOREncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBOREncoder.swift; sourceTree = "<group>"; };
@@ -211,6 +195,7 @@
 		DDB1DF2D2409E76500C20FED /* ContainersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainersTests.swift; sourceTree = "<group>"; };
 		DDB1DF2E2409E76500C20FED /* CBOREncoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBOREncoderTests.swift; sourceTree = "<group>"; };
 		DDB1DF3E2409E77500C20FED /* CBORCodingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CBORCodingTests-Info.plist"; path = "Plists/CBORCodingTests-Info.plist"; sourceTree = "<group>"; };
+		DDB1DFA2240E949B00C20FED /* Package@swift-4.2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-4.2.swift"; sourceTree = "<group>"; };
 		DDF755AB22A80069002E11D4 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		DDF755AC22A8649F002E11D4 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -220,7 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD3E07BC23F48F7C00D1BBF8 /* Half.framework in Frameworks */,
+				DDB1DF71240B38CB00C20FED /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,7 +214,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1298B122A563BE005CEB9A /* CBORCoding.framework in Frameworks */,
-				DDA0F92423F4924A00218569 /* Half.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,7 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD3E07BF23F48F8200D1BBF8 /* Half.framework in Frameworks */,
+				DDB1DF73240B38D100C20FED /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,7 +230,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD1298E922A56431005CEB9A /* CBORCoding.framework in Frameworks */,
-				DDA0F92523F4924F00218569 /* Half.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,7 +237,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD3E07C223F48F8800D1BBF8 /* Half.framework in Frameworks */,
+				DDB1DF75240B38D600C20FED /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -262,7 +245,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD3E07B923F48F5E00D1BBF8 /* Half.framework in Frameworks */,
+				DDB1DF6E240B38A000C20FED /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,7 +254,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD32E373228DDCFB002D9067 /* CBORCoding.framework in Frameworks */,
-				DD3E07C423F4920A00D1BBF8 /* Half.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,7 +265,7 @@
 			children = (
 				DD12989122A487FB005CEB9A /* CBORCoding.podspec */,
 				DDF755AC22A8649F002E11D4 /* Package.swift */,
-				DD7BFFD823F4652B008AD6A7 /* Cartfile */,
+				DDB1DFA2240E949B00C20FED /* Package@swift-4.2.swift */,
 				DD1298A122A546B4005CEB9A /* .swiftlint.yml */,
 				DDF755AB22A80069002E11D4 /* .travis.yml */,
 				DD12989322A487FB005CEB9A /* README.md */,
@@ -300,7 +282,6 @@
 			children = (
 				DD32E36B228DDCFB002D9067 /* CBORCoding */,
 				DD32E36A228DDCFB002D9067 /* Products */,
-				DD3E07B723F48F5E00D1BBF8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -326,17 +307,6 @@
 				DD12988F22A4876F005CEB9A /* Supporting Files */,
 			);
 			name = CBORCoding;
-			sourceTree = "<group>";
-		};
-		DD3E07B723F48F5E00D1BBF8 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				DD3E07B823F48F5E00D1BBF8 /* Half.framework */,
-				DD3E07C123F48F8800D1BBF8 /* Half.framework */,
-				DD3E07BE23F48F8200D1BBF8 /* Half.framework */,
-				DD3E07BB23F48F7C00D1BBF8 /* Half.framework */,
-			);
-			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DDB1DEFE2409E6DD00C20FED /* Sources */ = {
@@ -455,6 +425,9 @@
 				DD12991B22A56494005CEB9A /* PBXTargetDependency */,
 			);
 			name = "CBORCoding macOS";
+			packageProductDependencies = (
+				DDB1DF70240B38CB00C20FED /* Half */,
+			);
 			productName = "CBORCoding macOS";
 			productReference = DD1298A822A563BE005CEB9A /* CBORCoding.framework */;
 			productType = "com.apple.product-type.framework";
@@ -493,6 +466,9 @@
 				DD12991D22A5649B005CEB9A /* PBXTargetDependency */,
 			);
 			name = "CBORCoding tvOS";
+			packageProductDependencies = (
+				DDB1DF72240B38D100C20FED /* Half */,
+			);
 			productName = "CBORCoding tvOS";
 			productReference = DD1298E022A56430005CEB9A /* CBORCoding.framework */;
 			productType = "com.apple.product-type.framework";
@@ -531,6 +507,9 @@
 				DD12991F22A564A0005CEB9A /* PBXTargetDependency */,
 			);
 			name = "CBORCoding watchOS";
+			packageProductDependencies = (
+				DDB1DF74240B38D600C20FED /* Half */,
+			);
 			productName = "CBORCoding watchOS";
 			productReference = DD1298FE22A5644C005CEB9A /* CBORCoding.framework */;
 			productType = "com.apple.product-type.framework";
@@ -551,6 +530,9 @@
 				DD1298A022A48C6C005CEB9A /* PBXTargetDependency */,
 			);
 			name = CBORCoding;
+			packageProductDependencies = (
+				DDB1DF6D240B38A000C20FED /* Half */,
+			);
 			productName = CBORCoding;
 			productReference = DD32E369228DDCFB002D9067 /* CBORCoding.framework */;
 			productType = "com.apple.product-type.framework";
@@ -619,6 +601,9 @@
 				Base,
 			);
 			mainGroup = DD32E35F228DDCFB002D9067;
+			packageReferences = (
+				DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */,
+			);
 			productRefGroup = DD32E36A228DDCFB002D9067 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -870,10 +855,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -900,10 +881,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -926,10 +903,6 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -950,10 +923,6 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-				);
 				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -977,10 +946,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1006,10 +971,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1030,10 +991,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1053,10 +1010,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/tvOS",
-				);
 				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1082,10 +1035,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-				);
 				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1112,10 +1061,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/watchOS",
-				);
 				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1274,10 +1219,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1303,10 +1244,6 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1325,10 +1262,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1345,10 +1278,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1446,6 +1375,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SomeRandomiOSDev/Half.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.2.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DDB1DF6D240B38A000C20FED /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DDB1DF70240B38CB00C20FED /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DDB1DF72240B38D100C20FED /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DDB1DF74240B38D600C20FED /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DD32E360228DDCFB002D9067 /* Project object */;
 }
