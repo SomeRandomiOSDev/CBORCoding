@@ -1065,7 +1065,7 @@ internal class CBORParser {
 
                 let index = containers.count - 1
 
-                if var array = containers[index] as? (container: ArrayWrapper<Any>, length: UInt64?) {
+                if let array = containers[index] as? (container: ArrayWrapper<Any>, length: UInt64?) {
                     array.container.append(value)
                     containers[index].length -= 1
                 } else if let dictionary = containers[index] as? (container: CodingKeyDictionary<Any>, length: UInt64?) {
@@ -1207,7 +1207,7 @@ internal class CBORParser {
 
 // MARK: - Optional Extension
 
-extension Optional where Wrapped: AdditiveArithmetic {
+extension Optional where Wrapped == UInt64 {
 
     fileprivate static func -= (lhs: inout Wrapped?, rhs: Wrapped) {
         if let value = lhs {

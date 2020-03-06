@@ -71,6 +71,14 @@ internal class ArrayWrapper<Element>: MutableCollection, RandomAccessCollection,
     func replaceSubrange<C, R>(_ subrange: R, with newElements: __owned C) where C: Collection, R: RangeExpression, Element == C.Element, Index == R.Bound {
         array.replaceSubrange(subrange, with: newElements)
     }
+
+    func insert(_ newElement: __owned Element, at i: Int) {
+        array.insert(newElement, at: i)
+    }
+
+    func append(_ newElement: __owned Element) {
+        array.append(newElement)
+    }
 }
 
 // MARK: - CodingKeyDictionary Definition
@@ -151,7 +159,6 @@ internal class CodingKeyDictionary<Value>: Sequence, ExpressibleByDictionaryLite
     // MARK: - ExpressibleByDictionaryLiteral Protocol Requirements
 
     typealias Key = CodingKey
-    typealias Value = Value
 
     required init(dictionaryLiteral elements: (Key, Value)...) {
         self.keyValuePairs = elements
