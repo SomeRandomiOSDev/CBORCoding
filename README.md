@@ -8,6 +8,7 @@ CBORCoding
 [![Build](https://travis-ci.com/SomeRandomiOSDev/CBORCoding.svg?branch=master)](https://travis-ci.com/SomeRandomiOSDev/CBORCoding)
 [![Code Coverage](https://codecov.io/gh/SomeRandomiOSDev/CBORCoding/branch/master/graph/badge.svg)](https://codecov.io/gh/SomeRandomiOSDev/CBORCoding)
 [![Codacy](https://api.codacy.com/project/badge/Grade/8ad52c117e4a46d9aa4699d22fc0bf49)](https://app.codacy.com/app/SomeRandomiOSDev/CBORCoding?utm_source=github.com&utm_medium=referral&utm_content=SomeRandomiOSDev/CBORCoding&utm_campaign=Badge_Grade_Dashboard)
+![Swift](https://github.com/SomeRandomiOSDev/CBORCoding/workflows/Swift/badge.svg)
 
 **CBORCoding** is a lightweight framework containing a coder pair for encoding and decoding `Codable` conforming types to and from [CBOR](https://cbor.io) document format for iOS, macOS, tvOS, and watchOS.
 
