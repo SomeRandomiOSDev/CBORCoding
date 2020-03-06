@@ -44,7 +44,6 @@ opt_in_rules:
   - multiple_closures_with_trailing_closure
   - nesting
   - notification_center_detachment
-  - number_separator
   - object_literal
   - operator_usage_whitespace
   - override_in_extension
@@ -60,8 +59,9 @@ opt_in_rules:
   - yoda_condition
 
 excluded:
-  - Pods
-  - Carthage
+  - .build
+  - Tests/LinuxMain.swift
+  - Tests/CBORCodingTests/XCTestManifests.swift
 
 reporter: "xcode"
 

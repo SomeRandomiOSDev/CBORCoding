@@ -33,7 +33,7 @@ class CBOREncoderTests: XCTestCase {
             (try! encoder.encode(UInt64(1000)),                               "0x1903E8"),
             (try! encoder.encode(UInt64(1000000)),                            "0x1A000F4240"),
             (try! encoder.encode(UInt64(1000000000000)),                      "0x1B000000E8D4A51000"),
-            (try! encoder.encode(UInt64(18446744073709551615)),               "0x1BFFFFFFFFFFFFFFFF"),
+            (try! encoder.encode(18446744073709551615 as UInt64),             "0x1BFFFFFFFFFFFFFFFF"),
             (try! encoder.encode(CBOR.Bignum(isPositive: true,
                                              content: Data([UInt8(0x01), 0x00, 0x00, 0x00,
                                                             0x00, 0x00, 0x00, 0x00, 0x00]))), "0xC249010000000000000000"), // 18446744073709551616

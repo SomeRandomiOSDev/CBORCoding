@@ -757,8 +757,8 @@ private struct __CBORKeyedDecodingContainer<K: CodingKey>: KeyedDecodingContaine
             throw DecodingError._typeMismatch(at: codingPath, expectation: [String: Any].self, reality: value)
         }
 
-        let container = __CBORKeyedDecodingContainer<NestedKey>(referencing: decoder, wrapping: dictionary)
-        return KeyedDecodingContainer(container)
+        let keyedContainer = __CBORKeyedDecodingContainer<NestedKey>(referencing: decoder, wrapping: dictionary)
+        return KeyedDecodingContainer(keyedContainer)
     }
 
     func nestedUnkeyedContainer(forKey key: Key) throws -> UnkeyedDecodingContainer {
