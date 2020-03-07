@@ -196,6 +196,7 @@
 		DDB1DF2E2409E76500C20FED /* CBOREncoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBOREncoderTests.swift; sourceTree = "<group>"; };
 		DDB1DF3E2409E77500C20FED /* CBORCodingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CBORCodingTests-Info.plist"; path = "Plists/CBORCodingTests-Info.plist"; sourceTree = "<group>"; };
 		DDB1DFA2240E949B00C20FED /* Package@swift-4.2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-4.2.swift"; sourceTree = "<group>"; };
+		DDF723882413688A00F58881 /* codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codecov.yml; sourceTree = "<group>"; };
 		DDF755AB22A80069002E11D4 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
 		DDF755AC22A8649F002E11D4 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -266,6 +267,7 @@
 				DD12989122A487FB005CEB9A /* CBORCoding.podspec */,
 				DDF755AC22A8649F002E11D4 /* Package.swift */,
 				DDB1DFA2240E949B00C20FED /* Package@swift-4.2.swift */,
+				DDF723882413688A00F58881 /* codecov.yml */,
 				DD1298A122A546B4005CEB9A /* .swiftlint.yml */,
 				DDF755AB22A80069002E11D4 /* .travis.yml */,
 				DD12989322A487FB005CEB9A /* README.md */,
@@ -422,6 +424,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DD07934E2412F06400EF65B4 /* PBXTargetDependency */,
 				DD12991B22A56494005CEB9A /* PBXTargetDependency */,
 			);
 			name = "CBORCoding macOS";
@@ -463,6 +466,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DD07934C2412F06000EF65B4 /* PBXTargetDependency */,
 				DD12991D22A5649B005CEB9A /* PBXTargetDependency */,
 			);
 			name = "CBORCoding tvOS";
@@ -504,6 +508,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DD07934A2412F05D00EF65B4 /* PBXTargetDependency */,
 				DD12991F22A564A0005CEB9A /* PBXTargetDependency */,
 			);
 			name = "CBORCoding watchOS";
@@ -527,6 +532,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				DD0793502412F06800EF65B4 /* PBXTargetDependency */,
 				DD1298A022A48C6C005CEB9A /* PBXTargetDependency */,
 			);
 			name = CBORCoding;
@@ -789,6 +795,22 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		DD07934A2412F05D00EF65B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DD0793492412F05D00EF65B4 /* Half */;
+		};
+		DD07934C2412F06000EF65B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DD07934B2412F06000EF65B4 /* Half */;
+		};
+		DD07934E2412F06400EF65B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DD07934D2412F06400EF65B4 /* Half */;
+		};
+		DD0793502412F06800EF65B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = DD07934F2412F06800EF65B4 /* Half */;
+		};
 		DD1298A022A48C6C005CEB9A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = DD12989722A48C30005CEB9A /* Run SwiftLint */;
@@ -1388,6 +1410,26 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		DD0793492412F05D00EF65B4 /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DD07934B2412F06000EF65B4 /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DD07934D2412F06400EF65B4 /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
+		DD07934F2412F06800EF65B4 /* Half */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			productName = Half;
+		};
 		DDB1DF6D240B38A000C20FED /* Half */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
