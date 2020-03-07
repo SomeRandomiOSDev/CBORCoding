@@ -25,4 +25,12 @@ jobs:
         ~/$SWIFT_EXEC build -v
     - name: Test
       run: |
-        ~/$SWIFT_EXEC test -v
+        ~/$SWIFT_EXEC test -v --enable-code-coverage
+    - name: Upload Code Coverage
+      run: |
+        if [ "$(uname)" == "Linux" ]; then
+            echo Skipping Code Coverage upload for Linux
+        else
+            xcrun llvm-cov export -format="lcov" .build/debug/CBORCodingPackageTests.xctest/Contents/MacOS/CBORCodingPackageTests -instr-profile .build/debug/codecov/default.profdata > info.lcov
+            bash <(curl https://codecov.io/bash)
+        fi
