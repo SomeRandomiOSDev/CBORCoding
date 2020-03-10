@@ -34,3 +34,5 @@ jobs:
             xcrun llvm-cov export -format="lcov" .build/debug/CBORCodingPackageTests.xctest/Contents/MacOS/CBORCodingPackageTests -instr-profile .build/debug/codecov/default.profdata > info.lcov
             bash <(curl https://codecov.io/bash)
         fi
+      env:
+        CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

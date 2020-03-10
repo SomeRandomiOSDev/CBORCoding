@@ -21,6 +21,3 @@ comment:
 
 ignore:
   - Tests/**/*
-
-codecov:
-  token: 08621d2f-fc4e-4e97-b690-c50886ce67b5
