@@ -22,7 +22,7 @@ class CBORParserTests: XCTestCase {
         // Test Examples taken from Appendix A of RFC 7049
 
         var value: Any!
-        
+
         XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x00")))
         XCTAssertTrue(value is UInt64)
         XCTAssertEqual(value as! UInt64, 0)
