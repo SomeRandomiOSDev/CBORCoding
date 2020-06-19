@@ -22,7 +22,7 @@ class CBORParserTests: XCTestCase {
         // Test Examples taken from Appendix A of RFC 7049
 
         var value: Any!
-
+        
         XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x00")))
         XCTAssertTrue(value is UInt64)
         XCTAssertEqual(value as! UInt64, 0)
@@ -1074,6 +1074,18 @@ class CBORParserTests: XCTestCase {
         #endif // #if arch(arm64) || arch(x86_64)
 
         XCTAssertThrowsError(try CBORParser.testCreateCodingKey(from: UInt64.max))
+    }
+    
+    func testSlicedDataInput() {
+        var value: Any!
+        
+        // Skip over the first 2 bytes with a slice.
+        let data = convertFromHexString("0x000000")[2...]
+        
+        XCTAssertNoThrow(value = try CBORParser.parse(data))
+        XCTAssertTrue(value is UInt64)
+        XCTAssertEqual(value as! UInt64, 0)
+
     }
 
     // MARK: Private Methods
