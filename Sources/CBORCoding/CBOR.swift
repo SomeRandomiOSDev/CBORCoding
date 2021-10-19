@@ -139,9 +139,10 @@ public struct CBOR {
             chunks.reserveCapacity(numberOfChunks)
 
             for i in 0 ..< numberOfChunks {
-                let range = ((i * chunkSize) ..< ((i + 1) * chunkSize)).clamped(to: 0 ..< numberOfBytes)
+                let lowerBound = data.index(data.startIndex, offsetBy: i * chunkSize)
+                let upperBound = data.index(data.startIndex, offsetBy: (i + 1) * chunkSize, limitedBy: data.endIndex) ?? data.endIndex
 
-                chunks.append(Data(data[range]))
+                chunks.append(Data(data[lowerBound ..< upperBound]))
             }
 
             self.chunks = chunks
@@ -184,9 +185,10 @@ public struct CBOR {
             chunks.reserveCapacity(numberOfChunks)
 
             for i in 0 ..< numberOfChunks {
-                let range = ((i * chunkSize) ..< ((i + 1) * chunkSize)).clamped(to: 0 ..< numberOfBytes)
+                let lowerBound = data.index(data.startIndex, offsetBy: i * chunkSize)
+                let upperBound = data.index(data.startIndex, offsetBy: (i + 1) * chunkSize, limitedBy: data.endIndex) ?? data.endIndex
 
-                chunks.append(Data(data[range]))
+                chunks.append(Data(data[lowerBound ..< upperBound]))
             }
 
             self.chunks = chunks
@@ -291,9 +293,9 @@ extension CBOR {
 
         init?(bits: Data) {
             guard !bits.isEmpty else { return nil }
-            guard CBOR.majorType(for: bits[0]) == .tag else { return nil }
+            guard CBOR.majorType(for: bits[bits.startIndex]) == .tag else { return nil }
 
-            let additonalInfo = CBOR.additionalInfo(for: bits[0])
+            let additonalInfo = CBOR.additionalInfo(for: bits[bits.startIndex])
             switch additonalInfo {
             case 0:  self = .standardDateTime
             case 1:  self = .epochDateTime
@@ -307,7 +309,7 @@ extension CBOR {
             case 24:
                 guard bits.count >= 2 else { return nil }
 
-                switch bits[1] {
+                switch bits[bits.index(after: bits.startIndex)] {
                 case 24: self = .encodedCBORData
                 case 32: self = .uri
                 case 33: self = .base64URL
@@ -320,7 +322,7 @@ extension CBOR {
             case 25:
                 guard bits.count >= 3 else { return nil }
 
-                switch (bits[1], bits[2]) {
+                switch (bits[bits.index(bits.startIndex, offsetBy: 1)], bits[bits.index(bits.startIndex, offsetBy: 2)]) {
                 case (0xD9, 0xF7): self = .selfDescribedCBOR
                 default:           return nil
                 }
@@ -387,12 +389,12 @@ extension CBOR {
         internal var stringValue: String
         internal var intValue: Int?
 
-        internal init?(stringValue: String) {
+        internal init(stringValue: String) {
             self.stringValue = stringValue
             self.intValue = nil
         }
 
-        internal init?(intValue: Int) {
+        internal init(intValue: Int) {
             self.stringValue = "\(intValue)"
             self.intValue = intValue
         }
@@ -406,9 +408,7 @@ extension CBOR {
 
         // MARK: Constants
 
-        // swiftlint:disable force_unwrapping
-        internal static let `super` = CodingKey(stringValue: "super")!
-        // swiftlint:enable force_unwrapping
+        internal static let `super` = CodingKey(stringValue: "super")
     }
 
     // MARK: Internal Methods
@@ -459,16 +459,16 @@ extension DecodingError {
             let expectedTypes: String
             if expected.count > 2 {
                 var types = expected.map { "\($0)" }
-                types[types.endIndex - 1] = "or " + types[types.endIndex - 1]
+                types[types.index(before: types.endIndex)] = "or " + types[types.index(before: types.endIndex)]
 
                 expectedTypes = types.joined(separator: ", ")
             } else if expected.count > 1 {
                 expectedTypes = expected.map({ "\($0)" }).joined(separator: " or ")
             } else {
-                expectedTypes = "\(expected[0])"
+                expectedTypes = "\(expected[expected.startIndex])"
             }
 
-            self = .typeMismatch(expected[0], Context(codingPath: path, debugDescription: "Expected to decode \(expectedTypes) but found \(actual) instead."))
+            self = .typeMismatch(expected[expected.startIndex], Context(codingPath: path, debugDescription: "Expected to decode \(expectedTypes) but found \(actual) instead."))
 
         case let .dataCorrupted(description):
             self = .dataCorrupted(Context(codingPath: path, debugDescription: description))
