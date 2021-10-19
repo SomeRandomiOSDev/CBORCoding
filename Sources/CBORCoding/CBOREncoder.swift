@@ -2,8 +2,7 @@
 //  CBOREncoder.swift
 //  CBORCoding
 //
-//  Created by Joseph Newton on 5/12/19.
-//  Copyright © 2019 SomeRandomiOSDev. All rights reserved.
+//  Copyright © 2021 SomeRandomiOSDev. All rights reserved.
 //
 
 import Foundation
@@ -1137,5 +1136,9 @@ private class __CBORReferencingEncoder: __CBOREncoder {
 // MARK: - CBOREncoder Extension
 
 #if canImport(Combine)
-extension CBOREncoder: TopLevelEncoder { }
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension CBOREncoder: TopLevelEncoder {
+
+    public typealias Output = Data
+}
 #endif // #if canImport(Combine)

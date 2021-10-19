@@ -5,34 +5,41 @@
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
-      <BuildActionEntries>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DD86D53C23D11B3E0046E63E"
-               BuildableName = "CBORCoding.framework"
-               BlueprintName = "CBORCoding"
-               ReferencedContainer = "container:CBORCoding.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-      </BuildActionEntries>
    </BuildAction>
    <TestAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES">
+      shouldUseLaunchSchemeArgsEnv = "YES"
+      codeCoverageEnabled = "YES"
+      onlyGenerateCoverageForSpecifiedTargets = "YES">
+      <CodeCoverageTargets>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "DD86D5C323D11D140046E63E"
+            BuildableName = "CBORCoding.framework"
+            BlueprintName = "CBORCoding watchOS"
+            ReferencedContainer = "container:CBORCoding.xcodeproj">
+         </BuildableReference>
+      </CodeCoverageTargets>
       <TestPlans>
          <TestPlanReference
-            reference = "container:Tests/Test Plans/CBORCodingTests.xctestplan"
+            reference = "container:Tests/Test Plans/CBORCoding watchOS Tests.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>
+      <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "DD48BC93270E0DE800D842BC"
+               BuildableName = "TestProjectTests.xctest"
+               BlueprintName = "CBORCoding watchOS Tests"
+               ReferencedContainer = "container:CBORCoding.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+      </Testables>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"
@@ -51,15 +58,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DD86D53C23D11B3E0046E63E"
-            BuildableName = "CBORCoding.framework"
-            BlueprintName = "CBORCoding"
-            ReferencedContainer = "container:CBORCoding.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

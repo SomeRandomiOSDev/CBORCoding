@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "A045C1A3-FB6D-4C3E-9102-7A44F742221D",
+      "name" : "Default",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:CBORCoding.xcodeproj",
+          "identifier" : "DD86D58B23D11CA00046E63E",
+          "name" : "CBORCoding tvOS"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CBORCoding.xcodeproj",
+        "identifier" : "DD86D59323D11CA00046E63E",
+        "name" : "CBORCoding tvOS Tests"
+      }
+    }
+  ],
+  "version" : 1
+}

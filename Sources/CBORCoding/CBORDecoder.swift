@@ -2,8 +2,7 @@
 //  CBOREncoder.swift
 //  CBORCoding
 //
-//  Created by Joseph Newton on 5/12/19.
-//  Copyright © 2019 SomeRandomiOSDev. All rights reserved.
+//  Copyright © 2021 SomeRandomiOSDev. All rights reserved.
 //
 
 import Foundation
@@ -1091,5 +1090,9 @@ extension DecodingError {
 // MARK: - CBORDecoder Extension
 
 #if canImport(Combine)
-extension CBORDecoder: TopLevelDecoder { }
+@available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 6.0, *)
+extension CBORDecoder: TopLevelDecoder {
+
+    public typealias Input = Data
+}
 #endif // #if canImport(Combine)

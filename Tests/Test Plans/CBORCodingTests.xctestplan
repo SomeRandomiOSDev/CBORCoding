@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "EDFB1169-07E4-464B-85CC-6F011C5D5E19",
+      "name" : "Default",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:CBORCoding.xcodeproj",
+          "identifier" : "DD86D53C23D11B3E0046E63E",
+          "name" : "CBORCoding"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CBORCoding.xcodeproj",
+        "identifier" : "DD86D54523D11B3E0046E63E",
+        "name" : "CBORCodingTests"
+      }
+    }
+  ],
+  "version" : 1
+}

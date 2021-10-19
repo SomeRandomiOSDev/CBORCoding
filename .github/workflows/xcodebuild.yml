@@ -1,0 +1,110 @@
+name: Xcode Project
+on: [push, workflow_dispatch]
+
+jobs:
+  ios:
+    name: iOS
+    runs-on: macOS-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Build iOS
+      run: |
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding" -destination "generic/platform=iOS" -configuration Debug
+
+    - name: Build iOS Simulator
+      run: |
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding" -destination "generic/platform=iOS Simulator" -configuration Debug
+
+    - name: Test
+      run: |
+        IOS_SIM="$(xcrun simctl list devices available | grep "iPhone [0-9]" | sort -rV | head -n 1 | sed -E 's/(.+)[ ]*\([^)]*\)[ ]*\([^)]*\)/\1/' | awk '{$1=$1};1')"
+        if [ "${#IOS_SIM}" == "0" ]; then
+            IOS_SIM = "iPhone 12 Pro" # Fallback Simulator
+        fi
+
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding" -testPlan "CBORCodingTests" -destination "platform=iOS Simulator,name=$IOS_SIM" -configuration Debug ONLY_ACTIVE_ARCH=YES test
+
+  maccatalyst:
+    name: Mac Catalyst
+    runs-on: macOS-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding" -destination "generic/platform=macOS,variant=Mac Catalyst" -configuration Debug
+
+    - name: Test
+      run: |
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding" -testPlan "CBORCodingTests" -destination "platform=macOS,variant=Mac Catalyst" -configuration Debug ONLY_ACTIVE_ARCH=YES test
+
+  macos:
+    name: macOS
+    runs-on: macOS-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding macOS" -destination "generic/platform=macOS" -configuration Debug
+
+    - name: Test
+      run: |
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding macOS" -testPlan "CBORCoding macOS Tests" -configuration Debug ONLY_ACTIVE_ARCH=YES test
+
+  tvos:
+    name: tvOS
+    runs-on: macOS-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Build tvOS
+      run: |
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding tvOS" -destination "generic/platform=tvOS" -configuration Debug
+
+    - name: Build tvOS Simulator
+      run: |
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding tvOS" -destination "generic/platform=tvOS Simulator" -configuration Debug
+
+    - name: Test
+      run: |
+        TVOS_SIM="$(xcrun simctl list devices available | grep "Apple TV" | sort -V | head -n 1 | sed -E 's/(.+)[ ]*\([^)]*\)[ ]*\([^)]*\)/\1/' | awk '{$1=$1};1')"
+        if [ "${#TVOS_SIM}" == "0" ]; then
+            TVOS_SIM = "Apple TV" # Fallback Simulator
+        fi
+
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding tvOS" -testPlan "CBORCoding tvOS Tests" -destination "platform=tvOS Simulator,name=$TVOS_SIM" -configuration Debug ONLY_ACTIVE_ARCH=YES test
+
+  watchos:
+    name: watchOS
+    runs-on: macOS-11
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Build watchOS
+      run: |
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding watchOS" -destination "generic/platform=watchOS" -configuration Debug
+
+    - name: Build watchOS Simulator
+      run: |
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding watchOS" -destination "generic/platform=watchOS Simulator" -configuration Debug
+
+    - name: Test
+      run: |
+        WATCHOS_SIM="$(xcrun simctl list devices available | grep "Apple Watch" | sort -rV | head -n 1 | sed -E 's/(.+)[ ]*\([^)]*\)[ ]*\([^)]*\)/\1/' | awk '{$1=$1};1')"
+        if [ "${#WATCHOS_SIM}" == "0" ]; then
+            WATCHOS_SIM = "Apple Watch Series 6 - 44mm" # Fallback Simulator
+        fi
+
+        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding watchOS" -testPlan "CBORCoding watchOS Tests" -destination "platform=watchOS Simulator,name=$WATCHOS_SIM" -configuration Debug ONLY_ACTIVE_ARCH=YES test

@@ -7,401 +7,418 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		DD12989722A48C30005CEB9A /* Run SwiftLint */ = {
+		DD2FBC27258BE8BB00DB3211 /* XCFramework */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = DD12989822A48C30005CEB9A /* Build configuration list for PBXAggregateTarget "Run SwiftLint" */;
+			buildConfigurationList = DD2FBC2A258BE8BB00DB3211 /* Build configuration list for PBXAggregateTarget "XCFramework" */;
 			buildPhases = (
-				DD12989D22A48C47005CEB9A /* Run SwiftLint */,
+				DD2FBC33258BE8C600DB3211 /* Build XCFramework */,
+			);
+			dependencies = (
+			);
+			name = XCFramework;
+			productName = XCFramework;
+		};
+		DD86D56423D11C4B0046E63E /* Run SwiftLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DD86D56523D11C4B0046E63E /* Build configuration list for PBXAggregateTarget "Run SwiftLint" */;
+			buildPhases = (
+				DD86D56823D11C550046E63E /* Run SwiftLint */,
 			);
 			dependencies = (
 			);
 			name = "Run SwiftLint";
-			productName = "Run Swiftlint";
+			productName = "Run SwiftLint";
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		DD1298B122A563BE005CEB9A /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1298A822A563BE005CEB9A /* CBORCoding.framework */; };
-		DD1298E922A56431005CEB9A /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD1298E022A56430005CEB9A /* CBORCoding.framework */; };
-		DD32E373228DDCFB002D9067 /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD32E369228DDCFB002D9067 /* CBORCoding.framework */; };
-		DDB1DF0A2409E72400C20FED /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF032409E72400C20FED /* Containers.swift */; };
-		DDB1DF0B2409E72400C20FED /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF032409E72400C20FED /* Containers.swift */; };
-		DDB1DF0C2409E72400C20FED /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF032409E72400C20FED /* Containers.swift */; };
-		DDB1DF0D2409E72400C20FED /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF032409E72400C20FED /* Containers.swift */; };
-		DDB1DF0E2409E72400C20FED /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF042409E72400C20FED /* CBOREncoder.swift */; };
-		DDB1DF0F2409E72400C20FED /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF042409E72400C20FED /* CBOREncoder.swift */; };
-		DDB1DF102409E72400C20FED /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF042409E72400C20FED /* CBOREncoder.swift */; };
-		DDB1DF112409E72400C20FED /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF042409E72400C20FED /* CBOREncoder.swift */; };
-		DDB1DF122409E72400C20FED /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF052409E72400C20FED /* CBOR+Equatable.swift */; };
-		DDB1DF132409E72400C20FED /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF052409E72400C20FED /* CBOR+Equatable.swift */; };
-		DDB1DF142409E72400C20FED /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF052409E72400C20FED /* CBOR+Equatable.swift */; };
-		DDB1DF152409E72400C20FED /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF052409E72400C20FED /* CBOR+Equatable.swift */; };
-		DDB1DF162409E72400C20FED /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF062409E72400C20FED /* CBORDecoder.swift */; };
-		DDB1DF172409E72400C20FED /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF062409E72400C20FED /* CBORDecoder.swift */; };
-		DDB1DF182409E72400C20FED /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF062409E72400C20FED /* CBORDecoder.swift */; };
-		DDB1DF192409E72400C20FED /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF062409E72400C20FED /* CBORDecoder.swift */; };
-		DDB1DF1A2409E72400C20FED /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF072409E72400C20FED /* CBOR.swift */; };
-		DDB1DF1B2409E72400C20FED /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF072409E72400C20FED /* CBOR.swift */; };
-		DDB1DF1C2409E72400C20FED /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF072409E72400C20FED /* CBOR.swift */; };
-		DDB1DF1D2409E72400C20FED /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF072409E72400C20FED /* CBOR.swift */; };
-		DDB1DF1E2409E72400C20FED /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF082409E72400C20FED /* CBOR+Codable.swift */; };
-		DDB1DF1F2409E72400C20FED /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF082409E72400C20FED /* CBOR+Codable.swift */; };
-		DDB1DF202409E72400C20FED /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF082409E72400C20FED /* CBOR+Codable.swift */; };
-		DDB1DF212409E72400C20FED /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF082409E72400C20FED /* CBOR+Codable.swift */; };
-		DDB1DF222409E72400C20FED /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF092409E72400C20FED /* CBORParser.swift */; };
-		DDB1DF232409E72400C20FED /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF092409E72400C20FED /* CBORParser.swift */; };
-		DDB1DF242409E72400C20FED /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF092409E72400C20FED /* CBORParser.swift */; };
-		DDB1DF252409E72400C20FED /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF092409E72400C20FED /* CBORParser.swift */; };
-		DDB1DF2F2409E76500C20FED /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2A2409E76500C20FED /* CBORParserTests.swift */; };
-		DDB1DF302409E76500C20FED /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2A2409E76500C20FED /* CBORParserTests.swift */; };
-		DDB1DF312409E76500C20FED /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2A2409E76500C20FED /* CBORParserTests.swift */; };
-		DDB1DF322409E76500C20FED /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2B2409E76500C20FED /* CBORDecoderTests.swift */; };
-		DDB1DF332409E76500C20FED /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2B2409E76500C20FED /* CBORDecoderTests.swift */; };
-		DDB1DF342409E76500C20FED /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2B2409E76500C20FED /* CBORDecoderTests.swift */; };
-		DDB1DF352409E76500C20FED /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2C2409E76500C20FED /* CBORTests.swift */; };
-		DDB1DF362409E76500C20FED /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2C2409E76500C20FED /* CBORTests.swift */; };
-		DDB1DF372409E76500C20FED /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2C2409E76500C20FED /* CBORTests.swift */; };
-		DDB1DF382409E76500C20FED /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2D2409E76500C20FED /* ContainersTests.swift */; };
-		DDB1DF392409E76500C20FED /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2D2409E76500C20FED /* ContainersTests.swift */; };
-		DDB1DF3A2409E76500C20FED /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2D2409E76500C20FED /* ContainersTests.swift */; };
-		DDB1DF3B2409E76500C20FED /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2E2409E76500C20FED /* CBOREncoderTests.swift */; };
-		DDB1DF3C2409E76500C20FED /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2E2409E76500C20FED /* CBOREncoderTests.swift */; };
-		DDB1DF3D2409E76600C20FED /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDB1DF2E2409E76500C20FED /* CBOREncoderTests.swift */; };
-		DDB1DF6E240B38A000C20FED /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DDB1DF6D240B38A000C20FED /* Half */; };
-		DDB1DF71240B38CB00C20FED /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DDB1DF70240B38CB00C20FED /* Half */; };
-		DDB1DF73240B38D100C20FED /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DDB1DF72240B38D100C20FED /* Half */; };
-		DDB1DF75240B38D600C20FED /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DDB1DF74240B38D600C20FED /* Half */; };
+		DD48BC98270E0DE800D842BC /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD86D5C423D11D140046E63E /* CBORCoding.framework */; };
+		DD86D54723D11B3E0046E63E /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD86D53D23D11B3E0046E63E /* CBORCoding.framework */; };
+		DD86D57923D11C860046E63E /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD86D57023D11C860046E63E /* CBORCoding.framework */; };
+		DD86D59523D11CA00046E63E /* CBORCoding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD86D58C23D11CA00046E63E /* CBORCoding.framework */; };
+		DD9E2F7E271DB99C00C6D170 /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7B271DB99C00C6D170 /* CBOR+Codable.swift */; };
+		DD9E2F7F271DB99C00C6D170 /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7B271DB99C00C6D170 /* CBOR+Codable.swift */; };
+		DD9E2F80271DB99C00C6D170 /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7B271DB99C00C6D170 /* CBOR+Codable.swift */; };
+		DD9E2F81271DB99C00C6D170 /* CBOR+Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7B271DB99C00C6D170 /* CBOR+Codable.swift */; };
+		DD9E2F82271DB99C00C6D170 /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7C271DB99C00C6D170 /* CBOR+Equatable.swift */; };
+		DD9E2F83271DB99C00C6D170 /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7C271DB99C00C6D170 /* CBOR+Equatable.swift */; };
+		DD9E2F84271DB99C00C6D170 /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7C271DB99C00C6D170 /* CBOR+Equatable.swift */; };
+		DD9E2F85271DB99C00C6D170 /* CBOR+Equatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7C271DB99C00C6D170 /* CBOR+Equatable.swift */; };
+		DD9E2F86271DB99C00C6D170 /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7D271DB99C00C6D170 /* CBOR.swift */; };
+		DD9E2F87271DB99C00C6D170 /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7D271DB99C00C6D170 /* CBOR.swift */; };
+		DD9E2F88271DB99C00C6D170 /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7D271DB99C00C6D170 /* CBOR.swift */; };
+		DD9E2F89271DB99C00C6D170 /* CBOR.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F7D271DB99C00C6D170 /* CBOR.swift */; };
+		DD9E2F8B271DB9A000C6D170 /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F8A271DB9A000C6D170 /* Containers.swift */; };
+		DD9E2F8C271DB9A000C6D170 /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F8A271DB9A000C6D170 /* Containers.swift */; };
+		DD9E2F8D271DB9A000C6D170 /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F8A271DB9A000C6D170 /* Containers.swift */; };
+		DD9E2F8E271DB9A000C6D170 /* Containers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F8A271DB9A000C6D170 /* Containers.swift */; };
+		DD9E2F92271DB9A500C6D170 /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F8F271DB9A500C6D170 /* CBORDecoder.swift */; };
+		DD9E2F93271DB9A500C6D170 /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F8F271DB9A500C6D170 /* CBORDecoder.swift */; };
+		DD9E2F94271DB9A500C6D170 /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F8F271DB9A500C6D170 /* CBORDecoder.swift */; };
+		DD9E2F95271DB9A500C6D170 /* CBORDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F8F271DB9A500C6D170 /* CBORDecoder.swift */; };
+		DD9E2F96271DB9A500C6D170 /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F90271DB9A500C6D170 /* CBORParser.swift */; };
+		DD9E2F97271DB9A500C6D170 /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F90271DB9A500C6D170 /* CBORParser.swift */; };
+		DD9E2F98271DB9A500C6D170 /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F90271DB9A500C6D170 /* CBORParser.swift */; };
+		DD9E2F99271DB9A500C6D170 /* CBORParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F90271DB9A500C6D170 /* CBORParser.swift */; };
+		DD9E2F9A271DB9A500C6D170 /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F91271DB9A500C6D170 /* CBOREncoder.swift */; };
+		DD9E2F9B271DB9A500C6D170 /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F91271DB9A500C6D170 /* CBOREncoder.swift */; };
+		DD9E2F9C271DB9A500C6D170 /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F91271DB9A500C6D170 /* CBOREncoder.swift */; };
+		DD9E2F9D271DB9A500C6D170 /* CBOREncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F91271DB9A500C6D170 /* CBOREncoder.swift */; };
+		DD9E2F9E271DB9C100C6D170 /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F75271DB97900C6D170 /* CBOREncoderTests.swift */; };
+		DD9E2F9F271DB9C100C6D170 /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F72271DB97900C6D170 /* CBORDecoderTests.swift */; };
+		DD9E2FA0271DB9C100C6D170 /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F71271DB97900C6D170 /* CBORTests.swift */; };
+		DD9E2FA1271DB9C100C6D170 /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F74271DB97900C6D170 /* CBORParserTests.swift */; };
+		DD9E2FA2271DB9C100C6D170 /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F73271DB97900C6D170 /* ContainersTests.swift */; };
+		DD9E2FA3271DB9C100C6D170 /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F75271DB97900C6D170 /* CBOREncoderTests.swift */; };
+		DD9E2FA4271DB9C100C6D170 /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F72271DB97900C6D170 /* CBORDecoderTests.swift */; };
+		DD9E2FA5271DB9C100C6D170 /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F71271DB97900C6D170 /* CBORTests.swift */; };
+		DD9E2FA6271DB9C100C6D170 /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F74271DB97900C6D170 /* CBORParserTests.swift */; };
+		DD9E2FA7271DB9C100C6D170 /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F73271DB97900C6D170 /* ContainersTests.swift */; };
+		DD9E2FA8271DB9C200C6D170 /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F75271DB97900C6D170 /* CBOREncoderTests.swift */; };
+		DD9E2FA9271DB9C200C6D170 /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F72271DB97900C6D170 /* CBORDecoderTests.swift */; };
+		DD9E2FAA271DB9C200C6D170 /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F71271DB97900C6D170 /* CBORTests.swift */; };
+		DD9E2FAB271DB9C200C6D170 /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F74271DB97900C6D170 /* CBORParserTests.swift */; };
+		DD9E2FAC271DB9C200C6D170 /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F73271DB97900C6D170 /* ContainersTests.swift */; };
+		DD9E2FAD271DB9C300C6D170 /* CBOREncoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F75271DB97900C6D170 /* CBOREncoderTests.swift */; };
+		DD9E2FAE271DB9C300C6D170 /* CBORDecoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F72271DB97900C6D170 /* CBORDecoderTests.swift */; };
+		DD9E2FAF271DB9C300C6D170 /* CBORTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F71271DB97900C6D170 /* CBORTests.swift */; };
+		DD9E2FB0271DB9C300C6D170 /* CBORParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F74271DB97900C6D170 /* CBORParserTests.swift */; };
+		DD9E2FB1271DB9C300C6D170 /* ContainersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9E2F73271DB97900C6D170 /* ContainersTests.swift */; };
+		DD9E2FB4271DBCFF00C6D170 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD9E2FB3271DBCFF00C6D170 /* Half */; };
+		DD9E2FB7271DBD1700C6D170 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD9E2FB6271DBD1700C6D170 /* Half */; };
+		DD9E2FB9271DBD1A00C6D170 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD9E2FB8271DBD1A00C6D170 /* Half */; };
+		DD9E2FBB271DBD1D00C6D170 /* Half in Frameworks */ = {isa = PBXBuildFile; productRef = DD9E2FBA271DBD1D00C6D170 /* Half */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DD12989F22A48C6C005CEB9A /* PBXContainerItemProxy */ = {
+		DD48BC99270E0DE800D842BC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD12989722A48C30005CEB9A;
+			remoteGlobalIDString = DD86D5C323D11D140046E63E;
+			remoteInfo = "CBORCoding watchOS";
+		};
+		DD86D54823D11B3E0046E63E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD86D53C23D11B3E0046E63E;
+			remoteInfo = CBORCoding;
+		};
+		DD86D56923D11C6C0046E63E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD86D56423D11C4B0046E63E;
 			remoteInfo = "Run SwiftLint";
 		};
-		DD1298B222A563BE005CEB9A /* PBXContainerItemProxy */ = {
+		DD86D57A23D11C860046E63E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD1298A722A563BE005CEB9A;
+			remoteGlobalIDString = DD86D56F23D11C860046E63E;
 			remoteInfo = "CBORCoding macOS";
 		};
-		DD1298EA22A56431005CEB9A /* PBXContainerItemProxy */ = {
+		DD86D59623D11CA00046E63E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD1298DF22A56430005CEB9A;
+			remoteGlobalIDString = DD86D58B23D11CA00046E63E;
 			remoteInfo = "CBORCoding tvOS";
 		};
-		DD12991A22A56494005CEB9A /* PBXContainerItemProxy */ = {
+		DD86D5D823D11DC60046E63E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD12989722A48C30005CEB9A;
+			remoteGlobalIDString = DD86D56423D11C4B0046E63E;
 			remoteInfo = "Run SwiftLint";
 		};
-		DD12991C22A5649B005CEB9A /* PBXContainerItemProxy */ = {
+		DD86D5DA23D11DC90046E63E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD12989722A48C30005CEB9A;
+			remoteGlobalIDString = DD86D56423D11C4B0046E63E;
 			remoteInfo = "Run SwiftLint";
 		};
-		DD12991E22A564A0005CEB9A /* PBXContainerItemProxy */ = {
+		DD86D5DC23D11DCC0046E63E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
+			containerPortal = DD86D53423D11B3E0046E63E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = DD12989722A48C30005CEB9A;
+			remoteGlobalIDString = DD86D56423D11C4B0046E63E;
 			remoteInfo = "Run SwiftLint";
-		};
-		DD32E374228DDCFB002D9067 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DD32E360228DDCFB002D9067 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = DD32E368228DDCFB002D9067;
-			remoteInfo = CBORCoding;
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		DD7B003323F46F08008AD6A7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DD7B003723F46F18008AD6A7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DD7B003B23F46F24008AD6A7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		DD7B003F23F46F2E008AD6A7 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		DD12989122A487FB005CEB9A /* CBORCoding.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = CBORCoding.podspec; sourceTree = SOURCE_ROOT; };
-		DD12989222A487FB005CEB9A /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
-		DD12989322A487FB005CEB9A /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
-		DD1298A122A546B4005CEB9A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
-		DD1298A822A563BE005CEB9A /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD1298B022A563BE005CEB9A /* CBORCoding macOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CBORCoding macOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD1298E022A56430005CEB9A /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD1298E822A56430005CEB9A /* CBORCoding tvOS Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "CBORCoding tvOS Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD1298FE22A5644C005CEB9A /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD12992022A5680A005CEB9A /* ATTRIBUTIONS */ = {isa = PBXFileReference; lastKnownFileType = text; path = ATTRIBUTIONS; sourceTree = SOURCE_ROOT; };
-		DD32E369228DDCFB002D9067 /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DD32E372228DDCFB002D9067 /* CBORCodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBORCodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		DDB1DF012409E71200C20FED /* CBORCoding-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CBORCoding-Info.plist"; path = "Plists/CBORCoding-Info.plist"; sourceTree = "<group>"; };
-		DDB1DF032409E72400C20FED /* Containers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Containers.swift; sourceTree = "<group>"; };
-		DDB1DF042409E72400C20FED /* CBOREncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBOREncoder.swift; sourceTree = "<group>"; };
-		DDB1DF052409E72400C20FED /* CBOR+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBOR+Equatable.swift"; sourceTree = "<group>"; };
-		DDB1DF062409E72400C20FED /* CBORDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORDecoder.swift; sourceTree = "<group>"; };
-		DDB1DF072409E72400C20FED /* CBOR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBOR.swift; sourceTree = "<group>"; };
-		DDB1DF082409E72400C20FED /* CBOR+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBOR+Codable.swift"; sourceTree = "<group>"; };
-		DDB1DF092409E72400C20FED /* CBORParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORParser.swift; sourceTree = "<group>"; };
-		DDB1DF2A2409E76500C20FED /* CBORParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORParserTests.swift; sourceTree = "<group>"; };
-		DDB1DF2B2409E76500C20FED /* CBORDecoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORDecoderTests.swift; sourceTree = "<group>"; };
-		DDB1DF2C2409E76500C20FED /* CBORTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORTests.swift; sourceTree = "<group>"; };
-		DDB1DF2D2409E76500C20FED /* ContainersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainersTests.swift; sourceTree = "<group>"; };
-		DDB1DF2E2409E76500C20FED /* CBOREncoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBOREncoderTests.swift; sourceTree = "<group>"; };
-		DDB1DF3E2409E77500C20FED /* CBORCodingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CBORCodingTests-Info.plist"; path = "Plists/CBORCodingTests-Info.plist"; sourceTree = "<group>"; };
-		DDB1DFA2240E949B00C20FED /* Package@swift-4.2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-4.2.swift"; sourceTree = "<group>"; };
-		DDF723882413688A00F58881 /* codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codecov.yml; sourceTree = "<group>"; };
-		DDF755AB22A80069002E11D4 /* .travis.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .travis.yml; sourceTree = SOURCE_ROOT; };
-		DDF755AC22A8649F002E11D4 /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
+		DD17A9F9257744BC00D30599 /* scripts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = scripts; sourceTree = "<group>"; };
+		DD48BC94270E0DE800D842BC /* CBORCodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBORCodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD48BC9F270E0F4500D842BC /* CBORCodingTests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CBORCodingTests.xctestplan; sourceTree = "<group>"; };
+		DD48BCA0270E0F9A00D842BC /* CBORCoding macOS Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CBORCoding macOS Tests.xctestplan"; sourceTree = "<group>"; };
+		DD48BCA1270E0FE200D842BC /* CBORCoding tvOS Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CBORCoding tvOS Tests.xctestplan"; sourceTree = "<group>"; };
+		DD48BCA2270E101D00D842BC /* CBORCoding watchOS Tests.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = "CBORCoding watchOS Tests.xctestplan"; sourceTree = "<group>"; };
+		DD5D044A261FA56400BA0FC2 /* CBORCodingTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CBORCodingTests-Info.plist"; path = "Plists/CBORCodingTests-Info.plist"; sourceTree = "<group>"; };
+		DD86D53D23D11B3E0046E63E /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D54123D11B3E0046E63E /* CBORCoding-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "CBORCoding-Info.plist"; path = "Plists/CBORCoding-Info.plist"; sourceTree = "<group>"; };
+		DD86D54623D11B3E0046E63E /* CBORCodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBORCodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D57023D11C860046E63E /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D57823D11C860046E63E /* CBORCodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBORCodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D58C23D11CA00046E63E /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D59423D11CA00046E63E /* CBORCodingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CBORCodingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D5C423D11D140046E63E /* CBORCoding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CBORCoding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD86D5DE23D22DB90046E63E /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		DD86D5DF23D22DB90046E63E /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = SOURCE_ROOT; };
+		DD86D5E023D22DB90046E63E /* CBORCoding.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = CBORCoding.podspec; sourceTree = SOURCE_ROOT; };
+		DD86D5E123D22DB90046E63E /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		DD86D5E323D22DC30046E63E /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = SOURCE_ROOT; };
+		DD9E2F6D271DB8ED00C6D170 /* ATTRIBUTIONS */ = {isa = PBXFileReference; lastKnownFileType = text; path = ATTRIBUTIONS; sourceTree = "<group>"; };
+		DD9E2F71271DB97900C6D170 /* CBORTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORTests.swift; sourceTree = "<group>"; };
+		DD9E2F72271DB97900C6D170 /* CBORDecoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORDecoderTests.swift; sourceTree = "<group>"; };
+		DD9E2F73271DB97900C6D170 /* ContainersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainersTests.swift; sourceTree = "<group>"; };
+		DD9E2F74271DB97900C6D170 /* CBORParserTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORParserTests.swift; sourceTree = "<group>"; };
+		DD9E2F75271DB97900C6D170 /* CBOREncoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBOREncoderTests.swift; sourceTree = "<group>"; };
+		DD9E2F7B271DB99C00C6D170 /* CBOR+Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBOR+Codable.swift"; sourceTree = "<group>"; };
+		DD9E2F7C271DB99C00C6D170 /* CBOR+Equatable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CBOR+Equatable.swift"; sourceTree = "<group>"; };
+		DD9E2F7D271DB99C00C6D170 /* CBOR.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBOR.swift; sourceTree = "<group>"; };
+		DD9E2F8A271DB9A000C6D170 /* Containers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Containers.swift; sourceTree = "<group>"; };
+		DD9E2F8F271DB9A500C6D170 /* CBORDecoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORDecoder.swift; sourceTree = "<group>"; };
+		DD9E2F90271DB9A500C6D170 /* CBORParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBORParser.swift; sourceTree = "<group>"; };
+		DD9E2F91271DB9A500C6D170 /* CBOREncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CBOREncoder.swift; sourceTree = "<group>"; };
+		DD9E303F271E69BA00C6D170 /* Package@swift-4.2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Package@swift-4.2.swift"; sourceTree = "<group>"; };
+		DDA26DBD256EA4D700E1C6D7 /* workflows */ = {isa = PBXFileReference; lastKnownFileType = folder; name = workflows; path = .github/workflows; sourceTree = "<group>"; };
+		DDB1DE5C2405EEE300C20FED /* codecov.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codecov.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DD1298A522A563BE005CEB9A /* Frameworks */ = {
+		DD48BC91270E0DE800D842BC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF71240B38CB00C20FED /* Half in Frameworks */,
+				DD48BC98270E0DE800D842BC /* CBORCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298AD22A563BE005CEB9A /* Frameworks */ = {
+		DD86D53A23D11B3E0046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1298B122A563BE005CEB9A /* CBORCoding.framework in Frameworks */,
+				DD9E2FB4271DBCFF00C6D170 /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298DD22A56430005CEB9A /* Frameworks */ = {
+		DD86D54323D11B3E0046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF73240B38D100C20FED /* Half in Frameworks */,
+				DD86D54723D11B3E0046E63E /* CBORCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298E522A56430005CEB9A /* Frameworks */ = {
+		DD86D56D23D11C860046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD1298E922A56431005CEB9A /* CBORCoding.framework in Frameworks */,
+				DD9E2FB7271DBD1700C6D170 /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298FB22A5644C005CEB9A /* Frameworks */ = {
+		DD86D57523D11C860046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF75240B38D600C20FED /* Half in Frameworks */,
+				DD86D57923D11C860046E63E /* CBORCoding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD32E366228DDCFB002D9067 /* Frameworks */ = {
+		DD86D58923D11CA00046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF6E240B38A000C20FED /* Half in Frameworks */,
+				DD9E2FB9271DBD1A00C6D170 /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD32E36F228DDCFB002D9067 /* Frameworks */ = {
+		DD86D59123D11CA00046E63E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD32E373228DDCFB002D9067 /* CBORCoding.framework in Frameworks */,
+				DD86D59523D11CA00046E63E /* CBORCoding.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD86D5C123D11D140046E63E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9E2FBB271DBD1D00C6D170 /* Half in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DD12988F22A4876F005CEB9A /* Supporting Files */ = {
+		DD48BC9E270E0F1300D842BC /* Test Plans */ = {
 			isa = PBXGroup;
 			children = (
-				DD12989122A487FB005CEB9A /* CBORCoding.podspec */,
-				DDF755AC22A8649F002E11D4 /* Package.swift */,
-				DDB1DFA2240E949B00C20FED /* Package@swift-4.2.swift */,
-				DDF723882413688A00F58881 /* codecov.yml */,
-				DD1298A122A546B4005CEB9A /* .swiftlint.yml */,
-				DDF755AB22A80069002E11D4 /* .travis.yml */,
-				DD12989322A487FB005CEB9A /* README.md */,
-				DD12992022A5680A005CEB9A /* ATTRIBUTIONS */,
-				DD12989222A487FB005CEB9A /* LICENSE */,
-				DDB1DF012409E71200C20FED /* CBORCoding-Info.plist */,
-				DDB1DF3E2409E77500C20FED /* CBORCodingTests-Info.plist */,
+				DD48BC9F270E0F4500D842BC /* CBORCodingTests.xctestplan */,
+				DD48BCA0270E0F9A00D842BC /* CBORCoding macOS Tests.xctestplan */,
+				DD48BCA1270E0FE200D842BC /* CBORCoding tvOS Tests.xctestplan */,
+				DD48BCA2270E101D00D842BC /* CBORCoding watchOS Tests.xctestplan */,
 			);
-			name = "Supporting Files";
+			path = "Test Plans";
 			sourceTree = "<group>";
 		};
-		DD32E35F228DDCFB002D9067 = {
+		DD5D04E52621361600BA0FC2 /* CBORCoding */ = {
 			isa = PBXGroup;
 			children = (
-				DD32E36B228DDCFB002D9067 /* CBORCoding */,
-				DD32E36A228DDCFB002D9067 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		DD32E36A228DDCFB002D9067 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DD32E369228DDCFB002D9067 /* CBORCoding.framework */,
-				DD32E372228DDCFB002D9067 /* CBORCodingTests.xctest */,
-				DD1298A822A563BE005CEB9A /* CBORCoding.framework */,
-				DD1298B022A563BE005CEB9A /* CBORCoding macOS Tests.xctest */,
-				DD1298E022A56430005CEB9A /* CBORCoding.framework */,
-				DD1298E822A56430005CEB9A /* CBORCoding tvOS Tests.xctest */,
-				DD1298FE22A5644C005CEB9A /* CBORCoding.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		DD32E36B228DDCFB002D9067 /* CBORCoding */ = {
-			isa = PBXGroup;
-			children = (
-				DDB1DEFE2409E6DD00C20FED /* Sources */,
-				DDB1DEFF2409E6E600C20FED /* Tests */,
-				DD12988F22A4876F005CEB9A /* Supporting Files */,
-			);
-			name = CBORCoding;
-			sourceTree = "<group>";
-		};
-		DDB1DEFE2409E6DD00C20FED /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				DDB1DF022409E72400C20FED /* CBORCoding */,
-			);
-			path = Sources;
-			sourceTree = "<group>";
-		};
-		DDB1DEFF2409E6E600C20FED /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				DDB1DF292409E76500C20FED /* CBORCodingTests */,
-			);
-			path = Tests;
-			sourceTree = "<group>";
-		};
-		DDB1DF022409E72400C20FED /* CBORCoding */ = {
-			isa = PBXGroup;
-			children = (
-				DDB1DF282409E74500C20FED /* Coder */,
-				DDB1DF262409E72800C20FED /* Common */,
-				DDB1DF272409E73100C20FED /* CBOR */,
+				DD9E2F70271DB96B00C6D170 /* Coder */,
+				DD9E2F6F271DB96400C6D170 /* Common */,
+				DD9E2F6E271DB95B00C6D170 /* CBOR */,
 			);
 			path = CBORCoding;
 			sourceTree = "<group>";
 		};
-		DDB1DF262409E72800C20FED /* Common */ = {
+		DD5D04F22621362400BA0FC2 /* CBORCodingTests */ = {
 			isa = PBXGroup;
 			children = (
-				DDB1DF032409E72400C20FED /* Containers.swift */,
+				DD9E2F72271DB97900C6D170 /* CBORDecoderTests.swift */,
+				DD9E2F75271DB97900C6D170 /* CBOREncoderTests.swift */,
+				DD9E2F74271DB97900C6D170 /* CBORParserTests.swift */,
+				DD9E2F71271DB97900C6D170 /* CBORTests.swift */,
+				DD9E2F73271DB97900C6D170 /* ContainersTests.swift */,
 			);
-			name = Common;
+			path = CBORCodingTests;
 			sourceTree = "<group>";
 		};
-		DDB1DF272409E73100C20FED /* CBOR */ = {
+		DD86D53323D11B3E0046E63E = {
 			isa = PBXGroup;
 			children = (
-				DDB1DF072409E72400C20FED /* CBOR.swift */,
-				DDB1DF052409E72400C20FED /* CBOR+Equatable.swift */,
-				DDB1DF082409E72400C20FED /* CBOR+Codable.swift */,
+				DD86D53F23D11B3E0046E63E /* CBORCoding */,
+				DD86D53E23D11B3E0046E63E /* Products */,
+				DD9E2FB5271DBD1700C6D170 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		DD86D53E23D11B3E0046E63E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD86D53D23D11B3E0046E63E /* CBORCoding.framework */,
+				DD86D54623D11B3E0046E63E /* CBORCodingTests.xctest */,
+				DD86D57023D11C860046E63E /* CBORCoding.framework */,
+				DD86D57823D11C860046E63E /* CBORCodingTests.xctest */,
+				DD86D58C23D11CA00046E63E /* CBORCoding.framework */,
+				DD86D59423D11CA00046E63E /* CBORCodingTests.xctest */,
+				DD86D5C423D11D140046E63E /* CBORCoding.framework */,
+				DD48BC94270E0DE800D842BC /* CBORCodingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD86D53F23D11B3E0046E63E /* CBORCoding */ = {
+			isa = PBXGroup;
+			children = (
+				DDB1DE252405EE5F00C20FED /* Sources */,
+				DDB1DE502405EE9900C20FED /* Tests */,
+				DD86D55B23D11BA80046E63E /* Supporting Files */,
+			);
+			name = CBORCoding;
+			sourceTree = "<group>";
+		};
+		DD86D55B23D11BA80046E63E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD17A9F9257744BC00D30599 /* scripts */,
+				DDA26DBD256EA4D700E1C6D7 /* workflows */,
+				DD86D5E023D22DB90046E63E /* CBORCoding.podspec */,
+				DD86D5DF23D22DB90046E63E /* Package.swift */,
+				DD9E303F271E69BA00C6D170 /* Package@swift-4.2.swift */,
+				DDB1DE5C2405EEE300C20FED /* codecov.yml */,
+				DD86D5E323D22DC30046E63E /* .swiftlint.yml */,
+				DD86D5E123D22DB90046E63E /* README.md */,
+				DD9E2F6D271DB8ED00C6D170 /* ATTRIBUTIONS */,
+				DD86D5DE23D22DB90046E63E /* LICENSE */,
+				DD86D54123D11B3E0046E63E /* CBORCoding-Info.plist */,
+				DD5D044A261FA56400BA0FC2 /* CBORCodingTests-Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DD9E2F6E271DB95B00C6D170 /* CBOR */ = {
+			isa = PBXGroup;
+			children = (
+				DD9E2F7D271DB99C00C6D170 /* CBOR.swift */,
+				DD9E2F7B271DB99C00C6D170 /* CBOR+Codable.swift */,
+				DD9E2F7C271DB99C00C6D170 /* CBOR+Equatable.swift */,
 			);
 			name = CBOR;
 			sourceTree = "<group>";
 		};
-		DDB1DF282409E74500C20FED /* Coder */ = {
+		DD9E2F6F271DB96400C6D170 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				DDB1DF042409E72400C20FED /* CBOREncoder.swift */,
-				DDB1DF062409E72400C20FED /* CBORDecoder.swift */,
-				DDB1DF092409E72400C20FED /* CBORParser.swift */,
+				DD9E2F8A271DB9A000C6D170 /* Containers.swift */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		DD9E2F70271DB96B00C6D170 /* Coder */ = {
+			isa = PBXGroup;
+			children = (
+				DD9E2F8F271DB9A500C6D170 /* CBORDecoder.swift */,
+				DD9E2F91271DB9A500C6D170 /* CBOREncoder.swift */,
+				DD9E2F90271DB9A500C6D170 /* CBORParser.swift */,
 			);
 			name = Coder;
 			sourceTree = "<group>";
 		};
-		DDB1DF292409E76500C20FED /* CBORCodingTests */ = {
+		DD9E2FB5271DBD1700C6D170 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DDB1DF2A2409E76500C20FED /* CBORParserTests.swift */,
-				DDB1DF2B2409E76500C20FED /* CBORDecoderTests.swift */,
-				DDB1DF2C2409E76500C20FED /* CBORTests.swift */,
-				DDB1DF2D2409E76500C20FED /* ContainersTests.swift */,
-				DDB1DF2E2409E76500C20FED /* CBOREncoderTests.swift */,
 			);
-			path = CBORCodingTests;
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDB1DE252405EE5F00C20FED /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				DD5D04E52621361600BA0FC2 /* CBORCoding */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		DDB1DE502405EE9900C20FED /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				DD5D04F22621362400BA0FC2 /* CBORCodingTests */,
+				DD48BC9E270E0F1300D842BC /* Test Plans */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		DD1298A322A563BE005CEB9A /* Headers */ = {
+		DD86D53823D11B3E0046E63E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298DB22A56430005CEB9A /* Headers */ = {
+		DD86D56B23D11C860046E63E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298F922A5644C005CEB9A /* Headers */ = {
+		DD86D58723D11CA00046E63E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD32E364228DDCFB002D9067 /* Headers */ = {
+		DD86D5BF23D11D140046E63E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -411,194 +428,219 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DD1298A722A563BE005CEB9A /* CBORCoding macOS */ = {
+		DD48BC93270E0DE800D842BC /* CBORCoding watchOS Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD1298B922A563BE005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding macOS" */;
+			buildConfigurationList = DD48BC9D270E0DE800D842BC /* Build configuration list for PBXNativeTarget "CBORCoding watchOS Tests" */;
 			buildPhases = (
-				DD1298A322A563BE005CEB9A /* Headers */,
-				DD1298A422A563BE005CEB9A /* Sources */,
-				DD1298A522A563BE005CEB9A /* Frameworks */,
-				DD1298A622A563BE005CEB9A /* Resources */,
-				DD7B003723F46F18008AD6A7 /* Embed Frameworks */,
+				DD48BC90270E0DE800D842BC /* Sources */,
+				DD48BC91270E0DE800D842BC /* Frameworks */,
+				DD48BC92270E0DE800D842BC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DD07934E2412F06400EF65B4 /* PBXTargetDependency */,
-				DD12991B22A56494005CEB9A /* PBXTargetDependency */,
+				DD48BC9A270E0DE800D842BC /* PBXTargetDependency */,
 			);
-			name = "CBORCoding macOS";
-			packageProductDependencies = (
-				DDB1DF70240B38CB00C20FED /* Half */,
-			);
-			productName = "CBORCoding macOS";
-			productReference = DD1298A822A563BE005CEB9A /* CBORCoding.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DD1298AF22A563BE005CEB9A /* CBORCoding macOS Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DD1298BD22A563BE005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding macOS Tests" */;
-			buildPhases = (
-				DD1298AC22A563BE005CEB9A /* Sources */,
-				DD1298AD22A563BE005CEB9A /* Frameworks */,
-				DD1298AE22A563BE005CEB9A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DD1298B322A563BE005CEB9A /* PBXTargetDependency */,
-			);
-			name = "CBORCoding macOS Tests";
-			productName = "CBORCoding macOSTests";
-			productReference = DD1298B022A563BE005CEB9A /* CBORCoding macOS Tests.xctest */;
+			name = "CBORCoding watchOS Tests";
+			productName = "CBORCoding watchOS Tests";
+			productReference = DD48BC94270E0DE800D842BC /* CBORCodingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		DD1298DF22A56430005CEB9A /* CBORCoding tvOS */ = {
+		DD86D53C23D11B3E0046E63E /* CBORCoding */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD1298F122A56431005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding tvOS" */;
+			buildConfigurationList = DD86D55123D11B3E0046E63E /* Build configuration list for PBXNativeTarget "CBORCoding" */;
 			buildPhases = (
-				DD1298DB22A56430005CEB9A /* Headers */,
-				DD1298DC22A56430005CEB9A /* Sources */,
-				DD1298DD22A56430005CEB9A /* Frameworks */,
-				DD1298DE22A56430005CEB9A /* Resources */,
-				DD7B003B23F46F24008AD6A7 /* Embed Frameworks */,
+				DD86D53823D11B3E0046E63E /* Headers */,
+				DD86D53923D11B3E0046E63E /* Sources */,
+				DD86D53A23D11B3E0046E63E /* Frameworks */,
+				DD86D53B23D11B3E0046E63E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DD07934C2412F06000EF65B4 /* PBXTargetDependency */,
-				DD12991D22A5649B005CEB9A /* PBXTargetDependency */,
-			);
-			name = "CBORCoding tvOS";
-			packageProductDependencies = (
-				DDB1DF72240B38D100C20FED /* Half */,
-			);
-			productName = "CBORCoding tvOS";
-			productReference = DD1298E022A56430005CEB9A /* CBORCoding.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DD1298E722A56430005CEB9A /* CBORCoding tvOS Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DD1298F522A56431005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding tvOS Tests" */;
-			buildPhases = (
-				DD1298E422A56430005CEB9A /* Sources */,
-				DD1298E522A56430005CEB9A /* Frameworks */,
-				DD1298E622A56430005CEB9A /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DD1298EB22A56431005CEB9A /* PBXTargetDependency */,
-			);
-			name = "CBORCoding tvOS Tests";
-			productName = "CBORCoding tvOSTests";
-			productReference = DD1298E822A56430005CEB9A /* CBORCoding tvOS Tests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		DD1298FD22A5644C005CEB9A /* CBORCoding watchOS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DD12990322A5644C005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding watchOS" */;
-			buildPhases = (
-				DD1298F922A5644C005CEB9A /* Headers */,
-				DD1298FA22A5644C005CEB9A /* Sources */,
-				DD1298FB22A5644C005CEB9A /* Frameworks */,
-				DD1298FC22A5644C005CEB9A /* Resources */,
-				DD7B003F23F46F2E008AD6A7 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DD07934A2412F05D00EF65B4 /* PBXTargetDependency */,
-				DD12991F22A564A0005CEB9A /* PBXTargetDependency */,
-			);
-			name = "CBORCoding watchOS";
-			packageProductDependencies = (
-				DDB1DF74240B38D600C20FED /* Half */,
-			);
-			productName = "CBORCoding watchOS";
-			productReference = DD1298FE22A5644C005CEB9A /* CBORCoding.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		DD32E368228DDCFB002D9067 /* CBORCoding */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = DD32E37D228DDCFB002D9067 /* Build configuration list for PBXNativeTarget "CBORCoding" */;
-			buildPhases = (
-				DD32E364228DDCFB002D9067 /* Headers */,
-				DD32E365228DDCFB002D9067 /* Sources */,
-				DD32E366228DDCFB002D9067 /* Frameworks */,
-				DD32E367228DDCFB002D9067 /* Resources */,
-				DD7B003323F46F08008AD6A7 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				DD0793502412F06800EF65B4 /* PBXTargetDependency */,
-				DD1298A022A48C6C005CEB9A /* PBXTargetDependency */,
+				DD86D56A23D11C6C0046E63E /* PBXTargetDependency */,
 			);
 			name = CBORCoding;
 			packageProductDependencies = (
-				DDB1DF6D240B38A000C20FED /* Half */,
+				DD9E2FB3271DBCFF00C6D170 /* Half */,
 			);
 			productName = CBORCoding;
-			productReference = DD32E369228DDCFB002D9067 /* CBORCoding.framework */;
+			productReference = DD86D53D23D11B3E0046E63E /* CBORCoding.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		DD32E371228DDCFB002D9067 /* CBORCodingTests */ = {
+		DD86D54523D11B3E0046E63E /* CBORCodingTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DD32E380228DDCFB002D9067 /* Build configuration list for PBXNativeTarget "CBORCodingTests" */;
+			buildConfigurationList = DD86D55423D11B3E0046E63E /* Build configuration list for PBXNativeTarget "CBORCodingTests" */;
 			buildPhases = (
-				DD32E36E228DDCFB002D9067 /* Sources */,
-				DD32E36F228DDCFB002D9067 /* Frameworks */,
-				DD32E370228DDCFB002D9067 /* Resources */,
+				DD86D54223D11B3E0046E63E /* Sources */,
+				DD86D54323D11B3E0046E63E /* Frameworks */,
+				DD86D54423D11B3E0046E63E /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				DD32E375228DDCFB002D9067 /* PBXTargetDependency */,
+				DD86D54923D11B3E0046E63E /* PBXTargetDependency */,
 			);
 			name = CBORCodingTests;
 			productName = CBORCodingTests;
-			productReference = DD32E372228DDCFB002D9067 /* CBORCodingTests.xctest */;
+			productReference = DD86D54623D11B3E0046E63E /* CBORCodingTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD86D56F23D11C860046E63E /* CBORCoding macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD86D58123D11C870046E63E /* Build configuration list for PBXNativeTarget "CBORCoding macOS" */;
+			buildPhases = (
+				DD86D56B23D11C860046E63E /* Headers */,
+				DD86D56C23D11C860046E63E /* Sources */,
+				DD86D56D23D11C860046E63E /* Frameworks */,
+				DD86D56E23D11C860046E63E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD86D5D923D11DC60046E63E /* PBXTargetDependency */,
+			);
+			name = "CBORCoding macOS";
+			packageProductDependencies = (
+				DD9E2FB6271DBD1700C6D170 /* Half */,
+			);
+			productName = "CBORCoding macOS";
+			productReference = DD86D57023D11C860046E63E /* CBORCoding.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DD86D57723D11C860046E63E /* CBORCoding macOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD86D58423D11C870046E63E /* Build configuration list for PBXNativeTarget "CBORCoding macOS Tests" */;
+			buildPhases = (
+				DD86D57423D11C860046E63E /* Sources */,
+				DD86D57523D11C860046E63E /* Frameworks */,
+				DD86D57623D11C860046E63E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD86D57B23D11C860046E63E /* PBXTargetDependency */,
+			);
+			name = "CBORCoding macOS Tests";
+			productName = "CBORCoding macOSTests";
+			productReference = DD86D57823D11C860046E63E /* CBORCodingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD86D58B23D11CA00046E63E /* CBORCoding tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD86D59D23D11CA00046E63E /* Build configuration list for PBXNativeTarget "CBORCoding tvOS" */;
+			buildPhases = (
+				DD86D58723D11CA00046E63E /* Headers */,
+				DD86D58823D11CA00046E63E /* Sources */,
+				DD86D58923D11CA00046E63E /* Frameworks */,
+				DD86D58A23D11CA00046E63E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD86D5DB23D11DC90046E63E /* PBXTargetDependency */,
+			);
+			name = "CBORCoding tvOS";
+			packageProductDependencies = (
+				DD9E2FB8271DBD1A00C6D170 /* Half */,
+			);
+			productName = "CBORCoding tvOS";
+			productReference = DD86D58C23D11CA00046E63E /* CBORCoding.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		DD86D59323D11CA00046E63E /* CBORCoding tvOS Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD86D5A023D11CA00046E63E /* Build configuration list for PBXNativeTarget "CBORCoding tvOS Tests" */;
+			buildPhases = (
+				DD86D59023D11CA00046E63E /* Sources */,
+				DD86D59123D11CA00046E63E /* Frameworks */,
+				DD86D59223D11CA00046E63E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD86D59723D11CA00046E63E /* PBXTargetDependency */,
+			);
+			name = "CBORCoding tvOS Tests";
+			productName = "CBORCoding tvOSTests";
+			productReference = DD86D59423D11CA00046E63E /* CBORCodingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD86D5C323D11D140046E63E /* CBORCoding watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD86D5C923D11D140046E63E /* Build configuration list for PBXNativeTarget "CBORCoding watchOS" */;
+			buildPhases = (
+				DD86D5BF23D11D140046E63E /* Headers */,
+				DD86D5C023D11D140046E63E /* Sources */,
+				DD86D5C123D11D140046E63E /* Frameworks */,
+				DD86D5C223D11D140046E63E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD86D5DD23D11DCC0046E63E /* PBXTargetDependency */,
+			);
+			name = "CBORCoding watchOS";
+			packageProductDependencies = (
+				DD9E2FBA271DBD1D00C6D170 /* Half */,
+			);
+			productName = "CBORCoding watchOS";
+			productReference = DD86D5C423D11D140046E63E /* CBORCoding.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		DD32E360228DDCFB002D9067 /* Project object */ = {
+		DD86D53423D11B3E0046E63E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
-				ORGANIZATIONNAME = "Some Random iOS Dev";
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				ORGANIZATIONNAME = SomeRandomiOSDev;
 				TargetAttributes = {
-					DD12989722A48C30005CEB9A = {
-						CreatedOnToolsVersion = 10.2.1;
+					DD2FBC27258BE8BB00DB3211 = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DD1298A722A563BE005CEB9A = {
-						CreatedOnToolsVersion = 10.2.1;
+					DD48BC93270E0DE800D842BC = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DD1298AF22A563BE005CEB9A = {
-						CreatedOnToolsVersion = 10.2.1;
+					DD86D53C23D11B3E0046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DD1298DF22A56430005CEB9A = {
-						CreatedOnToolsVersion = 10.2.1;
+					DD86D54523D11B3E0046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DD1298E722A56430005CEB9A = {
-						CreatedOnToolsVersion = 10.2.1;
+					DD86D56423D11C4B0046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DD1298FD22A5644C005CEB9A = {
-						CreatedOnToolsVersion = 10.2.1;
+					DD86D56F23D11C860046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DD32E368228DDCFB002D9067 = {
-						CreatedOnToolsVersion = 10.2.1;
-						LastSwiftMigration = 1020;
+					DD86D57723D11C860046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
-					DD32E371228DDCFB002D9067 = {
-						CreatedOnToolsVersion = 10.2.1;
+					DD86D58B23D11CA00046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
+					};
+					DD86D59323D11CA00046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
+					};
+					DD86D5C323D11D140046E63E = {
+						CreatedOnToolsVersion = 13.0;
+						LastSwiftMigration = 1300;
 					};
 				};
 			};
-			buildConfigurationList = DD32E363228DDCFB002D9067 /* Build configuration list for PBXProject "CBORCoding" */;
+			buildConfigurationList = DD86D53723D11B3E0046E63E /* Build configuration list for PBXProject "CBORCoding" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -606,70 +648,79 @@
 				en,
 				Base,
 			);
-			mainGroup = DD32E35F228DDCFB002D9067;
+			mainGroup = DD86D53323D11B3E0046E63E;
 			packageReferences = (
-				DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */,
+				DD9E2FB2271DBCFF00C6D170 /* XCRemoteSwiftPackageReference "Half" */,
 			);
-			productRefGroup = DD32E36A228DDCFB002D9067 /* Products */;
+			productRefGroup = DD86D53E23D11B3E0046E63E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				DD32E368228DDCFB002D9067 /* CBORCoding */,
-				DD32E371228DDCFB002D9067 /* CBORCodingTests */,
-				DD1298A722A563BE005CEB9A /* CBORCoding macOS */,
-				DD1298AF22A563BE005CEB9A /* CBORCoding macOS Tests */,
-				DD1298DF22A56430005CEB9A /* CBORCoding tvOS */,
-				DD1298E722A56430005CEB9A /* CBORCoding tvOS Tests */,
-				DD1298FD22A5644C005CEB9A /* CBORCoding watchOS */,
-				DD12989722A48C30005CEB9A /* Run SwiftLint */,
+				DD86D53C23D11B3E0046E63E /* CBORCoding */,
+				DD86D54523D11B3E0046E63E /* CBORCodingTests */,
+				DD86D56F23D11C860046E63E /* CBORCoding macOS */,
+				DD86D57723D11C860046E63E /* CBORCoding macOS Tests */,
+				DD86D58B23D11CA00046E63E /* CBORCoding tvOS */,
+				DD86D59323D11CA00046E63E /* CBORCoding tvOS Tests */,
+				DD86D5C323D11D140046E63E /* CBORCoding watchOS */,
+				DD48BC93270E0DE800D842BC /* CBORCoding watchOS Tests */,
+				DD86D56423D11C4B0046E63E /* Run SwiftLint */,
+				DD2FBC27258BE8BB00DB3211 /* XCFramework */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DD1298A622A563BE005CEB9A /* Resources */ = {
+		DD48BC92270E0DE800D842BC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298AE22A563BE005CEB9A /* Resources */ = {
+		DD86D53B23D11B3E0046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298DE22A56430005CEB9A /* Resources */ = {
+		DD86D54423D11B3E0046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298E622A56430005CEB9A /* Resources */ = {
+		DD86D56E23D11C860046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298FC22A5644C005CEB9A /* Resources */ = {
+		DD86D57623D11C860046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD32E367228DDCFB002D9067 /* Resources */ = {
+		DD86D58A23D11CA00046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD32E370228DDCFB002D9067 /* Resources */ = {
+		DD86D59223D11CA00046E63E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD86D5C223D11D140046E63E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -679,7 +730,25 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		DD12989D22A48C47005CEB9A /* Run SwiftLint */ = {
+		DD2FBC33258BE8C600DB3211 /* Build XCFramework */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build XCFramework";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/scripts/xcframework.sh -configuration ${CONFIGURATION} -output \"${BUILD_DIR}/${CONFIGURATION}-universal/CBORCoding.xcframework\" \n";
+		};
+		DD86D56823D11C550046E63E /* Run SwiftLint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -700,406 +769,217 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DD1298A422A563BE005CEB9A /* Sources */ = {
+		DD48BC90270E0DE800D842BC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF0B2409E72400C20FED /* Containers.swift in Sources */,
-				DDB1DF1F2409E72400C20FED /* CBOR+Codable.swift in Sources */,
-				DDB1DF1B2409E72400C20FED /* CBOR.swift in Sources */,
-				DDB1DF132409E72400C20FED /* CBOR+Equatable.swift in Sources */,
-				DDB1DF0F2409E72400C20FED /* CBOREncoder.swift in Sources */,
-				DDB1DF232409E72400C20FED /* CBORParser.swift in Sources */,
-				DDB1DF172409E72400C20FED /* CBORDecoder.swift in Sources */,
+				DD9E2FAE271DB9C300C6D170 /* CBORDecoderTests.swift in Sources */,
+				DD9E2FAD271DB9C300C6D170 /* CBOREncoderTests.swift in Sources */,
+				DD9E2FB0271DB9C300C6D170 /* CBORParserTests.swift in Sources */,
+				DD9E2FAF271DB9C300C6D170 /* CBORTests.swift in Sources */,
+				DD9E2FB1271DB9C300C6D170 /* ContainersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298AC22A563BE005CEB9A /* Sources */ = {
+		DD86D53923D11B3E0046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF332409E76500C20FED /* CBORDecoderTests.swift in Sources */,
-				DDB1DF392409E76500C20FED /* ContainersTests.swift in Sources */,
-				DDB1DF3C2409E76500C20FED /* CBOREncoderTests.swift in Sources */,
-				DDB1DF302409E76500C20FED /* CBORParserTests.swift in Sources */,
-				DDB1DF362409E76500C20FED /* CBORTests.swift in Sources */,
+				DD9E2F96271DB9A500C6D170 /* CBORParser.swift in Sources */,
+				DD9E2F9A271DB9A500C6D170 /* CBOREncoder.swift in Sources */,
+				DD9E2F82271DB99C00C6D170 /* CBOR+Equatable.swift in Sources */,
+				DD9E2F92271DB9A500C6D170 /* CBORDecoder.swift in Sources */,
+				DD9E2F86271DB99C00C6D170 /* CBOR.swift in Sources */,
+				DD9E2F7E271DB99C00C6D170 /* CBOR+Codable.swift in Sources */,
+				DD9E2F8B271DB9A000C6D170 /* Containers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298DC22A56430005CEB9A /* Sources */ = {
+		DD86D54223D11B3E0046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF0C2409E72400C20FED /* Containers.swift in Sources */,
-				DDB1DF202409E72400C20FED /* CBOR+Codable.swift in Sources */,
-				DDB1DF1C2409E72400C20FED /* CBOR.swift in Sources */,
-				DDB1DF142409E72400C20FED /* CBOR+Equatable.swift in Sources */,
-				DDB1DF102409E72400C20FED /* CBOREncoder.swift in Sources */,
-				DDB1DF242409E72400C20FED /* CBORParser.swift in Sources */,
-				DDB1DF182409E72400C20FED /* CBORDecoder.swift in Sources */,
+				DD9E2F9F271DB9C100C6D170 /* CBORDecoderTests.swift in Sources */,
+				DD9E2F9E271DB9C100C6D170 /* CBOREncoderTests.swift in Sources */,
+				DD9E2FA1271DB9C100C6D170 /* CBORParserTests.swift in Sources */,
+				DD9E2FA0271DB9C100C6D170 /* CBORTests.swift in Sources */,
+				DD9E2FA2271DB9C100C6D170 /* ContainersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298E422A56430005CEB9A /* Sources */ = {
+		DD86D56C23D11C860046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF342409E76500C20FED /* CBORDecoderTests.swift in Sources */,
-				DDB1DF3A2409E76500C20FED /* ContainersTests.swift in Sources */,
-				DDB1DF3D2409E76600C20FED /* CBOREncoderTests.swift in Sources */,
-				DDB1DF312409E76500C20FED /* CBORParserTests.swift in Sources */,
-				DDB1DF372409E76500C20FED /* CBORTests.swift in Sources */,
+				DD9E2F87271DB99C00C6D170 /* CBOR.swift in Sources */,
+				DD9E2F8C271DB9A000C6D170 /* Containers.swift in Sources */,
+				DD9E2F93271DB9A500C6D170 /* CBORDecoder.swift in Sources */,
+				DD9E2F83271DB99C00C6D170 /* CBOR+Equatable.swift in Sources */,
+				DD9E2F97271DB9A500C6D170 /* CBORParser.swift in Sources */,
+				DD9E2F9B271DB9A500C6D170 /* CBOREncoder.swift in Sources */,
+				DD9E2F7F271DB99C00C6D170 /* CBOR+Codable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD1298FA22A5644C005CEB9A /* Sources */ = {
+		DD86D57423D11C860046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF0D2409E72400C20FED /* Containers.swift in Sources */,
-				DDB1DF212409E72400C20FED /* CBOR+Codable.swift in Sources */,
-				DDB1DF1D2409E72400C20FED /* CBOR.swift in Sources */,
-				DDB1DF152409E72400C20FED /* CBOR+Equatable.swift in Sources */,
-				DDB1DF112409E72400C20FED /* CBOREncoder.swift in Sources */,
-				DDB1DF252409E72400C20FED /* CBORParser.swift in Sources */,
-				DDB1DF192409E72400C20FED /* CBORDecoder.swift in Sources */,
+				DD9E2FA4271DB9C100C6D170 /* CBORDecoderTests.swift in Sources */,
+				DD9E2FA3271DB9C100C6D170 /* CBOREncoderTests.swift in Sources */,
+				DD9E2FA6271DB9C100C6D170 /* CBORParserTests.swift in Sources */,
+				DD9E2FA5271DB9C100C6D170 /* CBORTests.swift in Sources */,
+				DD9E2FA7271DB9C100C6D170 /* ContainersTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD32E365228DDCFB002D9067 /* Sources */ = {
+		DD86D58823D11CA00046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF0A2409E72400C20FED /* Containers.swift in Sources */,
-				DDB1DF1E2409E72400C20FED /* CBOR+Codable.swift in Sources */,
-				DDB1DF1A2409E72400C20FED /* CBOR.swift in Sources */,
-				DDB1DF122409E72400C20FED /* CBOR+Equatable.swift in Sources */,
-				DDB1DF0E2409E72400C20FED /* CBOREncoder.swift in Sources */,
-				DDB1DF222409E72400C20FED /* CBORParser.swift in Sources */,
-				DDB1DF162409E72400C20FED /* CBORDecoder.swift in Sources */,
+				DD9E2F88271DB99C00C6D170 /* CBOR.swift in Sources */,
+				DD9E2F8D271DB9A000C6D170 /* Containers.swift in Sources */,
+				DD9E2F94271DB9A500C6D170 /* CBORDecoder.swift in Sources */,
+				DD9E2F84271DB99C00C6D170 /* CBOR+Equatable.swift in Sources */,
+				DD9E2F98271DB9A500C6D170 /* CBORParser.swift in Sources */,
+				DD9E2F9C271DB9A500C6D170 /* CBOREncoder.swift in Sources */,
+				DD9E2F80271DB99C00C6D170 /* CBOR+Codable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DD32E36E228DDCFB002D9067 /* Sources */ = {
+		DD86D59023D11CA00046E63E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DDB1DF322409E76500C20FED /* CBORDecoderTests.swift in Sources */,
-				DDB1DF382409E76500C20FED /* ContainersTests.swift in Sources */,
-				DDB1DF3B2409E76500C20FED /* CBOREncoderTests.swift in Sources */,
-				DDB1DF2F2409E76500C20FED /* CBORParserTests.swift in Sources */,
-				DDB1DF352409E76500C20FED /* CBORTests.swift in Sources */,
+				DD9E2FA9271DB9C200C6D170 /* CBORDecoderTests.swift in Sources */,
+				DD9E2FA8271DB9C200C6D170 /* CBOREncoderTests.swift in Sources */,
+				DD9E2FAB271DB9C200C6D170 /* CBORParserTests.swift in Sources */,
+				DD9E2FAA271DB9C200C6D170 /* CBORTests.swift in Sources */,
+				DD9E2FAC271DB9C200C6D170 /* ContainersTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD86D5C023D11D140046E63E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD9E2F89271DB99C00C6D170 /* CBOR.swift in Sources */,
+				DD9E2F8E271DB9A000C6D170 /* Containers.swift in Sources */,
+				DD9E2F95271DB9A500C6D170 /* CBORDecoder.swift in Sources */,
+				DD9E2F85271DB99C00C6D170 /* CBOR+Equatable.swift in Sources */,
+				DD9E2F99271DB9A500C6D170 /* CBORParser.swift in Sources */,
+				DD9E2F9D271DB9A500C6D170 /* CBOREncoder.swift in Sources */,
+				DD9E2F81271DB99C00C6D170 /* CBOR+Codable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		DD07934A2412F05D00EF65B4 /* PBXTargetDependency */ = {
+		DD48BC9A270E0DE800D842BC /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = DD0793492412F05D00EF65B4 /* Half */;
+			target = DD86D5C323D11D140046E63E /* CBORCoding watchOS */;
+			targetProxy = DD48BC99270E0DE800D842BC /* PBXContainerItemProxy */;
 		};
-		DD07934C2412F06000EF65B4 /* PBXTargetDependency */ = {
+		DD86D54923D11B3E0046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = DD07934B2412F06000EF65B4 /* Half */;
+			target = DD86D53C23D11B3E0046E63E /* CBORCoding */;
+			targetProxy = DD86D54823D11B3E0046E63E /* PBXContainerItemProxy */;
 		};
-		DD07934E2412F06400EF65B4 /* PBXTargetDependency */ = {
+		DD86D56A23D11C6C0046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = DD07934D2412F06400EF65B4 /* Half */;
+			target = DD86D56423D11C4B0046E63E /* Run SwiftLint */;
+			targetProxy = DD86D56923D11C6C0046E63E /* PBXContainerItemProxy */;
 		};
-		DD0793502412F06800EF65B4 /* PBXTargetDependency */ = {
+		DD86D57B23D11C860046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			productRef = DD07934F2412F06800EF65B4 /* Half */;
+			target = DD86D56F23D11C860046E63E /* CBORCoding macOS */;
+			targetProxy = DD86D57A23D11C860046E63E /* PBXContainerItemProxy */;
 		};
-		DD1298A022A48C6C005CEB9A /* PBXTargetDependency */ = {
+		DD86D59723D11CA00046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DD12989722A48C30005CEB9A /* Run SwiftLint */;
-			targetProxy = DD12989F22A48C6C005CEB9A /* PBXContainerItemProxy */;
+			target = DD86D58B23D11CA00046E63E /* CBORCoding tvOS */;
+			targetProxy = DD86D59623D11CA00046E63E /* PBXContainerItemProxy */;
 		};
-		DD1298B322A563BE005CEB9A /* PBXTargetDependency */ = {
+		DD86D5D923D11DC60046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DD1298A722A563BE005CEB9A /* CBORCoding macOS */;
-			targetProxy = DD1298B222A563BE005CEB9A /* PBXContainerItemProxy */;
+			target = DD86D56423D11C4B0046E63E /* Run SwiftLint */;
+			targetProxy = DD86D5D823D11DC60046E63E /* PBXContainerItemProxy */;
 		};
-		DD1298EB22A56431005CEB9A /* PBXTargetDependency */ = {
+		DD86D5DB23D11DC90046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DD1298DF22A56430005CEB9A /* CBORCoding tvOS */;
-			targetProxy = DD1298EA22A56431005CEB9A /* PBXContainerItemProxy */;
+			target = DD86D56423D11C4B0046E63E /* Run SwiftLint */;
+			targetProxy = DD86D5DA23D11DC90046E63E /* PBXContainerItemProxy */;
 		};
-		DD12991B22A56494005CEB9A /* PBXTargetDependency */ = {
+		DD86D5DD23D11DCC0046E63E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = DD12989722A48C30005CEB9A /* Run SwiftLint */;
-			targetProxy = DD12991A22A56494005CEB9A /* PBXContainerItemProxy */;
-		};
-		DD12991D22A5649B005CEB9A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DD12989722A48C30005CEB9A /* Run SwiftLint */;
-			targetProxy = DD12991C22A5649B005CEB9A /* PBXContainerItemProxy */;
-		};
-		DD12991F22A564A0005CEB9A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DD12989722A48C30005CEB9A /* Run SwiftLint */;
-			targetProxy = DD12991E22A564A0005CEB9A /* PBXContainerItemProxy */;
-		};
-		DD32E375228DDCFB002D9067 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = DD32E368228DDCFB002D9067 /* CBORCoding */;
-			targetProxy = DD32E374228DDCFB002D9067 /* PBXContainerItemProxy */;
+			target = DD86D56423D11C4B0046E63E /* Run SwiftLint */;
+			targetProxy = DD86D5DC23D11DCC0046E63E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		DD12989922A48C30005CEB9A /* Debug */ = {
+		DD2FBC28258BE8BB00DB3211 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
-		DD12989B22A48C30005CEB9A /* Release */ = {
+		DD2FBC29258BE8BB00DB3211 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
 			};
 			name = Release;
 		};
-		DD1298BA22A563BE005CEB9A /* Debug */ = {
+		DD48BC9B270E0DE800D842BC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
-				PRODUCT_NAME = CBORCoding;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = macosx;
-			};
-			name = Debug;
-		};
-		DD1298BC22A563BE005CEB9A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
-				PRODUCT_NAME = CBORCoding;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = macosx;
-			};
-			name = Release;
-		};
-		DD1298BE22A563BE005CEB9A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/Mac\"",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		DD1298C022A563BE005CEB9A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/Mac\"",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		DD1298F222A56431005CEB9A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
-				PRODUCT_NAME = CBORCoding;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
-				TARGETED_DEVICE_FAMILY = 3;
-			};
-			name = Debug;
-		};
-		DD1298F422A56431005CEB9A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
-				PRODUCT_NAME = CBORCoding;
-				SDKROOT = appletvos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "appletvsimulator appletvos";
-				TARGETED_DEVICE_FAMILY = 3;
-			};
-			name = Release;
-		};
-		DD1298F622A56431005CEB9A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/tvOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.2;
-			};
-			name = Debug;
-		};
-		DD1298F822A56431005CEB9A /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/tvOS\"",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = appletvos;
-				TARGETED_DEVICE_FAMILY = 3;
-				TVOS_DEPLOYMENT_TARGET = 12.2;
-			};
-			name = Release;
-		};
-		DD12990422A5644C005CEB9A /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
-				CODE_SIGN_IDENTITY = "";
-				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
-				PRODUCT_NAME = CBORCoding;
+				PRODUCT_NAME = CBORCodingTests;
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Debug;
 		};
-		DD12990622A5644C005CEB9A /* Release */ = {
+		DD48BC9C270E0DE800D842BC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				APPLICATION_EXTENSION_API_ONLY = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				INFOPLIST_FILE = "Plists/TestProjectTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
-				PRODUCT_NAME = CBORCoding;
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.testprojecttests;
+				PRODUCT_NAME = TestProjectTests;
 				SDKROOT = watchos;
-				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "watchsimulator watchos";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
 		};
-		DD32E37B228DDCFB002D9067 /* Debug */ = {
+		DD86D54F23D11B3E0046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1125,6 +1005,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1151,7 +1032,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -1160,15 +1041,14 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
-		DD32E37C228DDCFB002D9067 /* Release */ = {
+		DD86D55023D11B3E0046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1194,6 +1074,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1214,7 +1095,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -1222,8 +1103,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
+				TVOS_DEPLOYMENT_TARGET = 12.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1231,7 +1111,7 @@
 			};
 			name = Release;
 		};
-		DD32E37E228DDCFB002D9067 /* Debug */ = {
+		DD86D55223D11B3E0046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -1249,14 +1129,15 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = CBORCoding;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
-		DD32E37F228DDCFB002D9067 /* Release */ = {
+		DD86D55323D11B3E0046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -1274,124 +1155,410 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = CBORCoding;
 				SKIP_INSTALL = YES;
-				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
-		DD32E381228DDCFB002D9067 /* Debug */ = {
+		DD86D55523D11B3E0046E63E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/iOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = CBORCodingTests;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+			};
+			name = Debug;
+		};
+		DD86D55623D11B3E0046E63E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = CBORCodingTests;
+				TARGETED_DEVICE_FAMILY = "1,2,6";
+			};
+			name = Release;
+		};
+		DD86D56623D11C4B0046E63E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		DD32E382228DDCFB002D9067 /* Release */ = {
+		DD86D56723D11C4B0046E63E /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DD86D58223D11C870046E63E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DD86D58323D11C870046E63E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DD86D58523D11C870046E63E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = CBORCodingTests;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		DD86D58623D11C870046E63E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = CBORCodingTests;
+				SDKROOT = macosx;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		DD86D59E23D11CA00046E63E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		DD86D59F23D11CA00046E63E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+		DD86D5A123D11CA00046E63E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
-					"\"${PROJECT_DIR}/Carthage/Build/iOS\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CBORCodingTests;
+				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Debug;
+		};
+		DD86D5A223D11CA00046E63E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = "Plists/CBORCodingTests-Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcodingtests;
+				PRODUCT_NAME = CBORCodingTests;
+				SDKROOT = appletvos;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 3;
+			};
+			name = Release;
+		};
+		DD86D5CA23D11D140046E63E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
+			};
+			name = Debug;
+		};
+		DD86D5CB23D11D140046E63E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Plists/CBORCoding-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.somerandomiosdev.cborcoding;
+				PRODUCT_NAME = CBORCoding;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 4;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DD12989822A48C30005CEB9A /* Build configuration list for PBXAggregateTarget "Run SwiftLint" */ = {
+		DD2FBC2A258BE8BB00DB3211 /* Build configuration list for PBXAggregateTarget "XCFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD12989922A48C30005CEB9A /* Debug */,
-				DD12989B22A48C30005CEB9A /* Release */,
+				DD2FBC28258BE8BB00DB3211 /* Debug */,
+				DD2FBC29258BE8BB00DB3211 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD1298B922A563BE005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding macOS" */ = {
+		DD48BC9D270E0DE800D842BC /* Build configuration list for PBXNativeTarget "CBORCoding watchOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD1298BA22A563BE005CEB9A /* Debug */,
-				DD1298BC22A563BE005CEB9A /* Release */,
+				DD48BC9B270E0DE800D842BC /* Debug */,
+				DD48BC9C270E0DE800D842BC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD1298BD22A563BE005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding macOS Tests" */ = {
+		DD86D53723D11B3E0046E63E /* Build configuration list for PBXProject "CBORCoding" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD1298BE22A563BE005CEB9A /* Debug */,
-				DD1298C022A563BE005CEB9A /* Release */,
+				DD86D54F23D11B3E0046E63E /* Debug */,
+				DD86D55023D11B3E0046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD1298F122A56431005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding tvOS" */ = {
+		DD86D55123D11B3E0046E63E /* Build configuration list for PBXNativeTarget "CBORCoding" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD1298F222A56431005CEB9A /* Debug */,
-				DD1298F422A56431005CEB9A /* Release */,
+				DD86D55223D11B3E0046E63E /* Debug */,
+				DD86D55323D11B3E0046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD1298F522A56431005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding tvOS Tests" */ = {
+		DD86D55423D11B3E0046E63E /* Build configuration list for PBXNativeTarget "CBORCodingTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD1298F622A56431005CEB9A /* Debug */,
-				DD1298F822A56431005CEB9A /* Release */,
+				DD86D55523D11B3E0046E63E /* Debug */,
+				DD86D55623D11B3E0046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD12990322A5644C005CEB9A /* Build configuration list for PBXNativeTarget "CBORCoding watchOS" */ = {
+		DD86D56523D11C4B0046E63E /* Build configuration list for PBXAggregateTarget "Run SwiftLint" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD12990422A5644C005CEB9A /* Debug */,
-				DD12990622A5644C005CEB9A /* Release */,
+				DD86D56623D11C4B0046E63E /* Debug */,
+				DD86D56723D11C4B0046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD32E363228DDCFB002D9067 /* Build configuration list for PBXProject "CBORCoding" */ = {
+		DD86D58123D11C870046E63E /* Build configuration list for PBXNativeTarget "CBORCoding macOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD32E37B228DDCFB002D9067 /* Debug */,
-				DD32E37C228DDCFB002D9067 /* Release */,
+				DD86D58223D11C870046E63E /* Debug */,
+				DD86D58323D11C870046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD32E37D228DDCFB002D9067 /* Build configuration list for PBXNativeTarget "CBORCoding" */ = {
+		DD86D58423D11C870046E63E /* Build configuration list for PBXNativeTarget "CBORCoding macOS Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD32E37E228DDCFB002D9067 /* Debug */,
-				DD32E37F228DDCFB002D9067 /* Release */,
+				DD86D58523D11C870046E63E /* Debug */,
+				DD86D58623D11C870046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		DD32E380228DDCFB002D9067 /* Build configuration list for PBXNativeTarget "CBORCodingTests" */ = {
+		DD86D59D23D11CA00046E63E /* Build configuration list for PBXNativeTarget "CBORCoding tvOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD32E381228DDCFB002D9067 /* Debug */,
-				DD32E382228DDCFB002D9067 /* Release */,
+				DD86D59E23D11CA00046E63E /* Debug */,
+				DD86D59F23D11CA00046E63E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD86D5A023D11CA00046E63E /* Build configuration list for PBXNativeTarget "CBORCoding tvOS Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD86D5A123D11CA00046E63E /* Debug */,
+				DD86D5A223D11CA00046E63E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD86D5C923D11D140046E63E /* Build configuration list for PBXNativeTarget "CBORCoding watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD86D5CA23D11D140046E63E /* Debug */,
+				DD86D5CB23D11D140046E63E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1399,58 +1566,38 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */ = {
+		DD9E2FB2271DBCFF00C6D170 /* XCRemoteSwiftPackageReference "Half" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SomeRandomiOSDev/Half.git";
+			repositoryURL = "https://github.com/SomeRandomiOSDev/Half";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
+				minimumVersion = 1.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		DD0793492412F05D00EF65B4 /* Half */ = {
+		DD9E2FB3271DBCFF00C6D170 /* Half */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			package = DD9E2FB2271DBCFF00C6D170 /* XCRemoteSwiftPackageReference "Half" */;
 			productName = Half;
 		};
-		DD07934B2412F06000EF65B4 /* Half */ = {
+		DD9E2FB6271DBD1700C6D170 /* Half */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			package = DD9E2FB2271DBCFF00C6D170 /* XCRemoteSwiftPackageReference "Half" */;
 			productName = Half;
 		};
-		DD07934D2412F06400EF65B4 /* Half */ = {
+		DD9E2FB8271DBD1A00C6D170 /* Half */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			package = DD9E2FB2271DBCFF00C6D170 /* XCRemoteSwiftPackageReference "Half" */;
 			productName = Half;
 		};
-		DD07934F2412F06800EF65B4 /* Half */ = {
+		DD9E2FBA271DBD1D00C6D170 /* Half */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
-			productName = Half;
-		};
-		DDB1DF6D240B38A000C20FED /* Half */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
-			productName = Half;
-		};
-		DDB1DF70240B38CB00C20FED /* Half */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
-			productName = Half;
-		};
-		DDB1DF72240B38D100C20FED /* Half */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
-			productName = Half;
-		};
-		DDB1DF74240B38D600C20FED /* Half */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DDB1DF6C240B38A000C20FED /* XCRemoteSwiftPackageReference "Half" */;
+			package = DD9E2FB2271DBCFF00C6D170 /* XCRemoteSwiftPackageReference "Half" */;
 			productName = Half;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = DD32E360228DDCFB002D9067 /* Project object */;
+	rootObject = DD86D53423D11B3E0046E63E /* Project object */;
 }

@@ -1,0 +1,17 @@
+name: XCFramework
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    name: Build
+    runs-on: macOS-latest
+    env:
+      TMPDIR: /tmp/.cborcoding.xcframework.build
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        ./scripts/xcframework.sh -output ${TMPDIR}/CBORCoding.xcframework

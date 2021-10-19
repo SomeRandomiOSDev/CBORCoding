@@ -5,7 +5,7 @@ let package = Package(
     name: "CBORCoding",
 
     platforms: [
-        .iOS("8.0"),
+        .iOS("9.0"),
         .macOS("10.10"),
         .tvOS("9.0"),
         .watchOS("2.0")
@@ -16,7 +16,7 @@ let package = Package(
     ],
 
     dependencies: [
-        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.2.0")
+        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.2.1")
     ],
 
     targets: [
