@@ -19,15 +19,15 @@ internal class CBORParser {
         guard !data.isEmpty else { return nil }
 
         var storage = Storage()
-        var index: Int = 0
+        var index = data.startIndex
 
         do {
-            while index < data.count {
+            while index < data.endIndex {
                 let majorType = CBOR.majorType(for: data[index])
 
                 switch majorType {
                 case .unsigned:
-                    let unsigned = try decode(UInt64.self, from: Data(data[index...]))
+                    let unsigned = try decode(UInt64.self, from: data[index...])
                     try storage.append(unsigned.value)
 
                     index += unsigned.decodedBytes
@@ -36,11 +36,11 @@ internal class CBORParser {
                     let signed: (value: Any, decodedBytes: Int)
 
                     do {
-                        let result = try decode(Int64.self, from: Data(data[index...]))
+                        let result = try decode(Int64.self, from: data[index...])
                         signed = (result.value, result.decodedBytes)
                     } catch let firstError {
                         do {
-                            let result = try decode(CBOR.NegativeUInt64.self, from: Data(data[index...]))
+                            let result = try decode(CBOR.NegativeUInt64.self, from: data[index...])
                             signed = (result.value, result.decodedBytes)
                         } catch {
                             throw firstError
@@ -51,13 +51,13 @@ internal class CBORParser {
                     index += signed.decodedBytes
 
                 case .bytes:
-                    let bytes = try decode(Data.self, from: Data(data[index...]))
+                    let bytes = try decode(Data.self, from: data[index...])
                     try storage.append(bytes.value)
 
                     index += bytes.decodedBytes
 
                 case .string:
-                    let string = try decode(String.self, from: Data(data[index...]))
+                    let string = try decode(String.self, from: data[index...])
                     try storage.append(string.value)
 
                     index += string.decodedBytes
@@ -69,7 +69,7 @@ internal class CBORParser {
 
                         index += 1
                     } else {
-                        let unsigned = try decode(UInt64.self, from: Data(data[index...]), knownMajorType: majorType)
+                        let unsigned = try decode(UInt64.self, from: data[index...], knownMajorType: majorType)
                         try storage.startUnkeyedContainer(ofLength: unsigned.value)
 
                         index += unsigned.decodedBytes
@@ -82,50 +82,50 @@ internal class CBORParser {
 
                         index += 1
                     } else {
-                        let unsigned = try decode(UInt64.self, from: Data(data[index...]), knownMajorType: majorType)
+                        let unsigned = try decode(UInt64.self, from: data[index...], knownMajorType: majorType)
                         try storage.startKeyedContainer(ofLength: unsigned.value)
 
                         index += unsigned.decodedBytes
                     }
 
                 case .tag:
-                    if let tag = CBOR.Tag(bits: Data(data[index...])) {
+                    if let tag = CBOR.Tag(bits: data[index...]) {
                         index += tag.bits.count
 
                         switch tag {
                         case .standardDateTime, .epochDateTime:
-                            let date = try decode(Date.self, tag: tag, from: Data(data[index...]))
+                            let date = try decode(Date.self, tag: tag, from: data[index...])
                             try storage.append(date.value)
 
                             index += date.decodedBytes
 
                         case .positiveBignum, .negativeBignum:
-                            let bignum = try decode(CBOR.Bignum.self, tag: tag, from: Data(data[index...]))
+                            let bignum = try decode(CBOR.Bignum.self, tag: tag, from: data[index...])
                             try storage.append(bignum.value)
 
                             index += bignum.decodedBytes
 
                         case .decimalFraction:
-                            let decimal = try decode(CBOR.DecimalFraction<Int64, Int64>.self, from: Data(data[index...]))
+                            let decimal = try decode(CBOR.DecimalFraction<Int64, Int64>.self, from: data[index...])
                             try storage.append(decimal.value)
 
                             index += decimal.decodedBytes
 
                         case .bigfloat:
-                            let bigfloat = try decode(CBOR.Bigfloat<Int64, Int64>.self, from: Data(data[index...]))
+                            let bigfloat = try decode(CBOR.Bigfloat<Int64, Int64>.self, from: data[index...])
                             try storage.append(bigfloat.value)
 
                             index += bigfloat.decodedBytes
 
                         case .base64URLConversion, .base64Conversion, .base16Conversion:
                             do {
-                                let string = try decode(String.self, from: Data(data[index...]))
+                                let string = try decode(String.self, from: data[index...])
                                 try storage.append(string.value)
 
                                 index += string.decodedBytes
                             } catch {
                                 do {
-                                    let bytes = try decode(Data.self, from: Data(data[index...]))
+                                    let bytes = try decode(Data.self, from: data[index...])
                                     try storage.append(bytes.value)
 
                                     index += bytes.decodedBytes
@@ -135,19 +135,19 @@ internal class CBORParser {
                             }
 
                         case .encodedCBORData:
-                            let bytes = try decode(Data.self, from: Data(data[index...]))
+                            let bytes = try decode(Data.self, from: data[index...])
                             try storage.append(bytes.value)
 
                             index += bytes.decodedBytes
 
                         case .uri:
-                            let url = try decode(URL.self, from: Data(data[index...]))
+                            let url = try decode(URL.self, from: data[index...])
                             try storage.append(url.value)
 
                             index += url.decodedBytes
 
                         case .base64URL, .base64, .regularExpression:
-                            let string = try decode(String.self, from: Data(data[index...]))
+                            let string = try decode(String.self, from: data[index...])
                             let decodedString = try string.value.decodedStringValue()
 
                             if tag == .base64URL {
@@ -177,7 +177,7 @@ internal class CBORParser {
                             index += string.decodedBytes
 
                         case .mimeMessage:
-                            let string = try decode(String.self, from: Data(data[index...]))
+                            let string = try decode(String.self, from: data[index...])
                             try storage.append(string.value)
 
                             index += string.decodedBytes
@@ -188,7 +188,7 @@ internal class CBORParser {
                     } else {
                         let unsigned: UInt64
                         do {
-                            unsigned = try decode(UInt64.self, from: Data(data[index...]), knownMajorType: .tag).value
+                            unsigned = try decode(UInt64.self, from: data[index...], knownMajorType: .tag).value
                         } catch {
                             throw CBOR.DecodingError.dataCorrupted(description: "Invalid CBOR tag")
                         }
@@ -220,25 +220,25 @@ internal class CBORParser {
                         index += 1
 
                     case 24:
-                        let simple = try decode(CBOR.SimpleValue.self, from: Data(data[index...]))
+                        let simple = try decode(CBOR.SimpleValue.self, from: data[index...])
                         try storage.append(simple.value)
 
                         index += simple.decodedBytes
 
                     case 25:
-                        let half = try decode(Half.self, from: Data(data[index...]))
+                        let half = try decode(Half.self, from: data[index...])
                         try storage.append(half.value)
 
                         index += half.decodedBytes
 
                     case 26:
-                        let float = try decode(Float.self, from: Data(data[index...]))
+                        let float = try decode(Float.self, from: data[index...])
                         try storage.append(float.value)
 
                         index += float.decodedBytes
 
                     case 27:
-                        let double = try decode(Double.self, from: Data(data[index...]))
+                        let double = try decode(Double.self, from: data[index...])
                         try storage.append(double.value)
 
                         index += double.decodedBytes
@@ -259,15 +259,15 @@ internal class CBORParser {
         return try storage.finalize()
     }
 
-    internal static func type(for bytes: Data) throws -> Any.Type {
+    internal class func type(for bytes: Data) throws -> Any.Type {
         do {
             guard !bytes.isEmpty else {
                 throw CBOR.DecodingError.insufficientEncodedBytes(expected: nil)
             }
             let type: Any.Type
 
-            let majorType = CBOR.majorType(for: bytes[0])
-            let additionalInfo = CBOR.additionalInfo(for: bytes[0])
+            let majorType = CBOR.majorType(for: bytes[bytes.startIndex])
+            let additionalInfo = CBOR.additionalInfo(for: bytes[bytes.startIndex])
 
             switch majorType {
             case .unsigned:
@@ -323,7 +323,7 @@ internal class CBORParser {
                         throw CBOR.DecodingError.insufficientEncodedBytes(expected: nil)
                     }
 
-                    switch bytes[1] {
+                    switch bytes[bytes.index(after: bytes.startIndex)] {
                     case 24:      type = Data.self
                     case 32...36: type = String.self
                     default:      throw CBOR.DecodingError.dataCorrupted(description: "Invalid encoded tag")
@@ -334,7 +334,7 @@ internal class CBORParser {
                         throw CBOR.DecodingError.insufficientEncodedBytes(expected: nil)
                     }
 
-                    switch (bytes[1], bytes[2]) {
+                    switch (bytes[bytes.index(bytes.startIndex, offsetBy: 1)], bytes[bytes.index(bytes.startIndex, offsetBy: 2)]) {
                     case (0xD9, 0xF7): type = Data.self
                     default:           throw CBOR.DecodingError.dataCorrupted(description: "Invalid encoded tag")
                     }
@@ -367,17 +367,17 @@ internal class CBORParser {
     // MARK: Private Methods
 
     // swiftlint:disable function_body_length
-    private static func decode(_ type: String.Type, from data: Data) throws -> (value: CBORDecodedString, decodedBytes: Int) {
+    private class func decode(_ type: String.Type, from data: Data) throws -> (value: CBORDecodedString, decodedBytes: Int) {
         guard !data.isEmpty else {
             throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
         }
 
-        let majorType = CBOR.majorType(for: data[0])
+        let majorType = CBOR.majorType(for: data[data.startIndex])
         guard majorType == .string else {
             throw CBOR.DecodingError.typeMismatch(expected: [type], actual: try self.type(for: data))
         }
 
-        let additionalInfo = CBOR.additionalInfo(for: data[0])
+        let additionalInfo = CBOR.additionalInfo(for: data[data.startIndex])
         let result: (value: CBORDecodedString, decodedBytes: Int)
 
         if additionalInfo == 31 {
@@ -387,15 +387,15 @@ internal class CBORParser {
                 throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
             }
 
-            var index = 1
+            var index = data.index(after: data.startIndex)
             var resultString = CBOR.IndefiniteLengthString()
 
             while true {
-                guard index < data.count else {
+                guard index < data.endIndex else {
                     throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
                 }
                 guard data[index] != CBOR.Bits.break.rawValue else {
-                    index += 1 // for the `break` byte
+                    index = data.index(after: index) // for the `break` byte
                     break
                 }
 
@@ -404,18 +404,18 @@ internal class CBORParser {
                     resultString.chunks.append(Data())
                     index += count.decodedBytes
                 } else {
-                    guard data.count >= index + Int(count.value + UInt64(count.decodedBytes)) else {
+                    guard let nextIndex = data.index(index, offsetBy: count.decodedBytes + Int(count.value), limitedBy: data.endIndex), data.endIndex > nextIndex else {
                         throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
                     }
 
-                    let utf8Data = Data(data[index + count.decodedBytes ..< (index + count.decodedBytes + Int(count.value))])
+                    let utf8Data = Data(data[data.index(index, offsetBy: count.decodedBytes) ..< nextIndex])
 
                     resultString.chunks.append(utf8Data)
-                    index += Int(count.value) + count.decodedBytes
+                    index = nextIndex
                 }
             }
 
-            result = (resultString, index)
+            result = (resultString, data.distance(from: data.startIndex, to: index))
         } else {
             // Definite length string
 
@@ -423,11 +423,11 @@ internal class CBORParser {
             if count.value == 0 {
                 result = ("", count.decodedBytes)
             } else {
-                guard data.count >= Int(count.value + UInt64(count.decodedBytes)) else {
+                guard let nextIndex = data.index(data.startIndex, offsetBy: Int(count.value + UInt64(count.decodedBytes)), limitedBy: data.endIndex), data.endIndex >= nextIndex else {
                     throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
                 }
 
-                let utf8Data = Data(data[count.decodedBytes ..< (count.decodedBytes + Int(count.value))])
+                let utf8Data = Data(data[data.index(data.startIndex, offsetBy: count.decodedBytes) ..< nextIndex])
                 guard let string = String(data: utf8Data, encoding: .utf8) else {
                     throw CBOR.DecodingError.invalidUTF8String
                 }
@@ -440,17 +440,17 @@ internal class CBORParser {
     }
     // swiftlint:enable function_body_length
 
-    private static func decode(_ type: Data.Type, from data: Data) throws -> (value: CBORDecodedData, decodedBytes: Int) {
+    private class func decode(_ type: Data.Type, from data: Data) throws -> (value: CBORDecodedData, decodedBytes: Int) {
         guard !data.isEmpty else {
             throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
         }
 
-        let majorType = CBOR.majorType(for: data[0])
+        let majorType = CBOR.majorType(for: data[data.startIndex])
         guard majorType == .bytes else {
             throw CBOR.DecodingError.typeMismatch(expected: [type], actual: try self.type(for: data))
         }
 
-        let additionalInfo = CBOR.additionalInfo(for: data[0])
+        let additionalInfo = CBOR.additionalInfo(for: data[data.startIndex])
         let result: (value: CBORDecodedData, decodedBytes: Int)
 
         if additionalInfo == 31 {
@@ -460,25 +460,25 @@ internal class CBORParser {
                 throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
             }
 
-            var index = 1
+            var index = data.index(after: data.startIndex)
             var resultData = CBOR.IndefiniteLengthData()
 
             repeat {
-                guard index < data.count else {
+                guard index < data.endIndex else {
                     throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
                 }
                 guard data[index] != CBOR.Bits.break.rawValue else {
-                    index += 1 // for the `break` byte
+                    index = data.index(after: index) // for the `break` byte
                     break
                 }
 
                 let decoded = try decode(type, from: Data(data[index...]))
 
                 resultData.chunks.append(decoded.value.decodedDataValue())
-                index += decoded.decodedBytes
+                index = data.index(index, offsetBy: decoded.decodedBytes)
             } while true
 
-            result = (resultData, index)
+            result = (resultData, data.distance(from: data.startIndex, to: index))
         } else {
             // Definite length byte data
 
@@ -486,18 +486,18 @@ internal class CBORParser {
             if count.value == 0 {
                 result = (Data(), count.decodedBytes)
             } else {
-                if data.count < Int(count.value + UInt64(count.decodedBytes)) {
+                guard let nextIndex = data.index(data.startIndex, offsetBy: count.decodedBytes + Int(count.value), limitedBy: data.endIndex), data.endIndex >= nextIndex else {
                     throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
                 }
 
-                result = (data[count.decodedBytes ..< (count.decodedBytes + Int(count.value))], count.decodedBytes + Int(count.value))
+                result = (data[data.index(data.startIndex, offsetBy: count.decodedBytes) ..< nextIndex], count.decodedBytes + Int(count.value))
             }
         }
 
         return result
     }
 
-    private static func decode(_ type: Date.Type, tag: CBOR.Tag, from data: Data) throws -> (value: Date, decodedBytes: Int) {
+    private class func decode(_ type: Date.Type, tag: CBOR.Tag, from data: Data) throws -> (value: Date, decodedBytes: Int) {
         precondition(tag == .standardDateTime || tag == .epochDateTime)
 
         guard !data.isEmpty else {
@@ -540,12 +540,12 @@ internal class CBORParser {
         return result
     }
 
-    private static func decode(_ type: URL.Type, from data: Data) throws -> (value: URL, decodedBytes: Int) {
+    private class func decode(_ type: URL.Type, from data: Data) throws -> (value: URL, decodedBytes: Int) {
         guard !data.isEmpty else {
             throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
         }
 
-        let majorType = CBOR.majorType(for: data[0])
+        let majorType = CBOR.majorType(for: data[data.startIndex])
         guard majorType == .string else {
             throw CBOR.DecodingError.typeMismatch(expected: [type], actual: try self.type(for: data))
         }
@@ -559,12 +559,12 @@ internal class CBORParser {
         return (url, string.decodedBytes)
     }
 
-    private static func decode(_ type: CBOR.NegativeUInt64.Type, from data: Data) throws -> (value: CBOR.NegativeUInt64, decodedBytes: Int) {
+    private class func decode(_ type: CBOR.NegativeUInt64.Type, from data: Data) throws -> (value: CBOR.NegativeUInt64, decodedBytes: Int) {
         guard !data.isEmpty else {
             throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
         }
 
-        let majorType = CBOR.majorType(for: data[0])
+        let majorType = CBOR.majorType(for: data[data.startIndex])
         guard majorType == .negative else {
             throw CBOR.DecodingError.typeMismatch(expected: [type], actual: try self.type(for: data))
         }
@@ -574,17 +574,17 @@ internal class CBORParser {
         return (CBOR.NegativeUInt64(rawValue: unsigned.value == .max ? .min : (unsigned.value + 1)), unsigned.decodedBytes)
     }
 
-    private static func decode(_ type: CBOR.SimpleValue.Type, from data: Data) throws -> (value: CBOR.SimpleValue, decodedBytes: Int) {
+    private class func decode(_ type: CBOR.SimpleValue.Type, from data: Data) throws -> (value: CBOR.SimpleValue, decodedBytes: Int) {
         guard !data.isEmpty else {
             throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
         }
 
-        let majorType = CBOR.majorType(for: data[0])
+        let majorType = CBOR.majorType(for: data[data.startIndex])
         guard majorType == .additonal else {
             throw CBOR.DecodingError.typeMismatch(expected: [type], actual: try self.type(for: data))
         }
 
-        let additionalInfo = CBOR.additionalInfo(for: data[0])
+        let additionalInfo = CBOR.additionalInfo(for: data[data.startIndex])
         let result: (value: CBOR.SimpleValue, decodedBytes: Int)
 
         switch additionalInfo {
@@ -593,7 +593,7 @@ internal class CBORParser {
                 throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
             }
 
-            result = (CBOR.SimpleValue(rawValue: data[1]), 2)
+            result = (CBOR.SimpleValue(rawValue: data[data.index(after: data.startIndex)]), 2)
 
         default:
             throw CBOR.DecodingError.typeMismatch(expected: [type], actual: try self.type(for: data))
@@ -602,7 +602,7 @@ internal class CBORParser {
         return result
     }
 
-    private static func decode(_ type: CBOR.Bignum.Type, tag: CBOR.Tag, from data: Data) throws -> (value: CBOR.Bignum, decodedBytes: Int) {
+    private class func decode(_ type: CBOR.Bignum.Type, tag: CBOR.Tag, from data: Data) throws -> (value: CBOR.Bignum, decodedBytes: Int) {
         precondition(tag == .positiveBignum || tag == .negativeBignum)
 
         guard !data.isEmpty else {
@@ -615,13 +615,13 @@ internal class CBORParser {
     }
 
     // swiftlint:disable function_body_length
-    private static func decode<T>(_ type: T.Type, from data: Data) throws -> (value: T, decodedBytes: Int) where T: BinaryFloatingPoint, T.RawExponent: FixedWidthInteger, T.RawSignificand: FixedWidthInteger {
+    private class func decode<T>(_ type: T.Type, from data: Data) throws -> (value: T, decodedBytes: Int) where T: BinaryFloatingPoint, T.RawExponent: FixedWidthInteger, T.RawSignificand: FixedWidthInteger {
         guard !data.isEmpty else {
             throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
         }
 
-        let header = data[0]
-        let majorType = CBOR.majorType(for: data[0])
+        let header = data[data.startIndex]
+        let majorType = CBOR.majorType(for: data[data.startIndex])
         guard majorType == .additonal else {
             throw CBOR.DecodingError.typeMismatch(expected: [type], actual: try self.type(for: data))
         }
@@ -630,7 +630,7 @@ internal class CBORParser {
         if header == CBOR.Bits.half.rawValue { // Half
             if data.count >= 3 {
                 // swiftlint:disable force_unwrapping
-                let half = data[1 ..< 3].reversed().withUnsafeBytes { $0.bindMemory(to: Half.self).baseAddress!.pointee }
+                let half = data[data.index(data.startIndex, offsetBy: 1) ..< data.index(data.startIndex, offsetBy: 3)].reversed().withUnsafeBytes { $0.bindMemory(to: Half.self).baseAddress!.pointee }
                 // swiftlint:enable force_unwrapping
 
                 if half.isNaN {
@@ -650,7 +650,7 @@ internal class CBORParser {
         } else if header == CBOR.Bits.float.rawValue { // Single
             if data.count >= 5 {
                 // swiftlint:disable force_unwrapping
-                let float = data[1 ..< 5].reversed().withUnsafeBytes { $0.bindMemory(to: Float.self).baseAddress!.pointee }
+                let float = data[data.index(data.startIndex, offsetBy: 1) ..< data.index(data.startIndex, offsetBy: 5)].reversed().withUnsafeBytes { $0.bindMemory(to: Float.self).baseAddress!.pointee }
                 // swiftlint:enable force_unwrapping
 
                 if float.isNaN {
@@ -670,7 +670,7 @@ internal class CBORParser {
         } else if header == CBOR.Bits.double.rawValue { // Double
             if data.count >= 9 {
                 // swiftlint:disable force_unwrapping
-                let double = data[1 ..< 9].reversed().withUnsafeBytes { $0.bindMemory(to: Double.self).baseAddress!.pointee }
+                let double = data[data.index(data.startIndex, offsetBy: 1) ..< data.index(data.startIndex, offsetBy: 9)].reversed().withUnsafeBytes { $0.bindMemory(to: Double.self).baseAddress!.pointee }
                 // swiftlint:enable force_unwrapping
 
                 if double.isNaN {
@@ -694,53 +694,64 @@ internal class CBORParser {
         return result
     }
 
-    private static func decode<T>(_ type: T.Type, from data: Data, knownMajorType: CBOR.MajorType = .unsigned) throws -> (value: T, decodedBytes: Int) where T: UnsignedInteger & FixedWidthInteger {
+    private class func decode<T>(_ type: T.Type, from data: Data, knownMajorType: CBOR.MajorType = .unsigned) throws -> (value: T, decodedBytes: Int) where T: UnsignedInteger & FixedWidthInteger {
         guard !data.isEmpty else {
             throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
         }
 
-        let majorType = CBOR.majorType(for: data[0])
+        let majorType = CBOR.majorType(for: data[data.startIndex])
         guard majorType == knownMajorType else {
             throw CBOR.DecodingError.typeMismatch(expected: [type], actual: try self.type(for: data))
         }
 
-        let additionalInfo = CBOR.additionalInfo(for: data[0])
+        let additionalInfo = CBOR.additionalInfo(for: data[data.startIndex])
         let result: (value: T?, decodedBytes: Int)
 
         if additionalInfo <= 23 {
             result = (T(exactly: additionalInfo), 1)
         } else if additionalInfo == 24 {
             if data.count >= 2 {
-                result = (T(exactly: data[1]), 2)
+                result = (T(exactly: data[data.index(data.startIndex, offsetBy: 1)]), 2)
             } else {
                 throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
             }
         } else if additionalInfo == 25 {
             if data.count >= 3 {
-                result = (T(exactly: UInt16(data[1]) << 8 |
-                                     UInt16(data[2])), 3)
+                result = (T(exactly: UInt16(data[data.index(data.startIndex, offsetBy: 1)]) << 8 |
+                                     UInt16(data[data.index(data.startIndex, offsetBy: 2)])), 3)
             } else {
                 throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
             }
         } else if additionalInfo == 26 {
             if data.count >= 5 {
-                result = (T(exactly: UInt32(data[1]) << 24 |
-                                     UInt32(data[2]) << 16 |
-                                     UInt32(data[3]) << 8  |
-                                     UInt32(data[4])), 5)
+                let upper = UInt32(data[data.index(data.startIndex, offsetBy: 1)]) << 24 |
+                            UInt32(data[data.index(data.startIndex, offsetBy: 2)]) << 16
+                let lower = UInt32(data[data.index(data.startIndex, offsetBy: 3)]) << 8  |
+                            UInt32(data[data.index(data.startIndex, offsetBy: 4)])
+
+                result = (T(exactly: upper | lower), 5)
             } else {
                 throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
             }
         } else if additionalInfo == 27 {
             if data.count >= 9 {
-                let upper = UInt64(data[1]) << 56 |
-                            UInt64(data[2]) << 48 |
-                            UInt64(data[3]) << 40 |
-                            UInt64(data[4]) << 32
-                let lower = UInt64(data[5]) << 24 |
-                            UInt64(data[6]) << 16 |
-                            UInt64(data[7]) << 8  |
-                            UInt64(data[8])
+                let upper: UInt64, lower: UInt64
+                do {
+                    let upper1 = UInt64(data[data.index(data.startIndex, offsetBy: 1)]) << 56 |
+                                 UInt64(data[data.index(data.startIndex, offsetBy: 2)]) << 48
+                    let upper2 = UInt64(data[data.index(data.startIndex, offsetBy: 3)]) << 40 |
+                                 UInt64(data[data.index(data.startIndex, offsetBy: 4)]) << 32
+
+                    upper = upper1 | upper2
+                }
+                do {
+                    let lower1 = UInt64(data[data.index(data.startIndex, offsetBy: 5)]) << 24 |
+                                 UInt64(data[data.index(data.startIndex, offsetBy: 6)]) << 16
+                    let lower2 = UInt64(data[data.index(data.startIndex, offsetBy: 7)]) << 8  |
+                                 UInt64(data[data.index(data.startIndex, offsetBy: 8)])
+
+                    lower = lower1 | lower2
+                }
 
                 result = (T(exactly: upper | lower), 9)
             } else {
@@ -758,12 +769,12 @@ internal class CBORParser {
     }
     // swiftlint:enable function_body_length
 
-    private static func decode<T>(_ type: T.Type, from data: Data) throws -> (value: T, decodedBytes: Int) where T: SignedInteger & FixedWidthInteger {
+    private class func decode<T>(_ type: T.Type, from data: Data) throws -> (value: T, decodedBytes: Int) where T: SignedInteger & FixedWidthInteger {
         guard !data.isEmpty else {
             throw CBOR.DecodingError.insufficientEncodedBytes(expected: type)
         }
 
-        let majorType = CBOR.majorType(for: data[0])
+        let majorType = CBOR.majorType(for: data[data.startIndex])
         guard majorType == .negative else {
             throw CBOR.DecodingError.typeMismatch(expected: [type], actual: try self.type(for: data))
         }
@@ -792,37 +803,37 @@ internal class CBORParser {
     }
 
     // swiftlint:disable function_body_length
-    private static func decode<I1, I2>(_: CBOR.DecimalFraction<I1, I2>.Type, from data: Data) throws -> (value: [Any], decodedBytes: Int) where I1: FixedWidthInteger, I2: FixedWidthInteger {
+    private class func decode<I1, I2>(_: CBOR.DecimalFraction<I1, I2>.Type, from data: Data) throws -> (value: [Any], decodedBytes: Int) where I1: FixedWidthInteger, I2: FixedWidthInteger {
         guard data.count >= 3 else {
             throw CBOR.DecodingError.insufficientEncodedBytes(expected: Array<Any>.self)
         }
 
-        guard CBOR.majorType(for: data[0]) == .array else {
+        guard CBOR.majorType(for: data[data.startIndex]) == .array else {
             throw CBOR.DecodingError.typeMismatch(expected: [Array<Any>.self], actual: try self.type(for: data))
         }
-        guard CBOR.additionalInfo(for: data[0]) == 2 else {
+        guard CBOR.additionalInfo(for: data[data.startIndex]) == 2 else {
             throw CBOR.DecodingError.dataCorrupted(description: "Expected to decode array containing exactly two elements, found array containing \((try? decode(UInt64.self, from: data, knownMajorType: .array))?.value ?? 0) elements")
         }
 
         var result: (value: [Any], decodedBytes: Int) = ([CBOR.Tag.decimalFraction], 1)
-        var majorType = CBOR.majorType(for: data[1])
+        var majorType = CBOR.majorType(for: data[data.index(after: data.startIndex)])
 
         switch majorType {
         case .unsigned:
-            let unsigned = try decode(UInt64.self, from: Data(data[result.decodedBytes...]))
+            let unsigned = try decode(UInt64.self, from: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...]))
 
             result.value.append(unsigned.value)
             result.decodedBytes += unsigned.decodedBytes
 
         case .negative:
             do {
-                let signed = try decode(Int64.self, from: Data(data[result.decodedBytes...]))
+                let signed = try decode(Int64.self, from: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...]))
 
                 result.value.append(signed.value)
                 result.decodedBytes += signed.decodedBytes
             } catch let int64Error {
                 do {
-                    let signed = try decode(CBOR.NegativeUInt64.self, from: Data(data[result.decodedBytes...]))
+                    let signed = try decode(CBOR.NegativeUInt64.self, from: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...]))
 
                     result.value.append(signed.value)
                     result.decodedBytes += signed.decodedBytes
@@ -832,31 +843,31 @@ internal class CBORParser {
             }
 
         default:
-            throw CBOR.DecodingError.typeMismatch(expected: [UInt64.self, Int64.self], actual: try self.type(for: Data(data[result.decodedBytes...])))
+            throw CBOR.DecodingError.typeMismatch(expected: [UInt64.self, Int64.self], actual: try self.type(for: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...])))
         }
 
         guard data.count > result.decodedBytes else {
             throw CBOR.DecodingError.insufficientEncodedBytes(expected: Array<Any>.self)
         }
 
-        majorType = CBOR.majorType(for: data[result.decodedBytes])
+        majorType = CBOR.majorType(for: data[data.index(data.startIndex, offsetBy: result.decodedBytes)])
 
         switch majorType {
         case .unsigned:
-            let unsigned = try decode(UInt64.self, from: Data(data[result.decodedBytes...]))
+            let unsigned = try decode(UInt64.self, from: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...]))
 
             result.value.append(unsigned.value)
             result.decodedBytes += unsigned.decodedBytes
 
         case .negative:
             do {
-                let signed = try decode(Int64.self, from: Data(data[result.decodedBytes...]))
+                let signed = try decode(Int64.self, from: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...]))
 
                 result.value.append(signed.value)
                 result.decodedBytes += signed.decodedBytes
             } catch let int64Error {
                 do {
-                    let signed = try decode(CBOR.NegativeUInt64.self, from: Data(data[result.decodedBytes...]))
+                    let signed = try decode(CBOR.NegativeUInt64.self, from: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...]))
 
                     result.value.append(signed.value)
                     result.decodedBytes += signed.decodedBytes
@@ -866,7 +877,7 @@ internal class CBORParser {
             }
 
         case .tag:
-            guard let tag = CBOR.Tag(bits: Data(data[result.decodedBytes...])) else {
+            guard let tag = CBOR.Tag(bits: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...])) else {
                 throw CBOR.DecodingError.dataCorrupted(description: "Invalid CBOR tag")
             }
 
@@ -878,24 +889,24 @@ internal class CBORParser {
 
                 result.decodedBytes += tag.bits.count
 
-                let bignum = try decode(CBOR.Bignum.self, tag: tag, from: Data(data[result.decodedBytes...]))
+                let bignum = try decode(CBOR.Bignum.self, tag: tag, from: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...]))
 
                 result.value.append(bignum.value)
                 result.decodedBytes += bignum.decodedBytes
 
             default:
-                throw CBOR.DecodingError.typeMismatch(expected: [UInt64.self, Int64.self, CBOR.Bignum.self], actual: try self.type(for: Data(data[result.decodedBytes...])))
+                throw CBOR.DecodingError.typeMismatch(expected: [UInt64.self, Int64.self, CBOR.Bignum.self], actual: try self.type(for: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...])))
             }
 
         default:
-            throw CBOR.DecodingError.typeMismatch(expected: [UInt64.self, Int64.self, CBOR.Bignum.self], actual: try self.type(for: Data(data[result.decodedBytes...])))
+            throw CBOR.DecodingError.typeMismatch(expected: [UInt64.self, Int64.self, CBOR.Bignum.self], actual: try self.type(for: Data(data[data.index(data.startIndex, offsetBy: result.decodedBytes)...])))
         }
 
         return result
     }
     // swiftlint:enable function_body_length
 
-    private static func decode<I1, I2>(_: CBOR.Bigfloat<I1, I2>.Type, from data: Data) throws -> (value: [Any], decodedBytes: Int) where I1: FixedWidthInteger, I2: FixedWidthInteger {
+    private class func decode<I1, I2>(_: CBOR.Bigfloat<I1, I2>.Type, from data: Data) throws -> (value: [Any], decodedBytes: Int) where I1: FixedWidthInteger, I2: FixedWidthInteger {
         var result = try decode(CBOR.DecimalFraction<I1, I2>.self, from: data)
         result.value[0] = CBOR.Tag.bigfloat
 
@@ -910,55 +921,55 @@ internal class CBORParser {
     // These proxies will allow us to directly test edge cases inside of the private
     // methods without exposing the private methods to any consumer of the class
 
-    internal static func testDecode(_ type: String.Type, from data: Data) throws -> (value: CBORDecodedString, decodedBytes: Int) {
+    internal class func testDecode(_ type: String.Type, from data: Data) throws -> (value: CBORDecodedString, decodedBytes: Int) {
         return try decode(type, from: data)
     }
 
-    internal static func testDecode(_ type: Data.Type, from data: Data) throws -> (value: CBORDecodedData, decodedBytes: Int) {
+    internal class func testDecode(_ type: Data.Type, from data: Data) throws -> (value: CBORDecodedData, decodedBytes: Int) {
         return try decode(type, from: data)
     }
 
-    internal static func testDecode(_ type: Date.Type, tag: CBOR.Tag, from data: Data) throws -> (value: Date, decodedBytes: Int) {
+    internal class func testDecode(_ type: Date.Type, tag: CBOR.Tag, from data: Data) throws -> (value: Date, decodedBytes: Int) {
         return try decode(type, tag: tag, from: data)
     }
 
-    internal static func testDecode(_ type: URL.Type, from data: Data) throws -> (value: URL, decodedBytes: Int) {
+    internal class func testDecode(_ type: URL.Type, from data: Data) throws -> (value: URL, decodedBytes: Int) {
         return try decode(type, from: data)
     }
 
-    internal static func testDecode(_ type: CBOR.NegativeUInt64.Type, from data: Data) throws -> (value: CBOR.NegativeUInt64, decodedBytes: Int) {
+    internal class func testDecode(_ type: CBOR.NegativeUInt64.Type, from data: Data) throws -> (value: CBOR.NegativeUInt64, decodedBytes: Int) {
         return try decode(type, from: data)
     }
 
-    internal static func testDecode(_ type: CBOR.SimpleValue.Type, from data: Data) throws -> (value: CBOR.SimpleValue, decodedBytes: Int) {
+    internal class func testDecode(_ type: CBOR.SimpleValue.Type, from data: Data) throws -> (value: CBOR.SimpleValue, decodedBytes: Int) {
         return try decode(type, from: data)
     }
 
-    internal static func testDecode(_ type: CBOR.Bignum.Type, tag: CBOR.Tag, from data: Data) throws -> (value: CBOR.Bignum, decodedBytes: Int) {
+    internal class func testDecode(_ type: CBOR.Bignum.Type, tag: CBOR.Tag, from data: Data) throws -> (value: CBOR.Bignum, decodedBytes: Int) {
         return try decode(type, tag: tag, from: data)
     }
 
-    internal static func testDecode<T>(_ type: T.Type, from data: Data) throws -> (value: T, decodedBytes: Int) where T: BinaryFloatingPoint, T.RawExponent: FixedWidthInteger, T.RawSignificand: FixedWidthInteger {
+    internal class func testDecode<T>(_ type: T.Type, from data: Data) throws -> (value: T, decodedBytes: Int) where T: BinaryFloatingPoint, T.RawExponent: FixedWidthInteger, T.RawSignificand: FixedWidthInteger {
         return try decode(type, from: data)
     }
 
-    internal static func testDecode<T>(_ type: T.Type, from data: Data, knownMajorType: CBOR.MajorType = .unsigned) throws -> (value: T, decodedBytes: Int) where T: UnsignedInteger & FixedWidthInteger {
+    internal class func testDecode<T>(_ type: T.Type, from data: Data, knownMajorType: CBOR.MajorType = .unsigned) throws -> (value: T, decodedBytes: Int) where T: UnsignedInteger & FixedWidthInteger {
         return try decode(type, from: data, knownMajorType: knownMajorType)
     }
 
-    internal static func testDecode<T>(_ type: T.Type, from data: Data) throws -> (value: T, decodedBytes: Int) where T: SignedInteger & FixedWidthInteger {
+    internal class func testDecode<T>(_ type: T.Type, from data: Data) throws -> (value: T, decodedBytes: Int) where T: SignedInteger & FixedWidthInteger {
         return try decode(type, from: data)
     }
 
-    internal static func testDecode<I1, I2>(_ type: CBOR.DecimalFraction<I1, I2>.Type, from data: Data) throws -> (value: [Any], decodedBytes: Int) where I1: FixedWidthInteger, I2: FixedWidthInteger {
+    internal class func testDecode<I1, I2>(_ type: CBOR.DecimalFraction<I1, I2>.Type, from data: Data) throws -> (value: [Any], decodedBytes: Int) where I1: FixedWidthInteger, I2: FixedWidthInteger {
         return try decode(type, from: data)
     }
 
-    internal static func testDecode<I1, I2>(_ type: CBOR.Bigfloat<I1, I2>.Type, from data: Data) throws -> (value: [Any], decodedBytes: Int) where I1: FixedWidthInteger, I2: FixedWidthInteger {
+    internal class func testDecode<I1, I2>(_ type: CBOR.Bigfloat<I1, I2>.Type, from data: Data) throws -> (value: [Any], decodedBytes: Int) where I1: FixedWidthInteger, I2: FixedWidthInteger {
         return try decode(type, from: data)
     }
 
-    internal static func testCreateCodingKey(from value: Any) throws -> Swift.CodingKey {
+    internal class func testCreateCodingKey(from value: Any) throws -> Swift.CodingKey {
         var storage = Storage()
 
         try storage.startKeyedContainer()
@@ -969,7 +980,7 @@ internal class CBORParser {
         // swiftlint:disable force_cast force_unwrapping
         let dictionary = try storage.finalize()! as! CodingKeyDictionary<Any>
         // swiftlint:enable force_cast force_unwrapping
-        return dictionary.keys[0]
+        return dictionary.keys[dictionary.keys.startIndex]
     }
     #endif // #if DEBUG
 
@@ -1062,7 +1073,7 @@ internal class CBORParser {
                     throw CBOR.DecodingError.dataCorrupted(description: "Cannot decode multiple objects outside of the context of a container")
                 }
 
-                let index = containers.count - 1
+                let index = containers.index(before: containers.endIndex)
 
                 if let array = containers[index] as? (container: ArrayWrapper<Any>, length: UInt64?) {
                     array.container.append(value)

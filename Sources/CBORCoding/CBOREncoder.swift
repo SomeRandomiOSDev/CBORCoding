@@ -589,9 +589,7 @@ internal class __CBOREncoder: CBOREncoderProtocol, SingleValueEncodingContainer 
 
         do {
             for (key, value) in dictionary {
-                // swiftlint:disable force_unwrapping
-                let codingKey = CBOR.CodingKey(stringValue: key)!
-                // swiftlint:enable force_unwrapping
+                let codingKey = CBOR.CodingKey(stringValue: key)
 
                 codingPath.append(codingKey)
                 defer { codingPath.removeLast() }
@@ -616,9 +614,7 @@ internal class __CBOREncoder: CBOREncoderProtocol, SingleValueEncodingContainer 
 
         do {
             for (key, value) in dictionary {
-                // swiftlint:disable force_unwrapping
-                let codingKey = CBOR.CodingKey(intValue: key)!
-                // swiftlint:enable force_unwrapping
+                let codingKey = CBOR.CodingKey(intValue: key)
 
                 codingPath.append(codingKey)
                 defer { codingPath.removeLast() }
@@ -1120,9 +1116,7 @@ private class __CBORReferencingEncoder: __CBOREncoder {
             array.insert(value, at: index)
 
         case let .dictionary(dictionary, key):
-            // swiftlint:disable force_unwrapping
-            dictionary[CBOR.CodingKey(stringValue: key)!] = value
-            // swiftlint:enable force_unwrapping
+            dictionary[CBOR.CodingKey(stringValue: key)] = value
         }
     }
 

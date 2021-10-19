@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   
   s.name         = "CBORCoding"
-  s.version      = "1.3.0"
+  s.version      = "1.3.1"
   s.summary      = "A CBOR Encoder and Decoder"
   s.description  = <<-DESC
                    A lightweight framework containing a coder pair for encoding and decoding `Codable` conforming types to and from CBOR document format for iOS, macOS, tvOS, and watchOS.
