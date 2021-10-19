@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "E83DAAAA-7E95-423A-B5C0-11038E54B4FC",
+      "name" : "Default",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:CBORCoding.xcodeproj",
+          "identifier" : "DD86D56F23D11C860046E63E",
+          "name" : "CBORCoding macOS"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CBORCoding.xcodeproj",
+        "identifier" : "DD86D57723D11C860046E63E",
+        "name" : "CBORCoding macOS Tests"
+      }
+    }
+  ],
+  "version" : 1
+}

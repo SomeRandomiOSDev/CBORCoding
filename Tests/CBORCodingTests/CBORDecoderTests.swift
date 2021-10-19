@@ -2,8 +2,7 @@
 //  CBORDecoderTests.swift
 //  CBORCodingTests
 //
-//  Created by Joseph Newton on 5/25/19.
-//  Copyright © 2019 SomeRandomiOSDev. All rights reserved.
+//  Copyright © 2021 SomeRandomiOSDev. All rights reserved.
 //
 
 // swiftlint:disable nesting function_body_length force_cast identifier_name opening_brace comma implicitly_unwrapped_optional number_separator force_unwrapping

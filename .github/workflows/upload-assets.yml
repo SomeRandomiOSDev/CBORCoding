@@ -1,0 +1,49 @@
+name: Upload Assets
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: Upload Assets
+    runs-on: macOS-latest
+    env:
+      TMPDIR: /tmp/.cborcoding.xcframework.build
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Build
+      run: |
+        ./scripts/xcframework.sh -output ${TMPDIR}/CBORCoding.xcframework
+
+    - name: Create Zip
+      run: |
+        cd ${TMPDIR}
+        zip -rX CBORCoding.xcframework.zip CBORCoding.xcframework
+
+    - name: Upload Zip
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ${{ env.TMPDIR }}/CBORCoding.xcframework.zip
+        asset_name: CBORCoding.xcframework.zip
+        asset_content_type: application/zip
+
+    - name: Create Tar
+      run: |
+        cd ${TMPDIR}
+        tar -zcvf CBORCoding.xcframework.tar.gz CBORCoding.xcframework
+
+    - name: Upload Tar
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ${{ env.TMPDIR }}/CBORCoding.xcframework.tar.gz
+        asset_name: CBORCoding.xcframework.tar.gz
+        asset_content_type: application/gzip

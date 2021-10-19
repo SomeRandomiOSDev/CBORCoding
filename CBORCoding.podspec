@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   
   s.name         = "CBORCoding"
-  s.version      = "1.2.0"
+  s.version      = "1.3.0"
   s.summary      = "A CBOR Encoder and Decoder"
   s.description  = <<-DESC
                    A lightweight framework containing a coder pair for encoding and decoding `Codable` conforming types to and from CBOR document format for iOS, macOS, tvOS, and watchOS.
@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.license      = "MIT"
   s.author       = { "Joseph Newton" => "somerandomiosdev@gmail.com" }
 
-  s.ios.deployment_target     = '8.0'
+  s.ios.deployment_target     = '9.0'
   s.macos.deployment_target   = '10.10'
   s.tvos.deployment_target    = '9.0'
   s.watchos.deployment_target = '2.0'
@@ -24,11 +24,12 @@ Pod::Spec.new do |s|
   s.dependency 'Half', '~> 1.2'
 
   s.test_spec 'Tests' do |ts|
-    ts.ios.deployment_target   = '8.0'
-    ts.macos.deployment_target = '10.10'
-    ts.tvos.deployment_target  = '9.0'
+    ts.ios.deployment_target     = '9.0'
+    ts.macos.deployment_target   = '10.10'
+    ts.tvos.deployment_target    = '9.0'
+    ts.watchos.deployment_target = '2.0'
 
-    ts.source_files            = 'Tests/CBORCodingTests/*Tests.swift'
+    ts.source_files              = 'Tests/CBORCodingTests/*Tests.swift'
   end
   
 end

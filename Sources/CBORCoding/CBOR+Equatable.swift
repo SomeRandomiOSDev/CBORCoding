@@ -2,8 +2,7 @@
 //  CBOR+Equatable.swift
 //  CBORCoding
 //
-//  Created by Joseph Newton on 6/2/19.
-//  Copyright © 2019 SomeRandomiOSDev. All rights reserved.
+//  Copyright © 2021 SomeRandomiOSDev. All rights reserved.
 //
 
 import Foundation

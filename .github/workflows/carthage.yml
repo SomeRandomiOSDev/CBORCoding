@@ -1,0 +1,27 @@
+name: Carthage
+on: [push, workflow_dispatch]
+
+jobs:
+  build:
+    name: Build
+    runs-on: macOS-latest
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Install Carthage
+      run: |
+        brew update
+        brew install carthage
+
+    - name: Create Cartfile
+      run: |
+        # Delete all of the old tags (if any) and create a new tag for building
+        git tag | xargs git tag -d
+        git tag 1.0
+        
+        echo "git \"file://$(pwd)\"" > ./Cartfile
+
+    - name: Build
+      run: |
+        ./scripts/carthage.sh update

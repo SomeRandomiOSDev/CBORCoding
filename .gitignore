@@ -1,8 +1,7 @@
 CBORCoding.xcodeproj/project.xcworkspace/xcuserdata
 CBORCoding.xcodeproj/xcuserdata
-CBORCoding.xcworkspace/xcuserdata
+
 .build
 .swiftpm
 IDEWorkspaceChecks.plist
-Pods
-Carthage
+scripts/build

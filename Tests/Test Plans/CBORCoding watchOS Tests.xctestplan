@@ -1,0 +1,32 @@
+{
+  "configurations" : [
+    {
+      "id" : "DEA19715-A3B6-4505-B81C-B0DC1C1C2C40",
+      "name" : "Default",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:CBORCoding.xcodeproj",
+          "identifier" : "DD86D5C323D11D140046E63E",
+          "name" : "CBORCoding watchOS"
+        }
+      ]
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:CBORCoding.xcodeproj",
+        "identifier" : "DD48BC93270E0DE800D842BC",
+        "name" : "CBORCoding watchOS Tests"
+      }
+    }
+  ],
+  "version" : 1
+}
