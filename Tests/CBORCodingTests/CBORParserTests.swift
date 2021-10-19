@@ -1074,6 +1074,18 @@ class CBORParserTests: XCTestCase {
 
         XCTAssertThrowsError(try CBORParser.testCreateCodingKey(from: UInt64.max))
     }
+    
+    func testSlicedDataInput() {
+        var value: Any!
+        
+        // Skip over the first 2 bytes with a slice.
+        let data = convertFromHexString("0x000000")[2...]
+        
+        XCTAssertNoThrow(value = try CBORParser.parse(data))
+        XCTAssertTrue(value is UInt64)
+        XCTAssertEqual(value as! UInt64, 0)
+
+    }
 
     // MARK: Private Methods
 

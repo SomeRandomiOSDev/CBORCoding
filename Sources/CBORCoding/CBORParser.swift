@@ -19,10 +19,10 @@ internal class CBORParser {
         guard !data.isEmpty else { return nil }
 
         var storage = Storage()
-        var index: Int = 0
+        var index: Int = data.startIndex
 
         do {
-            while index < data.count {
+            while index < data.endIndex {
                 let majorType = CBOR.majorType(for: data[index])
 
                 switch majorType {
