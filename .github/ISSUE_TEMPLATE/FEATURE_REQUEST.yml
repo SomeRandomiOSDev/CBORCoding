@@ -1,0 +1,55 @@
+name: Feature Request
+description: Suggest your awesome idea for this project!
+title: "[FEATURE]: "
+labels: ["enhancement"]
+assignees:
+  - SomeRandomiOSDev
+
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for taking the time to fill out this feature request!"
+
+  - type: textarea
+    id: existing-problem
+    attributes:
+      label: "Is your feature request related to a problem?"
+      description: "A clear and concise description of what the problem is."
+      placeholder: "e.g. I'm already frustrated when [...]"
+    validations:
+      required: false
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Describe the solution you'd like."
+      placeholder: "e.g It would be a lot better if [...]"
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Describe alternatives you've considered."
+    validations:
+      required: false
+
+  - type: input
+    id: current-progress
+    attributes:
+      label: "Have you already worked out some solution or have a PoC?"
+      description: "Please provide the repo where we can find your work."
+      placeholder: "e.g. username/partial-solution"
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: |
+        Add any other context about the feature request here (e.g. screenshots, links, references, sample projects, etc.)
+
+        Tip: You can attach files here by clicking this area to highlight it and then dragging files in.
+    validations:
+      required: false

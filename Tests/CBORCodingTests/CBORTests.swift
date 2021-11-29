@@ -33,6 +33,7 @@ class CBORTests: XCTestCase {
 
         XCTAssertEqual(ilString1.chunks, ilString2.chunks)
         XCTAssertEqual(ilString1.stringValue, string)
+        XCTAssertEqual(ilString1.stringValue(as: .utf8), string)
     }
 
     func testTagValues() {
@@ -290,6 +291,7 @@ class CBORTests: XCTestCase {
         XCTAssertNoThrow(test = try CBORDecoder().decode(Test.self, from: convertFromHexString("0x7F6643424F52436F6464696E67FF")))
         XCTAssertEqual(test.string.chunks, [convertFromHexString("0x43424F52436F"), convertFromHexString("0x64696E67")])
         XCTAssertEqual(test.string.stringValue, "CBORCoding")
+        XCTAssertEqual(test.string.stringValue(as: .utf8), "CBORCoding")
     }
 
     func testEncodeNegativeUInt64WithOtherEncoder() {

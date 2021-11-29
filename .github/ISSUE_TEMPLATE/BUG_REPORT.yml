@@ -1,0 +1,97 @@
+name: Bug Report
+description: Create a report to help us improve this project!
+title: "[BUG]: "
+labels: ["bug"]
+assignees:
+  - SomeRandomiOSDev
+
+body:
+  - type: markdown
+    attributes:
+      value: "Thanks for taking the time to fill out this bug report!"
+
+  - type: textarea
+    id: expected-behavior
+    attributes:
+      label: "Expected Behavior"
+      description: "A clear and concise description of what you expected to happen."
+      placeholder: "What was supposed to happen?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual-behavior
+    attributes:
+      label: "Actual Behavior"
+      description: "A clear and concise description of what actually happened."
+      placeholder: "What actually happened?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Steps To Reproduce"
+      placeholder: |
+        1. Do this...
+        2. Do that...
+        ...
+    validations:
+      required: true
+
+  - type: input
+    id: project-version
+    attributes:
+      label: "Project Version"
+      description: "The version of the project where this issue occurred."
+      placeholder: "0.1.5, a7df908, username/issue-branch, ..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: os
+    attributes:
+      label: "The OS/Variant where this issue occurs."
+      description: "If \"Other\" is selected, please provide the additional OS in the \"Additional Context\" section."
+      options:
+        - label: "iOS"
+        - label: "macOS"
+        - label: "tvOS"
+        - label: "watchOS"
+        - label: "Mac Catalyst"
+        - label: "Other (Please specify in \"Additional Context\" section)"
+    validations:
+      required: true
+
+  - type: input
+    id: xcode-version
+    attributes:
+      label: "The version of Xcode that was used when this issue appeared."
+      placeholder: "12.1.1, 13.0 Beta 4, Build 13A1030d, ..."
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: environment
+    attributes:
+      label: "What was the environment in which the issue appeared?"
+      options:
+        - label: "CBORCoding.xcodeproj"
+        - label: "Package.swift"
+        - label: "Carthage"
+        - label: "CocoaPods"
+        - label: "Swift Package Manager"
+        - label: "Other (Please specify in \"Additional Context\" section)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: |
+        Add any other context about the problem (e.g. screenshots, links, logs, references, sample projects, etc.)
+
+        Tip: You can attach files here by clicking this area to highlight it and then dragging files in.
+    validations:
+      required: false

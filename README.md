@@ -1,5 +1,4 @@
-CBORCoding
-========
+# CBORCoding
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/d30d31c29f17449481b97a04610ff5b9)](https://app.codacy.com/app/SomeRandomiOSDev/CBORCoding?utm_source=github.com&utm_medium=referral&utm_content=SomeRandomiOSDev/CBORCoding&utm_campaign=Badge_Grade_Dashboard)
 [![License MIT](https://img.shields.io/cocoapods/l/CBORCoding.svg)](https://cocoapods.org/pods/CBORCoding)
@@ -8,15 +7,17 @@ CBORCoding
 [![Platform](https://img.shields.io/cocoapods/p/CBORCoding.svg)](https://cocoapods.org/pods/CBORCoding)
 [![Code Coverage](https://codecov.io/gh/SomeRandomiOSDev/CBORCoding/branch/master/graph/badge.svg)](https://codecov.io/gh/SomeRandomiOSDev/CBORCoding)
 
-![Swift Package](https://github.com/SomeRandomiOSDev/CBORCoding/workflows/Swift%20Package/badge.svg)
-![Xcode Project](https://github.com/SomeRandomiOSDev/CBORCoding/workflows/Xcode%20Project/badge.svg)
-![Cocoapods](https://github.com/SomeRandomiOSDev/CBORCoding/workflows/Cocoapods/badge.svg)
-![Carthage](https://github.com/SomeRandomiOSDev/CBORCoding/workflows/Carthage/badge.svg)
+[![Carthage](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/carthage.yml/badge.svg)](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/carthage.yml)
+[![Cocoapods](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/cocoapods.yml/badge.svg)](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/cocoapods.yml)
+[![Documentation](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/documentation.yml/badge.svg)](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/documentation.yml)
+[![Swift Package](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/swift-package.yml/badge.svg)](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/swift-package.yml)
+[![SwiftLint](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/swiftlint.yml/badge.svg)](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/swiftlint.yml)
+[![XCFramework](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/xcframework.yml/badge.svg)](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/xcframework.yml)
+[![Xcode Project](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/xcodebuild.yml/badge.svg)](https://github.com/SomeRandomiOSDev/CBORCoding/actions/workflows/xcodebuild.yml)
 
 **CBORCoding** is a lightweight framework containing a coder pair for encoding and decoding `Codable` conforming types to and from [CBOR](https://cbor.io) document format for iOS, macOS, tvOS, and watchOS.
 
-Installation
---------
+## Installation
 
 **CBORCoding** is available through [CocoaPods](https://cocoapods.org), [Carthage](https://github.com/Carthage/Carthage) and the [Swift Package Manager](https://swift.org/package-manager/). 
 
@@ -38,8 +39,7 @@ To install via the Swift Package Manager add the following line to your `Package
 .package(url: "https://github.com/SomeRandomiOSDev/CBORCoding.git", from: "1.0.0")
 ```
 
-Usage
---------
+## Usage
 
 First import **CBORCoding** at the top of your Swift file:
 
@@ -75,8 +75,7 @@ let decoder = CBORDecoder()
 let stinger = try decoder.decode(Car.self, from: encodedData)
 ```
 
-CBOR
---------
+## CBOR
 
 **Concise Binary Object Representation** is a data format for being able to encode formatted data with a goal of a having as small a message size as possible.
 
@@ -85,29 +84,20 @@ While this framework implements as much of the specification as possible, there 
 * CBOR supports keys of any defined type, however, since `Codable` relies on `CodingKey` for encoding/decoding its keyed containers, this framework is limited in its supported key types to `Int` and `String`.
 * CBOR supports DecimalFractions and Bigfloats whose mantissa is a Bignum. With the current implementation, this is limited to Bignums whose content fits into either a `Int64` or `UInt64` type.
 
-For more information about the CBOR format see: [CBOR](https://cbor.io) & [RFC 7049](https://tools.ietf.org/html/rfc7049).
+For more information about the CBOR format see: [CBOR](https://cbor.io) & [RFC 8949](https://datatracker.ietf.org/doc/html/rfc8949).
 
-TODO
---------
+## Contributing
 
-* Add additional options to `CBOREncoder` and `CBORDecoder`.
+Whether it's submitting a feature request, reporting a bug, or writing code yourself, all contributions to this library are welcome! Please see [CONTRIBUTING](.github/CONTRIBUTING.md) for more information on how you can contribute.
 
-Contributing
---------
+## Author
 
-If you have need for a specific feature or you encounter a bug, please open an issue. If you extend the functionality of **CBORCoding** yourself or you feel like fixing a bug yourself, please submit a pull request.
+Joe Newton, somerandomiosdev@gmail.com
 
-Author
---------
+## Credits
 
-Joseph Newton, somerandomiosdev@gmail.com
+**CBORCoding** is based heavily on the `JSONEncoder`/`JSONDecoder` classes provided by Swift. See `ATTRIBUTIONS` for more details.
 
-Credits
---------
-
-**CBORCoding** is based heavily on the `JSONEncoder`/`JSONDecoder` classes provided by Swift. See `ATTRIBUTIONS` for more details. 
-
-License
---------
+## License
 
 **CBORCoding** is available under the MIT license. See the `LICENSE` file for more info.

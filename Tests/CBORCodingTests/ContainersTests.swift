@@ -5,7 +5,7 @@
 //  Copyright © 2021 SomeRandomiOSDev. All rights reserved.
 //
 
-// swiftlint:disable identifier_name nesting force_unwrapping
+// swiftlint:disable identifier_name force_unwrapping
 
 @testable import CBORCoding
 import XCTest

@@ -1,0 +1,36 @@
+name: Publish CocoaPods
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish:
+    name: Publish CocoaPods
+    runs-on: macOS-11
+    env:
+      LOGSDIR: /tmp/.cborcoding.cocoapods/Logs
+      COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Setup CocoaPods
+      uses: maxim-lobanov/setup-cocoapods@v1
+      with:
+        version: latest
+
+    - name: Setup Environment
+      run: |
+        mkdir -p "$LOGSDIR"
+
+    - name: Publish CocoaPod
+      run: |
+        pod trunk push CBORCoding.podspec --verbose 2>&1 | tee "$LOGSDIR/CocoaPods.log"
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: Logs
+        path: ${{ env.LOGSDIR }}/*.log

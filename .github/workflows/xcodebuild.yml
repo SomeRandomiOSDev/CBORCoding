@@ -1,110 +1,194 @@
 name: Xcode Project
-on: [push, workflow_dispatch]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+    paths-ignore:
+      - '.github/**' # Ignore all files under '.github'
+      - '!.github/workflows/xcodebuild.yml' # Except for this workflow
+      - '.gitignore'
+      - '.remarkrc'
+      - '.swiftlint.yml'
+      - 'codecov.yml'
+      - 'Documentation/**'
+      - 'LICENSE'
+      - 'Package.swift'
+      - 'README.md'
+      - 'Tests/**'
+      - 'CBORCoding.podspec'
 
 jobs:
   ios:
     name: iOS
-    runs-on: macOS-latest
+    runs-on: macOS-11
+    env:
+      LOGSDIR: /tmp/.cborcoding.xcodebuild/iOS/Logs
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
 
+    - name: Setup Environment
+      run: |
+        mkdir -p "$LOGSDIR"
+
     - name: Build iOS
       run: |
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding" -destination "generic/platform=iOS" -configuration Debug
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -destination "generic/platform=iOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-ios.log"
 
     - name: Build iOS Simulator
       run: |
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding" -destination "generic/platform=iOS Simulator" -configuration Debug
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -destination "generic/platform=iOS Simulator" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-iossimulator.log"
 
     - name: Test
       run: |
         IOS_SIM="$(xcrun simctl list devices available | grep "iPhone [0-9]" | sort -rV | head -n 1 | sed -E 's/(.+)[ ]*\([^)]*\)[ ]*\([^)]*\)/\1/' | awk '{$1=$1};1')"
         if [ "${#IOS_SIM}" == "0" ]; then
-            IOS_SIM = "iPhone 12 Pro" # Fallback Simulator
+            IOS_SIM="iPhone 12 Pro" # Fallback Simulator
         fi
 
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding" -testPlan "CBORCodingTests" -destination "platform=iOS Simulator,name=$IOS_SIM" -configuration Debug ONLY_ACTIVE_ARCH=YES test
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -testPlan "CBORCodingTests" -destination "platform=iOS Simulator,name=$IOS_SIM" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-ios.log"
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: iOSBuildLogs
+        path: ${{ env.LOGSDIR }}/*.log
 
   maccatalyst:
     name: Mac Catalyst
-    runs-on: macOS-latest
+    runs-on: macOS-11
+    env:
+      LOGSDIR: /tmp/.cborcoding.xcodebuild/macCatalyst/Logs
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
 
+    - name: Setup Environment
+      run: |
+        mkdir -p "$LOGSDIR"
+
     - name: Build
       run: |
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding" -destination "generic/platform=macOS,variant=Mac Catalyst" -configuration Debug
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -destination "generic/platform=macOS,variant=Mac Catalyst" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-maccatalyst.log"
 
     - name: Test
       run: |
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding" -testPlan "CBORCodingTests" -destination "platform=macOS,variant=Mac Catalyst" -configuration Debug ONLY_ACTIVE_ARCH=YES test
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -testPlan "CBORCodingTests" -destination "platform=macOS,variant=Mac Catalyst" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-maccatalyst.log"
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: MacCatalystBuildLogs
+        path: ${{ env.LOGSDIR }}/*.log
 
   macos:
     name: macOS
-    runs-on: macOS-latest
+    runs-on: macOS-11
+    env:
+      LOGSDIR: /tmp/.cborcoding.xcodebuild/macOS/Logs
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
+
+    - name: Setup Environment
+      run: |
+        mkdir -p "$LOGSDIR"
 
     - name: Build
       run: |
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding macOS" -destination "generic/platform=macOS" -configuration Debug
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding macOS" -destination "generic/platform=macOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-macos.log"
 
     - name: Test
       run: |
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding macOS" -testPlan "CBORCoding macOS Tests" -configuration Debug ONLY_ACTIVE_ARCH=YES test
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding macOS" -testPlan "CBORCoding macOS Tests" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-macos.log"
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: macOSBuildLogs
+        path: ${{ env.LOGSDIR }}/*.log
 
   tvos:
     name: tvOS
-    runs-on: macOS-latest
+    runs-on: macOS-11
+    env:
+      LOGSDIR: /tmp/.cborcoding.xcodebuild/tvOS/Logs
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
 
+    - name: Setup Environment
+      run: |
+        mkdir -p "$LOGSDIR"
+
     - name: Build tvOS
       run: |
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding tvOS" -destination "generic/platform=tvOS" -configuration Debug
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding tvOS" -destination "generic/platform=tvOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-tvos.log"
 
     - name: Build tvOS Simulator
       run: |
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding tvOS" -destination "generic/platform=tvOS Simulator" -configuration Debug
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding tvOS" -destination "generic/platform=tvOS Simulator" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-tvossimulator.log"
 
     - name: Test
       run: |
         TVOS_SIM="$(xcrun simctl list devices available | grep "Apple TV" | sort -V | head -n 1 | sed -E 's/(.+)[ ]*\([^)]*\)[ ]*\([^)]*\)/\1/' | awk '{$1=$1};1')"
         if [ "${#TVOS_SIM}" == "0" ]; then
-            TVOS_SIM = "Apple TV" # Fallback Simulator
+            TVOS_SIM="Apple TV" # Fallback Simulator
         fi
 
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding tvOS" -testPlan "CBORCoding tvOS Tests" -destination "platform=tvOS Simulator,name=$TVOS_SIM" -configuration Debug ONLY_ACTIVE_ARCH=YES test
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding tvOS" -testPlan "CBORCoding tvOS Tests" -destination "platform=tvOS Simulator,name=$TVOS_SIM" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-tvos.log"
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: tvOSBuildLogs
+        path: ${{ env.LOGSDIR }}/*.log
 
   watchos:
     name: watchOS
     runs-on: macOS-11
+    env:
+      LOGSDIR: /tmp/.cborcoding.xcodebuild/watchOS/Logs
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
 
+    - name: Setup Environment
+      run: |
+        mkdir -p "$LOGSDIR"
+
     - name: Build watchOS
       run: |
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding watchOS" -destination "generic/platform=watchOS" -configuration Debug
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding watchOS" -destination "generic/platform=watchOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-watchos.log"
 
     - name: Build watchOS Simulator
       run: |
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding watchOS" -destination "generic/platform=watchOS Simulator" -configuration Debug
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding watchOS" -destination "generic/platform=watchOS Simulator" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-watchossimulator.log"
 
     - name: Test
       run: |
         WATCHOS_SIM="$(xcrun simctl list devices available | grep "Apple Watch" | sort -rV | head -n 1 | sed -E 's/(.+)[ ]*\([^)]*\)[ ]*\([^)]*\)/\1/' | awk '{$1=$1};1')"
         if [ "${#WATCHOS_SIM}" == "0" ]; then
-            WATCHOS_SIM = "Apple Watch Series 6 - 44mm" # Fallback Simulator
+            WATCHOS_SIM="Apple Watch Series 6 - 44mm" # Fallback Simulator
         fi
 
-        xcodebuild -project CBORCoding.xcodeproj -scheme "CBORCoding watchOS" -testPlan "CBORCoding watchOS Tests" -destination "platform=watchOS Simulator,name=$WATCHOS_SIM" -configuration Debug ONLY_ACTIVE_ARCH=YES test
+        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding watchOS" -testPlan "CBORCoding watchOS Tests" -destination "platform=watchOS Simulator,name=$WATCHOS_SIM" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-watchos.log"
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: watchOSBuildLogs
+        path: ${{ env.LOGSDIR }}/*.log

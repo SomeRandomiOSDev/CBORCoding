@@ -54,14 +54,16 @@ open class CBOREncoder {
     // MARK: Public Properties
 
     /// The strategy used when encoding dates as part of a CBOR object. This defaults to
-    /// .secondsSince1970.
-    open var dateEncodingStrategy: DateEncodingStrategy = .secondsSince1970
+    /// ``DateEncodingStrategy-swift.enum/secondsSince1970``.
+    open var dateEncodingStrategy: DateEncodingStrategy
 
-    /// A flag indicating whether or not to prepend the "Self-Described CBOR" tag to the
-    /// begining of the encoded data. https://tools.ietf.org/html/rfc7049#section-2.4.5
-    open var includeCBORTag: Bool = false
+    /// A flag indicating whether or not to prepend the [Self-Described
+    /// CBOR](https://datatracker.ietf.org/doc/html/rfc8949#section-3.4.6) tag to the
+    /// begining of the encoded data.
+    open var includeCBORTag: Bool
 
-    /// A block to use to sort keys in any given map (dictionary).
+    /// A block to use to sort keys in any given map (dictionary). If not provided
+    /// key/value pairs appear in the order in which they were encoded.
     open var keySorter: ((Any, Any) -> Bool)?
 
     /// A dictionary you use to customize the encoding process by providing contextual
@@ -78,9 +80,26 @@ open class CBOREncoder {
 
     // MARK: Initializaiton
 
-    /// Creates a new, reusable CBOR encoder with the default options and encoding
-    /// strategies.
-    public init() { /* Nothing to do */ }
+    /**
+     Creates a new, reusable CBOR encoder with the specified options.
+
+     - Parameters:
+       - dateEncodingStrategy: The strategy to use when encoding dates. This defaults
+         to ``CBOREncoder/DateEncodingStrategy-swift.enum/secondsSince1970``.
+       - includeCBORTag: A flag that indicates whether or not to prepend the
+         "Self-Described CBOR" tag to the final encoded data. Defaults to `false`.
+       - keySorter: A block to use for sorting keys in any given encoded map
+         (dictionary). Defaults to `nil`.
+       - userInfo: A default dictionary usecd to customize the encoding process.
+
+     - Returns: The newly initialized encoder.
+     */
+    public init(dateEncodingStrategy: DateEncodingStrategy = .secondsSince1970, includeCBORTag: Bool = false, keySorter: ((Any, Any) -> Bool)? = nil, userInfo: [CodingUserInfoKey: Any] = [:]) {
+        self.dateEncodingStrategy = dateEncodingStrategy
+        self.includeCBORTag = includeCBORTag
+        self.keySorter = keySorter
+        self.userInfo = userInfo
+    }
 
     // MARK: Public Methods
 
@@ -90,13 +109,13 @@ open class CBOREncoder {
      If there's a problem encoding the value you supply, this method throws an error
      based on the type of problem.
 
-     - parameters:
+     - Parameters:
        - value: The value to encode
 
-     - throws: Rethrows any errors thrown by the value to encode (or any nested
+     - Throws: Rethrows any errors thrown by the value to encode (or any nested
                values) or throws any errors encountered during encoding.
 
-     - returns: A CBOR-encoded representation of `value`
+     - Returns: A CBOR-encoded representation of `value`.
      */
     open func encode<T>(_ value: T) throws -> Data where T: Encodable {
         let options = self.options
@@ -513,9 +532,48 @@ open class CBOREncoder {
 
 // MARK: - CBOREncoderProtocol Definition
 
+/**
+ A protocol that the `encoder` parameter of `encode(to:)` will conform to when
+ encoding values using the ``CBOREncoder`` class.
+ */
 public protocol CBOREncoderProtocol: Encoder {
 
+    /**
+     Configures the receiver to encode all containers encoded within the given block
+     as indefinite length containers as specified in [RFS 8949 Section 3.2](
+     https://datatracker.ietf.org/doc/html/rfc8949#section-3.2).
+
+     - Parameters:
+       - includingSubcontainers: A flag that indicates whether or not nested containers
+         of containers created in this block should also be encoded as indefinite length
+         containers.
+       - block: The block in which all containers (and optionally nested containers)
+         will be encoded as indefinite length containers.
+
+     - Throws: Rethrows any errors thrown from within `block`.
+
+     - Returns: The value returned from `block`, if any.
+     */
     func indefiniteLengthContainerContext<R>(includingSubcontainers: Bool, _ block: () throws -> R) rethrows -> R
+
+    /**
+     Configures the receiver to encode all containers encoded within the given block
+     as definite length containers. This is how all containers are encoded by
+     default. This method can be useful to explicitly encode a nested container as a
+     definite length container from within the context of a call to
+     ``indefiniteLengthContainerContext(includingSubcontainers:_:)-46exh``
+
+     - Parameters:
+       - includingSubcontainers: A flag that indicates whether or not nested containers
+         of containers created in this block should also be encoded as definite length
+         containers.
+       - block: The block in which all containers (and optionally nested containers)
+         will be encoded as definite length containers.
+
+     - Throws: Rethrows any errors thrown from within `block`.
+
+     - Returns: The value returned from `block`, if any.
+     */
     func definiteLengthContainerContext<R>(includingSubcontainers: Bool, _ block: () throws -> R) rethrows -> R
 }
 
@@ -548,10 +606,8 @@ internal class __CBOREncoder: CBOREncoderProtocol, SingleValueEncodingContainer 
 
         // MARK: Constants
 
-        // swiftlint:disable operator_usage_whitespace
         static let indefinite           = ContainerLength(rawValue: 0x01)
         static let includeSubcontainers = ContainerLength(rawValue: 0x02)
-        // swiftlint:enable operator_usage_whitespace
     }
 
     // MARK: Properties
@@ -646,7 +702,7 @@ internal class __CBOREncoder: CBOREncoderProtocol, SingleValueEncodingContainer 
         value.chunks.forEach {
             var encodedChunk = CBOREncoder.encode($0)
             encodedChunk[0] &= ~CBOR.MajorType.bytes.rawValue
-            encodedChunk[0] |=  CBOR.MajorType.string.rawValue
+            encodedChunk[0] |= CBOR.MajorType.string.rawValue
 
             data.append(encodedChunk)
         }

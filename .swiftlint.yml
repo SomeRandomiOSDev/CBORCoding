@@ -31,7 +31,6 @@ opt_in_rules:
   - vertical_parameter_alignment_on_call
   - pattern_matching_keywords
   - fatal_error_message
-  - implicit_return
   - implicitly_unwrapped_optional
   - joined_default_parameter
   - let_var_whitespace
@@ -58,12 +57,15 @@ opt_in_rules:
   - unneeded_parentheses_in_closure_argument
   - yoda_condition
 
+reporter: "xcode"
+
 excluded:
+  - .xcodebuild
   - .build
+  - Pods
+  - Carthage
   - Tests/LinuxMain.swift
   - Tests/CBORCodingTests/XCTestManifests.swift
-
-reporter: "xcode"
 
 identifier_name:
   excluded:
