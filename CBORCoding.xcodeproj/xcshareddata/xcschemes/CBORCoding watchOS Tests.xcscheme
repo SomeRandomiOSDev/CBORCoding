@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1300"
+   LastUpgradeVersion = "1310"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -34,7 +34,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DD48BC93270E0DE800D842BC"
-               BuildableName = "TestProjectTests.xctest"
+               BuildableName = "CBORCodingTests.xctest"
                BlueprintName = "CBORCoding watchOS Tests"
                ReferencedContainer = "container:CBORCoding.xcodeproj">
             </BuildableReference>

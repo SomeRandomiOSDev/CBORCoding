@@ -5,7 +5,7 @@
 
 # Copied & adapted from: https://stackoverflow.com/questions/4023830/how-to-compare-two-strings-in-dot-separated-version-format-in-bash#answer-4025065
 function compare_versions() {
-    if [ $1 = $2 ]; then
+    if [ "$1" = "$2" ]; then
         return 0
     fi
 
@@ -17,7 +17,7 @@ function compare_versions() {
     done
 
     for ((i=0; i<${#LHS[@]}; i++)); do
-        if [ -z ${RHS[i]} ]; then
+        if [ -z "${RHS[i]}" ]; then
             RHS[i]=0
         fi
 
@@ -31,4 +31,4 @@ function compare_versions() {
     return 0
 }
 
-exit $(compare_versions $1 $2)
+exit $(compare_versions "$1" "$2")

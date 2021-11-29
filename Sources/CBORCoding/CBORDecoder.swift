@@ -40,11 +40,21 @@ open class CBORDecoder {
 
     // MARK: Initialization
 
-    /// Creates a new, reusable CBOR decoder with the default options.
-    public init() { /* Nothing to do */ }
+    /**
+     Creates a new, reusable CBOR decoder.
+
+     - Parameters:
+       - userInfo: A default dictionary usecd to customize the decoding process.
+
+     - Returns: The newly initialized decoder.
+     */
+    public init(userInfo: [CodingUserInfoKey: Any] = [:]) {
+        self.userInfo = userInfo
+    }
 
     // MARK: Public Methods
 
+   // swiftlint:disable function_default_parameter_at_end
     /**
      Returns an instance of a given type decoded from a CBOR-encoded representation
      of the type.
@@ -52,16 +62,16 @@ open class CBORDecoder {
      If there's a problem decoding the given type, this method throws an error based
      on the type of problem.
 
-     - parameters:
+     - Parameters:
        - type: The type to decode
        - data: The CBOR-encoded data from which to decode the type
 
-     - throws: Rethrows any errors thrown by the type to decode (or any nested
+     - Throws: Rethrows any errors thrown by the type to decode (or any nested
                values) or throws any errors encountered during decoding.
 
-     - returns: An instance of `type` decoded from the CBOR-encoded data.
+     - Returns: An instance of `type` decoded from the CBOR-encoded data.
      */
-    open func decode<T: Decodable>(_ type: T.Type, from data: Data) throws -> T {
+    open func decode<T>(_ type: T.Type = T.self, from data: Data) throws -> T where T: Decodable {
         guard !data.isEmpty else {
             throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: [], debugDescription: "Cannot decode \(type) from empty data."))
         }
@@ -78,6 +88,7 @@ open class CBORDecoder {
         let decoder = __CBORDecoder(referencing: topLevel, options: options)
         return try decoder.decode(type)
     }
+    // swiftlint:enable function_default_parameter_at_end
 }
 
 // MARK: - __CBORDecoder Definition

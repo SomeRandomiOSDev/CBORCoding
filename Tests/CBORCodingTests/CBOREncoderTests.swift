@@ -18,7 +18,7 @@ class CBOREncoderTests: XCTestCase {
     // MARK: Test Methods
 
     func testAppendixASimpleExamples() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
 
         let encoder = CBOREncoder()
         let testData: [(Data, String)] = [
@@ -44,7 +44,7 @@ class CBOREncoderTests: XCTestCase {
             (try! encoder.encode(Int64(-10)),                                 "0x29"),
             (try! encoder.encode(Int64(-100)),                                "0x3863"),
             (try! encoder.encode(Int64(-1000)),                               "0x3903E7"),
-            (try! encoder.encode(Int64.min),                                  "0x3B7FFFFFFFFFFFFFFF"), // NOT part of RFC 7049 examples
+            (try! encoder.encode(Int64.min),                                  "0x3B7FFFFFFFFFFFFFFF"), // NOT part of RFC 8949 examples
             (try! encoder.encode(Half(0.0)),                                  "0xF90000"),
             (try! encoder.encode(Half(-0.0)),                                 "0xF98000"),
             (try! encoder.encode(Half(1.0)),                                  "0xF93C00"),
@@ -104,7 +104,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples1() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // []
         //
@@ -132,7 +132,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples2() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [1, [2, 3], [4, 5]]
 
@@ -156,7 +156,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples3() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [1: 2, 3: 4]
 
@@ -192,7 +192,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples4() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["a": 1, "b": [2, 3]]
 
@@ -228,7 +228,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples5() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["a", ["b": "c"]]
 
@@ -251,7 +251,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples6() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["a": "A", "b": "B", "c": "C", "d": "D", "e": "E"]
 
@@ -305,7 +305,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples8() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // (_ h'0102', h'030405')
 
@@ -319,7 +319,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples9() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // (_ "strea", "ming")
 
@@ -333,7 +333,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples10() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [_ 1, [2, 3], [_ 4, 5]]
 
@@ -426,7 +426,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples11() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [_ 1, [2, 3], [4, 5]]
 
@@ -456,7 +456,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples12() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [1, [2, 3], [_ 4, 5]]
 
@@ -512,7 +512,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples13() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [1, [_ 2, 3], [4, 5]]
 
@@ -569,7 +569,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples14() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [_ 1,  2,  3,  4,  5,  6,  7,
         //    8,  9,  10, 11, 12, 13, 14,
@@ -588,7 +588,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples15() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // {_ "a": 1, "b": [_ 2, 3]}
 
@@ -710,7 +710,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples16() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["a", {_ "b": "c"}]
 
@@ -733,7 +733,7 @@ class CBOREncoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples17() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // {_ "Fun": true, "Amt": -2}
 

@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.5
 import PackageDescription
 
 let package = Package(
@@ -16,7 +16,7 @@ let package = Package(
     ],
 
     dependencies: [
-        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.2.1")
+        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.3.1")
     ],
 
     targets: [

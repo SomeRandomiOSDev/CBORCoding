@@ -4,24 +4,29 @@ on:
     types: [published]
 
 jobs:
-  build:
-    name: Upload Assets
-    runs-on: macOS-latest
+  xcframework:
+    name: Upload XCFramework Assets
+    runs-on: macOS-11
     env:
-      TMPDIR: /tmp/.cborcoding.xcframework.build
+      TMPDIR: /tmp/.cborcoding.assets-xcframework.build
 
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
 
+    - name: Setup Environment
+      run: |
+        mkdir -p "${TMPDIR}/Output"
+        mkdir -p "${TMPDIR}/Logs"
+
     - name: Build
       run: |
-        ./scripts/xcframework.sh -output ${TMPDIR}/CBORCoding.xcframework
+        ./scripts/xcframework.sh --build-dir "${TMPDIR}" --output "${TMPDIR}/Output/CBORCoding.xcframework" -- RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES
 
     - name: Create Zip
       run: |
-        cd ${TMPDIR}
-        zip -rX CBORCoding.xcframework.zip CBORCoding.xcframework
+        cd "${TMPDIR}/Output"
+        zip -rX CBORCoding.xcframework.zip CBORCoding.xcframework 2>&1 | tee "${TMPDIR}/Logs/Zip.log"
 
     - name: Upload Zip
       uses: actions/upload-release-asset@v1
@@ -29,14 +34,14 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ github.event.release.upload_url }}
-        asset_path: ${{ env.TMPDIR }}/CBORCoding.xcframework.zip
+        asset_path: ${{ env.TMPDIR }}/Output/CBORCoding.xcframework.zip
         asset_name: CBORCoding.xcframework.zip
         asset_content_type: application/zip
 
     - name: Create Tar
       run: |
-        cd ${TMPDIR}
-        tar -zcvf CBORCoding.xcframework.tar.gz CBORCoding.xcframework
+        cd "${TMPDIR}/Output"
+        tar -zcvf CBORCoding.xcframework.tar.gz CBORCoding.xcframework 2>&1 | tee "${TMPDIR}/Logs/Tar.log"
 
     - name: Upload Tar
       uses: actions/upload-release-asset@v1
@@ -44,6 +49,74 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ github.event.release.upload_url }}
-        asset_path: ${{ env.TMPDIR }}/CBORCoding.xcframework.tar.gz
+        asset_path: ${{ env.TMPDIR }}/Output/CBORCoding.xcframework.tar.gz
         asset_name: CBORCoding.xcframework.tar.gz
         asset_content_type: application/gzip
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: XCFrameworkLogs
+        path: ${{ env.TMPDIR }}/Logs/*.log
+
+
+
+  documentation:
+    name: Upload Documentation Assets
+    runs-on: macOS-11
+    env:
+      TMPDIR: /tmp/.cborcoding.assets-documentation.build
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Setup Environment
+      run: |
+        mkdir -p "${TMPDIR}/Output"
+        mkdir -p "${TMPDIR}/Logs"
+
+    - name: Build
+      run: |
+        xcodebuild docbuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -destination "generic/platform=iOS" -derivedDataPath "${TMPDIR}/.docbuild" 2>&1 | tee "${TMPDIR}/Logs/Build.log"
+
+        DOCC_ARCHIVE="$(find "${TMPDIR}/.docbuild" -type d -name "CBORCoding.doccarchive")"
+        mv "${DOCC_ARCHIVE%/}" "${TMPDIR}/Output/CBORCoding.doccarchive"
+
+    - name: Create Zip
+      run: |
+        cd "${TMPDIR}/Output"
+        zip -rX CBORCoding.doccarchive.zip CBORCoding.doccarchive 2>&1 | tee "${TMPDIR}/Logs/Zip.log"
+
+    - name: Upload Zip
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ${{ env.TMPDIR }}/Output/CBORCoding.doccarchive.zip
+        asset_name: CBORCoding.doccarchive.zip
+        asset_content_type: application/zip
+
+    - name: Create Tar
+      run: |
+        cd "${TMPDIR}/Output"
+        tar -zcvf CBORCoding.doccarchive.tar.gz CBORCoding.doccarchive 2>&1 | tee "${TMPDIR}/Logs/Tar.log"
+
+    - name: Upload Tar
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ github.event.release.upload_url }}
+        asset_path: ${{ env.TMPDIR }}/Output/CBORCoding.doccarchive.tar.gz
+        asset_name: CBORCoding.doccarchive.tar.gz
+        asset_content_type: application/gzip
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: DocumentationLogs
+        path: ${{ env.TMPDIR }}/Logs/*.log

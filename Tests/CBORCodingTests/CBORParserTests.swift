@@ -23,7 +23,7 @@ class CBORParserTests: XCTestCase {
     // MARK: Test Methods
 
     func testAppendixASimpleExamples() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
 
         for prefixLength in prefixLengths {
             func prefix() -> String { return randomHexString(ofLength: prefixLength) }
@@ -107,7 +107,7 @@ class CBORParserTests: XCTestCase {
                 XCTAssertTrue(value is Int64)
                 XCTAssertEqual(value as! Int64, -1000)
 
-                XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())3B7FFFFFFFFFFFFFFF\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength))) // NOT part of RFC 7049 examples
+                XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())3B7FFFFFFFFFFFFFFF\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength))) // NOT part of RFC 8949 examples
                 XCTAssertTrue(value is Int64)
                 XCTAssertEqual(value as! Int64, .min)
 
@@ -289,7 +289,7 @@ class CBORParserTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples1() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // []
         //
@@ -337,7 +337,7 @@ class CBORParserTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples2() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [1, [2, 3], [4, 5]]
 
@@ -380,7 +380,7 @@ class CBORParserTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples3() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [1: 2, 3: 4]
         //
@@ -424,7 +424,7 @@ class CBORParserTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples4() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["a": 1, "b": [2, 3]]
 
@@ -459,7 +459,7 @@ class CBORParserTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples5() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["a", ["b": "c"]]
 
@@ -494,7 +494,7 @@ class CBORParserTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples6() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["a": "A", "b": "B", "c": "C", "d": "D", "e": "E"]
 
@@ -574,7 +574,7 @@ class CBORParserTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples8() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // (_ h'0102', h'030405')
 
@@ -597,7 +597,7 @@ class CBORParserTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples9() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // (_ "strea", "ming")
 
@@ -614,6 +614,7 @@ class CBORParserTests: XCTestCase {
 
                 XCTAssertEqual((value as! CBOR.IndefiniteLengthString).chunks.count, 2)
                 XCTAssertEqual((value as! CBOR.IndefiniteLengthString).stringValue, "streaming")
+                XCTAssertEqual((value as! CBOR.IndefiniteLengthString).stringValue(as: .utf8), "streaming")
                 XCTAssertEqual((value as! CBOR.IndefiniteLengthString).chunks[0], Data("strea".utf8))
                 XCTAssertEqual((value as! CBOR.IndefiniteLengthString).chunks[1], Data("ming".utf8))
             }
@@ -621,7 +622,7 @@ class CBORParserTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples10() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["Fun": true, "Amt": -2]
 

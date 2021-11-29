@@ -18,7 +18,7 @@ class CBORDecoderTests: XCTestCase {
     // MARK: Test Methods
 
     func testAppendixASimpleExamples() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
 
         var value: Any!
         let decoder = CBORDecoder()
@@ -79,7 +79,7 @@ class CBORDecoderTests: XCTestCase {
         XCTAssertNoThrow(value = try decoder.decode(Int64.self, from: convertFromHexString("0x3903E7")))
         XCTAssertEqual(value as! Int64, -1000)
 
-        XCTAssertNoThrow(value = try decoder.decode(Int64.self, from: convertFromHexString("0x3B7FFFFFFFFFFFFFFF"))) // NOT part of RFC 7049 examples
+        XCTAssertNoThrow(value = try decoder.decode(Int64.self, from: convertFromHexString("0x3B7FFFFFFFFFFFFFFF"))) // NOT part of RFC 8949 examples
         XCTAssertEqual(value as! Int64, .min)
 
         XCTAssertNoThrow(value = try decoder.decode(Half.self, from: convertFromHexString("0xF90000")))
@@ -136,7 +136,7 @@ class CBORDecoderTests: XCTestCase {
             XCTAssertFalse((value as! Double).isSignalingNaN)
         }
 
-         // NOT part of RFC 7049 examples
+         // NOT part of RFC 8949 examples
         for signalingNaN in ["0xF97D00", "0xFA7FA00000", "0xFB7FF4000000000000"].map(convertFromHexString) {
             XCTAssertNoThrow(value = try decoder.decode(Half.self, from: signalingNaN))
             XCTAssertTrue((value as! Half).isSignalingNaN)
@@ -234,7 +234,7 @@ class CBORDecoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples1() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // []
         //
@@ -274,7 +274,7 @@ class CBORDecoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples2() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [1, [2, 3], [4, 5]]
 
@@ -312,7 +312,7 @@ class CBORDecoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples3() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [1: 2, 3: 4]
 
@@ -343,7 +343,7 @@ class CBORDecoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples4() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["a": 1, "b": [2, 3]]
 
@@ -408,7 +408,7 @@ class CBORDecoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples5() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["a", ["b": "c"]]
 
@@ -460,7 +460,7 @@ class CBORDecoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples6() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // ["a": "A", "b": "B", "c": "C", "d": "D", "e": "E"]
 
@@ -570,7 +570,7 @@ class CBORDecoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples8() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // (_ h'0102', h'030405')
 
@@ -587,7 +587,7 @@ class CBORDecoderTests: XCTestCase {
     }
 
     func testAppendixAComplexExamples9() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // (_ "strea", "ming")
 
@@ -599,13 +599,14 @@ class CBORDecoderTests: XCTestCase {
         XCTAssertEqual((value as! CBOR.IndefiniteLengthString).chunks[0], convertFromHexString("0x7374726561"))
         XCTAssertEqual((value as! CBOR.IndefiniteLengthString).chunks[1], convertFromHexString("0x6D696E67"))
         XCTAssertEqual((value as! CBOR.IndefiniteLengthString).stringValue, "streaming")
+        XCTAssertEqual((value as! CBOR.IndefiniteLengthString).stringValue(as: .utf8), "streaming")
 
         XCTAssertNoThrow(value = try decoder.decode(String.self, from: convertFromHexString("0x7F657374726561646D696E67FF")))
         XCTAssertEqual((value as! String), "streaming")
     }
 
     func testAppendixAComplexExamples10() {
-        // Test Examples taken from Appendix A of RFC 7049
+        // Test Examples taken from Appendix A of RFC 8949
         //
         // [_ "Fun": true, "Amt": -2]
 

@@ -1,10 +1,35 @@
 name: Cocoapods
-on: [push, workflow_dispatch]
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - '**'
+    tags-ignore:
+      - '**'
+    paths-ignore:
+      - '.github/**' # Ignore all files under '.github'
+      - '!.github/workflows/cocoapods.yml' # Except for this workflow
+      - '.gitignore'
+      - '.remarkrc'
+      - '.swiftlint.yml'
+      - 'codecov.yml'
+      - 'Documentation/**'
+      - 'LICENSE'
+      - 'Package.swift'
+      - 'README.md'
 
 jobs:
   lint:
+    strategy:
+      matrix:
+        linttype: [Dynamic, Static]
+
     name: Lint
     runs-on: macOS-11
+    env:
+      LOGSDIR: /tmp/.cborcoding.cocoapods/Logs/${{ matrix.linttype }}
+      LINT_TYPE: ${{ matrix.linttype }}
+
     steps:
     - name: Checkout Code
       uses: actions/checkout@v2
@@ -14,10 +39,21 @@ jobs:
       with:
         version: latest
 
-    - name: Lint (Dynamic Library)
+    - name: Setup Environment
       run: |
-        pod lib lint
+        mkdir -p "$LOGSDIR"
 
-    - name: Lint (Static Library)
+    - name: Lint
       run: |
-        pod lib lint --use-libraries
+        if [ "$LINT_TYPE" == "Dynamic" ]; then
+            pod lib lint --verbose 2>&1 | tee "$LOGSDIR/PodLint.log"
+        else
+            pod lib lint --verbose --use-libraries 2>&1 | tee "$LOGSDIR/PodLint.log"
+        fi
+
+    - name: Upload Logs
+      uses: actions/upload-artifact@v2
+      if: always()
+      with:
+        name: ${{ matrix.linttype }}Logs
+        path: ${{ env.LOGSDIR }}/*.log

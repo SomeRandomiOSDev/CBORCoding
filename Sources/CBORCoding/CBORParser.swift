@@ -994,7 +994,7 @@ internal class CBORParser {
         private var codingKey: CodingKey?
 
         private var topLevel: Any?
-        private var isValid: Bool = true
+        private var isValid = true
 
         // MARK: Methods
 
