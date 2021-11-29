@@ -19,8 +19,12 @@ on:
 
 jobs:
   build:
+    strategy:
+      matrix:
+        os: [macOS-11, ubuntu-latest]
+
     name: Build
-    runs-on: macOS-11
+    runs-on: ${{ matrix.os }}
     env:
       LOGSDIR: /tmp/.cborcoding.swiftpm/Logs/Build
 
@@ -41,12 +45,16 @@ jobs:
       uses: actions/upload-artifact@v2
       if: always()
       with:
-        name: BuildLogs
+        name: BuildLogs-${{ runner.os }}
         path: ${{ env.LOGSDIR }}/*.log
 
   test:
+    strategy:
+      matrix:
+        os: [macOS-11, ubuntu-latest]
+
     name: Test
-    runs-on: macOS-11
+    runs-on: ${{ matrix.os }}
     needs: build
     env:
       LOGSDIR: /tmp/.cborcoding.swiftpm/Logs/Test
@@ -64,12 +72,12 @@ jobs:
         swift test --verbose --enable-code-coverage | tee "$LOGSDIR/Test.log"
 
     - name: Generate Code Coverage File
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      if: ${{ runner.os == 'macOS' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
       run: |
         xcrun llvm-cov export --format=lcov --instr-profile=".build/debug/codecov/default.profdata" ".build/debug/CBORCodingPackageTests.xctest/Contents/MacOS/CBORCodingPackageTests" > "./codecov.lcov"
 
     - name: Upload Code Coverage
-      if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
+      if: ${{ runner.os == 'macOS' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
       uses: codecov/codecov-action@v2
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
@@ -80,5 +88,5 @@ jobs:
       uses: actions/upload-artifact@v2
       if: always()
       with:
-        name: TestLogs
+        name: TestLogs-${{ runner.os }}
         path: ${{ env.LOGSDIR }}/*.log
