@@ -1,11 +1,11 @@
-// swift-tools-version:5.5
+// swift-tools-version:5.7
 import PackageDescription
 
 let package = Package(
     name: "CBORCoding",
 
     platforms: [
-        .iOS("9.0"),
+        .iOS("11.0"),
         .macOS("10.10"),
         .tvOS("9.0"),
         .watchOS("2.0")
@@ -16,7 +16,8 @@ let package = Package(
     ],
 
     dependencies: [
-        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.3.1")
+        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.3.1"),
+        .package(url: "https://github.com/apple/swift-docc-plugin", from: "1.0.0")
     ],
 
     targets: [

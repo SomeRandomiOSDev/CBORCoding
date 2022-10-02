@@ -726,7 +726,7 @@ internal class CBORParser {
             if data.count >= 5 {
                 let upper = UInt32(data[data.index(data.startIndex, offsetBy: 1)]) << 24 |
                             UInt32(data[data.index(data.startIndex, offsetBy: 2)]) << 16
-                let lower = UInt32(data[data.index(data.startIndex, offsetBy: 3)]) << 8  |
+                let lower = UInt32(data[data.index(data.startIndex, offsetBy: 3)]) << 8 |
                             UInt32(data[data.index(data.startIndex, offsetBy: 4)])
 
                 result = (T(exactly: upper | lower), 5)
@@ -747,7 +747,7 @@ internal class CBORParser {
                 do {
                     let lower1 = UInt64(data[data.index(data.startIndex, offsetBy: 5)]) << 24 |
                                  UInt64(data[data.index(data.startIndex, offsetBy: 6)]) << 16
-                    let lower2 = UInt64(data[data.index(data.startIndex, offsetBy: 7)]) << 8  |
+                    let lower2 = UInt64(data[data.index(data.startIndex, offsetBy: 7)]) << 8 |
                                  UInt64(data[data.index(data.startIndex, offsetBy: 8)])
 
                     lower = lower1 | lower2

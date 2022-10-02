@@ -649,6 +649,7 @@ class CBORDecoderTests: XCTestCase {
             }
         }
 
+        // swiftlint:disable closure_spacing
         TestDecodeSingleValue.decode(from: convertFromHexString("0xF6"))                 { XCTAssertEqual($0.decodeNil(), true) }
         TestDecodeSingleValue.decode(from: convertFromHexString("0xF5"))                 { XCTAssertEqual($0.decodeNil(), false) }
 
@@ -681,6 +682,7 @@ class CBORDecoderTests: XCTestCase {
         TestDecodeSingleValue.decode(from: convertFromHexString("0x3A7FFFFFFF"))         { XCTAssertEqual(try $0.decode(Int.self), .min) }
         TestDecodeSingleValue.decode(from: convertFromHexString("0x1AFFFFFFFF"))         { XCTAssertEqual(try $0.decode(UInt.self), .max) }
         #endif // #if arch(arm64) || arch(x86_64)
+        // swiftlint:enable closure_spacing
     }
 
     func testDecodeSingleValueFailureCases() {
@@ -700,6 +702,7 @@ class CBORDecoderTests: XCTestCase {
             }
         }
 
+        // swiftlint:disable closure_spacing
         TestDecodeSingleValue.decode(from: convertFromHexString("0xF6"))                 { try $0.decode(Bool.self) } // Decode any type from nil
         TestDecodeSingleValue.decode(from: convertFromHexString("0x02"))                 { try $0.decode(Bool.self) } // Decode bool from other type
         TestDecodeSingleValue.decode(from: convertFromHexString("0x397FFF"))             { try $0.decode(Int8.self) } // Integer too big
@@ -716,6 +719,7 @@ class CBORDecoderTests: XCTestCase {
         TestDecodeSingleValue.decode(from: convertFromHexString("0xFB3FF199999999999A")) { try $0.decode(Float.self) } // Precise Double into Float
         TestDecodeSingleValue.decode(from: convertFromHexString("0xFB3FF199999999999A")) { try $0.decode(Float.self) } // Precise Double into Half
         TestDecodeSingleValue.decode(from: convertFromHexString("0xFA3F8CCCCD"))         { try $0.decode(Half.self) } // Precise Float into Half
+        // swiftlint:enable closure_spacing
     }
 
     func testDecodeStringKeyedValues() {
