@@ -8,7 +8,9 @@
 // swiftlint:disable nesting function_body_length force_cast identifier_name opening_brace comma implicitly_unwrapped_optional number_separator force_unwrapping
 
 @testable import CBORCoding
+#if canImport(Half)
 import Half
+#endif
 import XCTest
 
 // MARK: - CBORDecoderTests Definition

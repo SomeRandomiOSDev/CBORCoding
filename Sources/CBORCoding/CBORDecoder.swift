@@ -6,7 +6,9 @@
 //
 
 import Foundation
+#if canImport(Half)
 import Half
+#endif
 
 #if canImport(Combine)
 import Combine

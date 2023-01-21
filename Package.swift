@@ -6,7 +6,7 @@ let package = Package(
 
     platforms: [
         .iOS("9.0"),
-        .macOS("10.10"),
+        .macOS(.v11),
         .tvOS("9.0"),
         .watchOS("2.0")
     ],
@@ -15,13 +15,11 @@ let package = Package(
         .library(name: "CBORCoding", targets: ["CBORCoding"])
     ],
 
-    dependencies: [
-        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.3.1")
-    ],
+    dependencies: [],
 
     targets: [
-        .target(name: "CBORCoding", dependencies: ["Half"]),
-        .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding", "Half"])
+        .target(name: "CBORCoding", dependencies: []),
+        .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding"])
     ],
 
     swiftLanguageVersions: [.version("4.2"), .version("5")]
