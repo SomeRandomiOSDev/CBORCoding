@@ -6,7 +6,6 @@
 //
 
 import Foundation
-@_implementationOnly import Half
 
 // MARK: - CBORParser Definition
 

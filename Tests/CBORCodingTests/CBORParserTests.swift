@@ -8,7 +8,9 @@
 // swiftlint:disable function_body_length force_cast comma force_try implicitly_unwrapped_optional number_separator force_unwrapping
 
 @testable import CBORCoding
+#if canImport(Half)
 import Half
+#endif
 import XCTest
 
 // MARK: - CBORParserTests Definition

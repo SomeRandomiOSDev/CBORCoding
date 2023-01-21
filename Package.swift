@@ -14,13 +14,10 @@ let package = Package(
     products: [
         .library(name: "CBORCoding", targets: ["CBORCoding"])
     ],
-
-    dependencies: [
-        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.4.1")
-    ],
+    dependencies: [],
 
     targets: [
-        .target(name: "CBORCoding", dependencies: ["Half"]),
-        .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding", "Half"])
+        .target(name: "CBORCoding", dependencies: []),
+        .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding"])
     ]
 )
