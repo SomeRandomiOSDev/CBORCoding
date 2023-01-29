@@ -8,9 +8,6 @@
 // swiftlint:disable function_body_length force_cast comma force_try implicitly_unwrapped_optional number_separator force_unwrapping
 
 @testable import CBORCoding
-#if canImport(Half)
-import Half
-#endif
 import XCTest
 
 // MARK: - CBORParserTests Definition
@@ -114,28 +111,28 @@ class CBORParserTests: XCTestCase {
                 XCTAssertEqual(value as! Int64, .min)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F90000\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertEqual(value as! Half, 0.0)
+                XCTAssertTrue(value is Float16)
+                XCTAssertEqual(value as! Float16, 0.0)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F98000\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertEqual(value as! Half, -0.0)
+                XCTAssertTrue(value is Float16)
+                XCTAssertEqual(value as! Float16, -0.0)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F93C00\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertEqual(value as! Half, 1.0)
+                XCTAssertTrue(value is Float16)
+                XCTAssertEqual(value as! Float16, 1.0)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())FB3FF199999999999A\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
                 XCTAssertTrue(value is Double)
                 XCTAssertEqual(value as! Double, 1.1)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F93E00\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertEqual(value as! Half, 1.5)
+                XCTAssertTrue(value is Float16)
+                XCTAssertEqual(value as! Float16, 1.5)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F97BFF\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertEqual(value as! Half, 65504.0)
+                XCTAssertTrue(value is Float16)
+                XCTAssertEqual(value as! Float16, 65504.0)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())FA47C35000\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
                 XCTAssertTrue(value is Float)
@@ -150,32 +147,32 @@ class CBORParserTests: XCTestCase {
                 XCTAssertEqual(value as! Double, 1.0e+300)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F90001\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertEqual(value as! Half, 5.960464477539063e-8)
+                XCTAssertTrue(value is Float16)
+                XCTAssertEqual(value as! Float16, 5.960464477539063e-8)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F90400\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertEqual(value as! Half, 0.00006103515625)
+                XCTAssertTrue(value is Float16)
+                XCTAssertEqual(value as! Float16, 0.00006103515625)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F9C400\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertEqual(value as! Half, -4.0)
+                XCTAssertTrue(value is Float16)
+                XCTAssertEqual(value as! Float16, -4.0)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())FBC010666666666666\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
                 XCTAssertTrue(value is Double)
                 XCTAssertEqual(value as! Double, -4.1)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F97C00\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertEqual(value as! Half, .infinity)
+                XCTAssertTrue(value is Float16)
+                XCTAssertEqual(value as! Float16, .infinity)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F97E00\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertTrue((value as! Half).isNaN)
+                XCTAssertTrue(value is Float16)
+                XCTAssertTrue((value as! Float16).isNaN)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())F9FC00\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
-                XCTAssertTrue(value is Half)
-                XCTAssertEqual(value as! Half, -.infinity)
+                XCTAssertTrue(value is Float16)
+                XCTAssertEqual(value as! Float16, -.infinity)
 
                 XCTAssertNoThrow(value = try CBORParser.parse(convertFromHexString("0x\(prefix())FA7F800000\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength)))
                 XCTAssertTrue(value is Float)
@@ -839,7 +836,7 @@ class CBORParserTests: XCTestCase {
                 XCTAssertThrowsError(try CBORParser.parse(convertFromHexString("0x\(prefix())F8\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength))) // Simple - Missing extra byte
                 XCTAssertThrowsError(try CBORParser.parse(convertFromHexString("0x\(prefix())FE\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength))) // Major Type 7, Unassigned code
 
-                XCTAssertThrowsError(try CBORParser.parse(convertFromHexString("0x\(prefix())F9\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength))) // Half - Missing two extra bytes
+                XCTAssertThrowsError(try CBORParser.parse(convertFromHexString("0x\(prefix())F9\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength))) // Float16 - Missing two extra bytes
                 XCTAssertThrowsError(try CBORParser.parse(convertFromHexString("0x\(prefix())FA\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength))) // Float - Missing four extra bytes
                 XCTAssertThrowsError(try CBORParser.parse(convertFromHexString("0x\(prefix())FB\(suffix())", prefixLength: prefixLength, suffixLength: suffixLength))) // Double - Missing eight extra bytes
 

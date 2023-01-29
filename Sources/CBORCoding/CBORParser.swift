@@ -225,7 +225,7 @@ internal class CBORParser {
                         index += simple.decodedBytes
 
                     case 25:
-                        let half = try decode(Half.self, from: data[index...])
+                        let half = try decode(Float16.self, from: data[index...])
                         try storage.append(half.value)
 
                         index += half.decodedBytes
@@ -626,10 +626,10 @@ internal class CBORParser {
         }
 
         let result: (value: T, decodedBytes: Int)
-        if header == CBOR.Bits.half.rawValue { // Half
+        if header == CBOR.Bits.half.rawValue { // Float16
             if data.count >= 3 {
                 // swiftlint:disable force_unwrapping
-                let half = data[data.index(data.startIndex, offsetBy: 1) ..< data.index(data.startIndex, offsetBy: 3)].reversed().withUnsafeBytes { $0.bindMemory(to: Half.self).baseAddress!.pointee }
+                let half = data[data.index(data.startIndex, offsetBy: 1) ..< data.index(data.startIndex, offsetBy: 3)].reversed().withUnsafeBytes { $0.bindMemory(to: Float16.self).baseAddress!.pointee }
                 // swiftlint:enable force_unwrapping
 
                 if half.isNaN {

@@ -5,10 +5,10 @@ let package = Package(
     name: "CBORCoding",
 
     platforms: [
-        .iOS("12.0"),
-        .macOS("10.13"),
-        .tvOS("12.0"),
-        .watchOS("4.0")
+        .iOS("14.0"),
+        .macOS("11.0"),
+        .tvOS("14.0"),
+        .watchOS("7.0"),
     ],
 
     products: [
@@ -19,5 +19,7 @@ let package = Package(
     targets: [
         .target(name: "CBORCoding", dependencies: []),
         .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding"])
-    ]
+    ],
+
+    swiftLanguageVersions: [.v5]
 )
