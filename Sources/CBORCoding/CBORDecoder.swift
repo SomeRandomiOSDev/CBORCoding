@@ -6,9 +6,6 @@
 //
 
 import Foundation
-#if canImport(Half)
-import Half
-#endif
 
 #if canImport(Combine)
 import Combine
@@ -288,34 +285,34 @@ internal class __CBORDecoder: Decoder, SingleValueDecodingContainer {
     }
 
     fileprivate func decode<T: Decodable>(_ value: Any, as type: T.Type) throws -> T {
-        let result: T
-
         // swiftlint:disable force_cast
         if type == Data.self, let value = value as? CBORDecodedData {
-            result = value.decodedDataValue() as! T
-        } else if type == String.self, let value = value as? CBORDecodedString {
-            result = try value.decodedStringValue() as! T
-        } else if type == CBOR.NegativeUInt64.self {
-            result = try decode(value, as: CBOR.NegativeUInt64.self) as! T
-        } else if type == CBOR.Undefined.self {
+            return value.decodedDataValue() as! T
+        }
+        if type == String.self, let value = value as? CBORDecodedString {
+            return try value.decodedStringValue() as! T
+        }
+        if type == CBOR.NegativeUInt64.self {
+            return try decode(value, as: CBOR.NegativeUInt64.self) as! T
+        }
+        if type == CBOR.Undefined.self {
             guard let decodedValue = value as? T else {
                 throw DecodingError._typeMismatch(at: codingPath, expectation: type, reality: value)
             }
 
-            result = decodedValue
-        } else if let decodedValue = value as? T {
-            result = decodedValue
-        } else if type == Half.self {
-            result = try decodeFloatingPoint(value, as: Half.self) as! T
-        } else {
-            storage.push(container: value)
-            defer { storage.popContainer() }
-
-            result = try type.init(from: self)
+            return decodedValue
         }
-        // swiftlint:enable force_cast
+        if let decodedValue = value as? T {
+            return decodedValue
+        }
+        if type == Float16.self {
+            return try decodeFloatingPoint(value, as: Float16.self) as! T
+        }
 
-        return result
+        storage.push(container: value)
+        defer { storage.popContainer() }
+        // swiftlint:enable force_cast
+        return try type.init(from: self)
     }
 
     //
@@ -380,54 +377,39 @@ internal class __CBORDecoder: Decoder, SingleValueDecodingContainer {
     }
 
     fileprivate func decodeFloatingPoint<T>(_ value: Any, as type: T.Type) throws -> T where T: BinaryFloatingPoint {
-        let floatingPoint: T
-        if let half = value as? Half {
-            if half.isNaN {
-                if half.isSignalingNaN {
-                    floatingPoint = .signalingNaN
-                } else {
-                    floatingPoint = .nan
-                }
-            } else {
-                guard let value = T(exactly: half) else {
-                    throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: codingPath, debugDescription: "Decoded CBOR number <\(half)> does not fit in \(type)."))
-                }
-
-                floatingPoint = value
+        if let half = value as? Float16 {
+            guard !half.isNaN else {
+                return half.isSignalingNaN ? .signalingNaN : .nan
             }
-        } else if let float = value as? Float {
-            if float.isNaN {
-                if float.isSignalingNaN {
-                    floatingPoint = .signalingNaN
-                } else {
-                    floatingPoint = .nan
-                }
-            } else {
-                guard let value = T(exactly: float) else {
-                    throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: codingPath, debugDescription: "Decoded CBOR number <\(float)> does not fit in \(type)."))
-                }
-
-                floatingPoint = value
+            guard let value = T(exactly: half) else {
+                throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: codingPath, debugDescription: "Decoded CBOR number <\(half)> does not fit in \(type)."))
             }
-        } else if let double = value as? Double {
-            if double.isNaN {
-                if double.isSignalingNaN {
-                    floatingPoint = .signalingNaN
-                } else {
-                    floatingPoint = .nan
-                }
-            } else {
-                guard let value = T(exactly: double) else {
-                    throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: codingPath, debugDescription: "Decoded CBOR number <\(double)> does not fit in \(type)."))
-                }
 
-                floatingPoint = value
-            }
-        } else {
-            throw DecodingError._typeMismatch(at: codingPath, expectation: type, reality: value)
+            return value
         }
 
-        return floatingPoint
+        if let float = value as? Float {
+            guard !float.isNaN else {
+                return float.isSignalingNaN ? .signalingNaN : .nan
+            }
+            guard let value = T(exactly: float) else {
+                throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: codingPath, debugDescription: "Decoded CBOR number <\(float)> does not fit in \(type)."))
+            }
+
+            return value
+        }
+        if let double = value as? Double {
+            guard !double.isNaN else {
+                return double.isSignalingNaN ? .signalingNaN : .nan
+            }
+            guard let value = T(exactly: double) else {
+                throw DecodingError.dataCorrupted(DecodingError.Context(codingPath: codingPath, debugDescription: "Decoded CBOR number <\(double)> does not fit in \(type)."))
+            }
+
+            return value
+
+        }
+        throw DecodingError._typeMismatch(at: codingPath, expectation: type, reality: value)
     }
 
     fileprivate func decode(_ value: Any, as type: CBOR.NegativeUInt64.Type) throws -> CBOR.NegativeUInt64 {

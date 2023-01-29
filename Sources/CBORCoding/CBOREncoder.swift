@@ -6,9 +6,6 @@
 //
 
 import Foundation
-#if canImport(Half)
-import Half
-#endif
 
 #if canImport(Combine)
 import Combine
@@ -229,7 +226,7 @@ open class CBOREncoder {
         return Data(bytes)
     }
 
-    internal static func encode(_ value: Half) -> Data {
+    internal static func encode(_ value: Float16) -> Data {
         var half = value
         let data = Data(bytes: &half, count: MemoryLayout.size(ofValue: half))
 
@@ -714,60 +711,65 @@ internal class __CBOREncoder: CBOREncoderProtocol, SingleValueEncodingContainer 
     }
 
     fileprivate func encodeValueToCBOR(_ value: Encodable) throws -> Any? {
-        let result: Any?
-
         if let encoded = value as? CBOR.CBOREncoded {
-            result = encoded.encodedData
-        } else if let date = value as? Date {
-            result = CBOREncoder.encode(date, using: options.dateEncodingStrategy)
-        } else if let data = value as? Data {
-            result = CBOREncoder.encode(data)
-        } else if let url = value as? URL {
+            return encoded.encodedData
+        }
+        if let date = value as? Date {
+            return CBOREncoder.encode(date, using: options.dateEncodingStrategy)
+        }
+        if let data = value as? Data {
+            return CBOREncoder.encode(data)
+        }
+        if let url = value as? URL {
             // swiftlint:disable force_try
-            result = try! CBOREncoder.encode(url, forTag: .uri).encodedData
+            return try! CBOREncoder.encode(url, forTag: .uri).encodedData
             // swiftlint:enable force_try
-        } else if value is NSNull || value is CBOR.Null {
-            result = CBOREncoder.encodeNil()
-        } else if value is CBOR.Undefined {
-            result = CBOREncoder.encodeUndefined()
-        } else if let dict = value as? [String: Encodable] {
-            result = try encode(dict)
-        } else if let dict = value as? [Int: Encodable] {
-            result = try encode(dict)
-        } else if let data = value as? CBOR.IndefiniteLengthData {
-            result = try encode(data)
-        } else if let string = value as? CBOR.IndefiniteLengthString {
-            result = try encode(string)
-        } else if let value = value as? CBOR.NegativeUInt64 {
-            result = CBOREncoder.encode(value)
-        } else if let value = value as? Half {
-            result = CBOREncoder.encode(value)
-        } else {
-            let action: () throws -> Any? = {
-                let depth = self.storage.count
+        }
+        if value is NSNull || value is CBOR.Null {
+            return CBOREncoder.encodeNil()
+        }
+        if value is CBOR.Undefined {
+            return CBOREncoder.encodeUndefined()
+        }
+        if let dict = value as? [String: Encodable] {
+            return try encode(dict)
+        }
+        if let dict = value as? [Int: Encodable] {
+            return try encode(dict)
+        }
+        if let data = value as? CBOR.IndefiniteLengthData {
+            return try encode(data)
+        }
+        if let string = value as? CBOR.IndefiniteLengthString {
+            return try encode(string)
+        }
+        if let value = value as? CBOR.NegativeUInt64 {
+            return CBOREncoder.encode(value)
+        }
+        if let value = value as? Float16 {
+            return CBOREncoder.encode(value)
+        }
+        let action: () throws -> Any? = {
+            let depth = self.storage.count
 
-                do {
-                    try value.encode(to: self)
-                } catch {
-                    if self.storage.count > depth {
-                        _ = self.storage.popContainer()
-                    }
-
-                    throw error
+            do {
+                try value.encode(to: self)
+            } catch {
+                if self.storage.count > depth {
+                    _ = self.storage.popContainer()
                 }
-
-                guard self.storage.count > depth else { return nil }
-                return self.storage.popContainer()
+                throw error
             }
 
-            if newContainerLength.contains(.includeSubcontainers) {
-                result = try action()
-            } else {
-                result = try definiteLengthContainerContext(action)
-            }
+            guard self.storage.count > depth else { return nil }
+            return self.storage.popContainer()
         }
 
-        return result
+        if newContainerLength.contains(.includeSubcontainers) {
+            return try action()
+        } else {
+            return try definiteLengthContainerContext(action)
+        }
     }
 
     // MARK: Encoder Protocol Requirements

@@ -1,5 +1,7 @@
 import Foundation
 
-#if !canImport(Half)
-typealias Half = Float16
+#if canImport(Half) && swift(<5.3)
+import Half
+
+typealias Float16 = Half
 #endif

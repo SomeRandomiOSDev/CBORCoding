@@ -321,7 +321,8 @@ public enum CBOR {
 
         /// The string composed by joining together all of the data chunks and interpreting
         /// it as a UTF8 encoded string.
-        @inline(__always) public var stringValue: String? {
+        @inline(__always)
+        public var stringValue: String? {
             return stringValue(as: .utf8)
         }
 
