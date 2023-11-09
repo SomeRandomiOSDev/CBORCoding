@@ -1,4 +1,7 @@
 name: Upload Assets
+defaults:
+  run:
+    shell: bash -eo pipefail {0}
 on:
   release:
     types: [published]
