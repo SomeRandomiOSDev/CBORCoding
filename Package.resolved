@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Half",
+        "repositoryURL": "https://github.com/SomeRandomiOSDev/Half",
+        "state": {
+          "branch": null,
+          "revision": "9f95ddc774eefae46d92492ed8d49457dcf031f4",
+          "version": "1.3.2"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
