@@ -1,27 +1,48 @@
 // swift-tools-version:5.5
 import PackageDescription
 
+#if arch(x86_64)
+let macOS = SupportedPlatform.macOS(.v10_10)
+let macCatalyst = SupportedPlatform.macCatalyst(.v13)
+#else
+let macOS = SupportedPlatform.macOS(.v11)
+let macCatalyst = SupportedPlatform.macCatalyst(.v14)
+#endif
+
+#if (os(macOS) || targetEnvironment(macCatalyst)) && arch(x86_64)
+// We still need Half
+let halfPackage: [Package.Dependency] = [
+  .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.3.1")
+]
+let halfTarget: [Target.Dependency] = ["Half"]
+#else
+let halfPackage: [Package.Dependency] = []
+let halfTarget: [Target.Dependency] = []
+#endif
+
+
+
 let package = Package(
     name: "CBORCoding",
 
     platforms: [
         .iOS(.v14),
-        .macOS(.v11),
+        macOS,
         .tvOS(.v14),
         .watchOS(.v7),
-        .macCatalyst(.v14),
+        macCatalyst,
     ],
 
     products: [
         .library(name: "CBORCoding", targets: ["CBORCoding"])
     ],
 
-    dependencies: [],
+    dependencies: halfPackage,
 
     targets: [
-        .target(name: "CBORCoding", dependencies: []),
-        .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding"])
+        .target(name: "CBORCoding", dependencies: halfTarget),
+        .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding"] + halfTarget)
     ],
 
-    swiftLanguageVersions: [.v5]
+    swiftLanguageVersions: [.version("4.2"), .version("5")]
 )
