@@ -5,6 +5,7 @@
 I would like to give a special thanks to all of the people below who have contributed to this project and to all of those who will contribute to it moving forward.
 
 - [Jos Kuijpers](https://github.com/joskuijpers)
+- [Dave Abrahams](https://github.com/dabrahams)
 
 ## I would like to join this list! How can I help the project?
 
