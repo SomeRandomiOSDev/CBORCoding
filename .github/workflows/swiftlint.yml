@@ -1,4 +1,7 @@
 name: SwiftLint
+defaults:
+  run:
+    shell: bash -eo pipefail {0}
 on:
   workflow_dispatch:
   push:
