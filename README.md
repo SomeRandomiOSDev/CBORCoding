@@ -75,6 +75,10 @@ let decoder = CBORDecoder()
 let stinger = try decoder.decode(Car.self, from: encodedData)
 ```
 
+## 16-bit Floating Point Support
+
+This package supports encoding/decoding Swift's `Float16` where available.  Unfortunately that does not include macOS on Intel processors, where an almost-identical type [`Half`](https://github.com/SomeRandomiOSDev/Half) is supported instead.
+
 ## CBOR
 
 **Concise Binary Object Representation** is a data format for being able to encode formatted data with a goal of a having as small a message size as possible.
