@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -e -o pipefail
 #
 # xcframework.sh
 # Usage example: ./xcframework.sh --output <some_path>/<name>.xcframework
