@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import Half
 
 // MARK: - CBORParser Definition
 
@@ -226,7 +225,7 @@ internal class CBORParser {
                         index += simple.decodedBytes
 
                     case 25:
-                        let half = try decode(Half.self, from: data[index...])
+                        let half = try decode(Float16.self, from: data[index...])
                         try storage.append(half.value)
 
                         index += half.decodedBytes
@@ -627,10 +626,10 @@ internal class CBORParser {
         }
 
         let result: (value: T, decodedBytes: Int)
-        if header == CBOR.Bits.half.rawValue { // Half
+        if header == CBOR.Bits.half.rawValue { // Float16
             if data.count >= 3 {
                 // swiftlint:disable force_unwrapping
-                let half = data[data.index(data.startIndex, offsetBy: 1) ..< data.index(data.startIndex, offsetBy: 3)].reversed().withUnsafeBytes { $0.bindMemory(to: Half.self).baseAddress!.pointee }
+                let half = data[data.index(data.startIndex, offsetBy: 1) ..< data.index(data.startIndex, offsetBy: 3)].reversed().withUnsafeBytes { $0.bindMemory(to: Float16.self).baseAddress!.pointee }
                 // swiftlint:enable force_unwrapping
 
                 if half.isNaN {
@@ -726,7 +725,7 @@ internal class CBORParser {
             if data.count >= 5 {
                 let upper = UInt32(data[data.index(data.startIndex, offsetBy: 1)]) << 24 |
                             UInt32(data[data.index(data.startIndex, offsetBy: 2)]) << 16
-                let lower = UInt32(data[data.index(data.startIndex, offsetBy: 3)]) << 8  |
+                let lower = UInt32(data[data.index(data.startIndex, offsetBy: 3)]) << 8 |
                             UInt32(data[data.index(data.startIndex, offsetBy: 4)])
 
                 result = (T(exactly: upper | lower), 5)
@@ -747,7 +746,7 @@ internal class CBORParser {
                 do {
                     let lower1 = UInt64(data[data.index(data.startIndex, offsetBy: 5)]) << 24 |
                                  UInt64(data[data.index(data.startIndex, offsetBy: 6)]) << 16
-                    let lower2 = UInt64(data[data.index(data.startIndex, offsetBy: 7)]) << 8  |
+                    let lower2 = UInt64(data[data.index(data.startIndex, offsetBy: 7)]) << 8 |
                                  UInt64(data[data.index(data.startIndex, offsetBy: 8)])
 
                     lower = lower1 | lower2
