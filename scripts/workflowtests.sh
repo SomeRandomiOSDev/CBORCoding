@@ -263,7 +263,7 @@ if which carthage >/dev/null; then
 
     comparison=$("$SCRIPTS_DIR/versions.sh" "$CARTHAGE_VERSION" "0.37.0"; echo $?)
 
-    if [ $comparison -lt 0 ]; then
+    if [ "$comparison" -lt 0 ]; then
         "$SCRIPTS_DIR/printformat.sh" "foreground:yellow" "Carthage version of at least 0.37.0 is recommended for running these unit tests"
     fi
 else
@@ -276,7 +276,7 @@ if which pod >/dev/null; then
     PODS_VERSION="$(pod --version)"
     comparison=$("$SCRIPTS_DIR/versions.sh" "$PODS_VERSION" "1.7.3"; echo $?)
 
-    if [ $comparison -ge 0 ]; then
+    if [ "$comparison" -ge 0 ]; then
         echo "CocoaPods: $PODS_VERSION"
     else
         checkresult -1 "These unit tests require version 1.7.3 or later of CocoaPods: $("$SCRIPTS_DIR/printformat.sh" "foreground:blue;underline" "https://guides.cocoapods.org/using/getting-started.html#updating-cocoapods")"

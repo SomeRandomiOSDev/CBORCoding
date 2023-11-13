@@ -8,7 +8,7 @@
 VERSION="$(carthage version)"
 comparison=$("$(dirname "$0")/versions.sh" "$VERSION" "0.37.0"; echo $?)
 
-if [ $comparison -ge 0 ]; then
+if [ "$comparison" -ge 0 ]; then
     # Carthage version is greater than or equal to 0.37.0 meaning we can use the --use-xcframeworks flag
     carthage "$@" --use-xcframeworks
 else
