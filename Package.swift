@@ -20,8 +20,6 @@ let halfPackage: [Package.Dependency] = []
 let halfTarget: [Target.Dependency] = []
 #endif
 
-
-
 let package = Package(
     name: "CBORCoding",
 
@@ -30,7 +28,7 @@ let package = Package(
         macOS,
         .tvOS(.v14),
         .watchOS(.v7),
-        macCatalyst,
+        macCatalyst
     ],
 
     products: [
