@@ -23,7 +23,7 @@ function printhelp() {
     HELP+="\n"
     HELP+="--help, -h)               Print this help message and exit.\n"
     HELP+="\n"
-    HELP+="--help, -h)               Enable verbose logging.\n"
+    HELP+="--verbose)                Enable verbose logging.\n"
     HELP+="\n"
     HELP+="--project-name)           The name of the project to run tests against. If not\n"
     HELP+="                          provided it will attempt to be resolved by searching\n"
