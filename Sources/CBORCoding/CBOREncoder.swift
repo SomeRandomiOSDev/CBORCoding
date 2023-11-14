@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Half
+@_implementationOnly import Half
 
 #if canImport(Combine)
 import Combine
@@ -599,10 +599,6 @@ internal class __CBOREncoder: CBOREncoderProtocol, SingleValueEncodingContainer 
         // MARK: OptionSet Protocol Requirements
 
         var rawValue: UInt
-
-        init(rawValue: UInt) {
-            self.rawValue = rawValue
-        }
 
         // MARK: Constants
 

@@ -560,3 +560,5 @@ class CBORTests: XCTestCase {
         return data
     }
 }
+
+// swiftlint:enable comma nesting force_try implicitly_unwrapped_optional

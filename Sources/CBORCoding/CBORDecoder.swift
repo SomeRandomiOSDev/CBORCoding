@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import Half
+@_implementationOnly import Half
 
 #if canImport(Combine)
 import Combine
@@ -245,7 +245,7 @@ internal class __CBORDecoder: Decoder, SingleValueDecodingContainer {
         try expectNonNull(type)
 
         guard let array = storage.topContainer as? [Any], array.count == 3,
-              let tag = array[0] as? CBOR.Tag, (tag == .decimalFraction || tag == .bigfloat) else {
+              let tag = array[0] as? CBOR.Tag, tag == .decimalFraction || tag == .bigfloat else {
             throw DecodingError._typeMismatch(at: codingPath, expectation: type, reality: storage.topContainer)
         }
         guard tag == .decimalFraction else {
@@ -262,7 +262,7 @@ internal class __CBORDecoder: Decoder, SingleValueDecodingContainer {
         try expectNonNull(type)
 
         guard let array = storage.topContainer as? [Any], array.count == 3,
-            let tag = array[0] as? CBOR.Tag, (tag == .decimalFraction || tag == .bigfloat) else {
+            let tag = array[0] as? CBOR.Tag, tag == .decimalFraction || tag == .bigfloat else {
                 throw DecodingError._typeMismatch(at: codingPath, expectation: type, reality: storage.topContainer)
         }
         guard tag == .bigfloat else {

@@ -164,3 +164,5 @@ class ContainersTests: XCTestCase {
         XCTAssertNil(pair)
     }
 }
+
+// swiftlint:enable identifier_name force_unwrapping

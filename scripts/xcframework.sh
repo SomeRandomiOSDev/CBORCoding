@@ -45,6 +45,10 @@ function printhelp() {
     HELP+="                    provided it will attempt to be resolved by searching the\n"
     HELP+="                    working directory for an Xcode project and using its name.\n"
     HELP+="\n"
+    HELP+="--workspace-name)   The name of the workspace to run tests against. If not\n"
+    HELP+="                    provided it will attempt to be resolved by searching the\n"
+    HELP+="                    working directory for an Xcode workspace and using its name.\n"
+    HELP+="\n"
     HELP+="--exclude-dsyms)    Do not include the generated dSYMs nor BCSymbolMaps in the\n"
     HELP+="                    final XCFramework.\n"
     HELP+="\n"
@@ -72,119 +76,6 @@ function printhelp() {
 
     exit $EXIT_CODE
 }
-
-# Parse Arguments
-
-while [[ $# -gt 0 ]]; do
-    if [ "$IS_PARSING_BUILD_ARGS" == "1" ]; then
-        BUILD_ARGS=("${BUILD_ARGS[@]}" "$1")
-        shift
-    else
-        case "$1" in
-            --output)
-            OUTPUT="$2"
-            shift # --output
-            shift # <project_name>
-            ;;
-
-            --configuration)
-            CONFIGURATION="$2"
-            shift # --configuration
-            shift # <configuration>
-            ;;
-
-            --project-name)
-            PROJECT_NAME="$2"
-            shift # --project-name
-            shift # <project_name>
-            ;;
-
-            --exclude-dsyms)
-            EXCLUDE_DSYMS=1
-            shift # --exclude-dsyms
-            ;;
-
-            --no-clean)
-            NO_CLEAN=1
-            shift # --no-clean
-            ;;
-
-            --no-clean-on-fail)
-            NO_CLEAN_ON_FAIL=1
-            shift # --no-clean-on-fail
-            ;;
-
-            --build-dir)
-            BUILD_DIR="$2"
-            shift # --build-dir
-            shift # <build_dir>
-            ;;
-
-            --verbose)
-            VERBOSE=1
-            shift # --verbose
-            ;;
-
-            --help | -h)
-            printhelp
-            ;;
-
-            --)
-            IS_PARSING_BUILD_ARGS=1
-            shift # --
-            ;;
-
-            *)
-            "$SCRIPTS_DIR/printformat.sh" "foreground:red" "Unknown argument: $1\n" 1>&2
-            EXIT_CODE=1
-            printhelp
-            ;;
-        esac
-    fi
-done
-
-#
-
-ARGUMENTS=()
-if [ "${#PROJECT_NAME}" != 0 ]; then
-    ARGUMENTS=(--project-name "$PROJECT_NAME")
-fi
-
-PROJECT_NAME="$("$SCRIPTS_DIR/findproject.sh" "${ARGUMENTS[@]}")"
-EXIT_CODE=$?
-
-if [ "$EXIT_CODE" != "0" ]; then
-    printhelp
-fi
-
-#
-
-if [ -z ${OUTPUT+x} ]; then
-    OUTPUT="$SCRIPTS_DIR/build/$PROJECT_NAME.xcframework"
-elif [ "${OUTPUT##*.}" != "xcframework" ]; then
-    if [ "${OUTPUT: -1}" == "/" ]; then
-        OUTPUT="${OUTPUT}${PROJECT_NAME}.xcframework"
-    else
-        OUTPUT="${OUTPUT}/${PROJECT_NAME}.xcframework"
-    fi
-fi
-
-if [ -z ${CONFIGURATION+x} ]; then
-    CONFIGURATION="Release"
-fi
-
-if [ -z ${BUILD_DIR+x} ]; then
-    BUILD_DIR="$(mktemp -d -t ".$(echo "$PROJECT_NAME" | tr '[:upper:]' '[:lower:]').xcframework.build")"
-    BUILD_DIR_IS_TEMP=1
-else
-    mkdir -p "$BUILD_DIR"
-    EXIT_CODE=$?
-
-    if [ "$EXIT_CODE" != "0" ]; then
-        "$SCRIPTS_DIR/printformat.sh" "foreground:red" "Unable to create build directory: $BUILD_DIR"
-        exit $EXIT_CODE
-    fi
-fi
 
 # Function Declarations
 
@@ -241,6 +132,159 @@ function errormessage() {
     echo "$ERROR_MESSAGE"
 }
 
+# Parse Arguments
+
+while [[ $# -gt 0 ]]; do
+    if [ "$IS_PARSING_BUILD_ARGS" == "1" ]; then
+        BUILD_ARGS=("${BUILD_ARGS[@]}" "$1")
+        shift
+    else
+        case "$1" in
+            --output)
+            OUTPUT="$2"
+            shift # --output
+            shift # <project_name>
+            ;;
+
+            --configuration)
+            CONFIGURATION="$2"
+            shift # --configuration
+            shift # <configuration>
+            ;;
+
+            --project-name)
+            PROJECT_NAME="$2"
+            shift # --project-name
+            shift # <project_name>
+            ;;
+
+            --workspace-name)
+            WORKSPACE_NAME="$2"
+            shift # --workspace-name
+            shift # <workspace_name>
+            ;;
+
+            --exclude-dsyms)
+            EXCLUDE_DSYMS=1
+            shift # --exclude-dsyms
+            ;;
+
+            --no-clean)
+            NO_CLEAN=1
+            shift # --no-clean
+            ;;
+
+            --no-clean-on-fail)
+            NO_CLEAN_ON_FAIL=1
+            shift # --no-clean-on-fail
+            ;;
+
+            --build-dir)
+            BUILD_DIR="$2"
+            shift # --build-dir
+            shift # <build_dir>
+            ;;
+
+            --verbose)
+            VERBOSE=1
+            shift # --verbose
+            ;;
+
+            --help | -h)
+            printhelp
+            ;;
+
+            --)
+            IS_PARSING_BUILD_ARGS=1
+            shift # --
+            ;;
+
+            *)
+            "$SCRIPTS_DIR/printformat.sh" "foreground:red" "Unknown argument: $1\n" 1>&2
+            EXIT_CODE=1
+            printhelp
+            ;;
+        esac
+    fi
+done
+
+#
+
+if [ "${#WORKSPACE_NAME}" != 0 ]; then
+    USE_WORKSPACE=1
+    WORKSPACE_NAME="$("$SCRIPTS_DIR/findworkspace.sh" --workspace-name "$WORKSPACE_NAME")"
+
+    checkresult $?
+elif [ "${#PROJECT_NAME}" != 0 ]; then
+    USE_WORKSPACE=0
+    PROJECT_NAME="$("$SCRIPTS_DIR/findproject.sh" --project-name "$PROJECT_NAME")"
+
+    checkresult $?
+else
+    WORKSPACE_NAME="$("$SCRIPTS_DIR/findworkspace.sh")" 2> /dev/null
+    RESULT=$?
+
+    if [[ "$RESULT" == 0 ]] && [[ "${#WORKSPACE_NAME}" != 0 ]]; then
+        USE_WORKSPACE=1
+    else
+        PROJECT_NAME="$("$SCRIPTS_DIR/findproject.sh")" 2> /dev/null
+        RESULT=$?
+
+        if [[ "$RESULT" == 0 ]] && [[ "${#PROJECT_NAME}" != 0 ]]; then
+            USE_WORKSPACE=0
+        else
+            checkresult 1 "Unable to find specific Xcode project or workspace in the root directory. Try specifying a project or workspace name:\n"
+        fi
+    fi
+fi
+
+if [ "$USE_WORKSPACE" == "1" ]; then
+    PRODUCT_NAME="$WORKSPACE_NAME"
+    FULL_PRODUCT_NAME="$WORKSPACE_NAME.xcworkspace"
+    XCODEBUILD_ARGS=(-workspace "$FULL_PRODUCT_NAME")
+else
+    PRODUCT_NAME="$PROJECT_NAME"
+    FULL_PRODUCT_NAME="$PROJECT_NAME.xcodeproj"
+    XCODEBUILD_ARGS=(-project "$FULL_PRODUCT_NAME")
+fi
+
+EXIT_CODE=$?
+
+if [ "$EXIT_CODE" != "0" ]; then
+    printhelp
+fi
+
+#
+
+if [ -z ${OUTPUT+x} ]; then
+    OUTPUT="$SCRIPTS_DIR/build/$PRODUCT_NAME.xcframework"
+elif [ "${OUTPUT##*.}" != "xcframework" ]; then
+    if [ "${OUTPUT: -1}" == "/" ]; then
+        OUTPUT="${OUTPUT}${PRODUCT_NAME}.xcframework"
+    else
+        OUTPUT="${OUTPUT}/${PRODUCT_NAME}.xcframework"
+    fi
+fi
+
+mkdir -p "$(dirname "${OUTPUT}")"
+
+if [ -z ${CONFIGURATION+x} ]; then
+    CONFIGURATION="Release"
+fi
+
+if [ -z ${BUILD_DIR+x} ]; then
+    BUILD_DIR="$(mktemp -d -t ".$(echo "$PRODUCT_NAME" | tr '[:upper:]' '[:lower:]').xcframework.build")"
+    BUILD_DIR_IS_TEMP=1
+else
+    mkdir -p "$BUILD_DIR"
+    EXIT_CODE=$?
+
+    if [ "$EXIT_CODE" != "0" ]; then
+        "$SCRIPTS_DIR/printformat.sh" "foreground:red" "Unable to create build directory: $BUILD_DIR"
+        exit $EXIT_CODE
+    fi
+fi
+
 # Build Platforms
 
 cd "$ROOT_DIR"
@@ -248,20 +292,20 @@ cd "$ROOT_DIR"
 #
 
 for PLATFORM in "iOS" "iOS Simulator" "Mac Catalyst" "macOS" "tvOS" "tvOS Simulator" "watchOS" "watchOS Simulator"; do
-    echo -e "$("$SCRIPTS_DIR/printformat.sh" "foreground:blue" "***") Building $("$SCRIPTS_DIR/printformat.sh" "foreground:green" "$PLATFORM") architecture(s) of $("$SCRIPTS_DIR/printformat.sh" "bold" "${PROJECT_NAME}.xcodeproj")"
+    echo -e "$("$SCRIPTS_DIR/printformat.sh" "foreground:blue" "***") Building $("$SCRIPTS_DIR/printformat.sh" "foreground:green" "$PLATFORM") architecture(s) of $("$SCRIPTS_DIR/printformat.sh" "bold" "$FULL_PRODUCT_NAME")"
 
-    SCHEME="${PROJECT_NAME}"
+    SCHEME="${PRODUCT_NAME}"
     ARCHIVE=""
     ARCHS=""
 
     case "$PLATFORM" in
         "iOS")
-        ARCHS="armv7 armv7s arm64 arm64e"
+        ARCHS="arm64 arm64e"
         ARCHIVE="iphoneos"
         ;;
 
         "iOS Simulator")
-        ARCHS="i386 x86_64 arm64"
+        ARCHS="x86_64 arm64"
         ARCHIVE="iphonesimulator"
         ;;
 
@@ -272,32 +316,32 @@ for PLATFORM in "iOS" "iOS Simulator" "Mac Catalyst" "macOS" "tvOS" "tvOS Simula
         ;;
 
         "macOS")
-        SCHEME="${PROJECT_NAME} macOS"
+        SCHEME="${SCHEME} macOS"
         ARCHS="x86_64 arm64 arm64e"
         ARCHIVE="macos"
         ;;
 
         "tvOS")
-        SCHEME="${PROJECT_NAME} tvOS"
+        SCHEME="${SCHEME} tvOS"
         ARCHS="arm64 arm64e"
         ARCHIVE="appletvos"
         ;;
 
         "tvOS Simulator")
-        SCHEME="${PROJECT_NAME} tvOS"
+        SCHEME="${SCHEME} tvOS"
         ARCHS="x86_64 arm64"
         ARCHIVE="appletvsimulator"
         ;;
 
         "watchOS")
-        SCHEME="${PROJECT_NAME} watchOS"
-        ARCHS="arm64_32 armv7k"
+        SCHEME="${SCHEME} watchOS"
+        ARCHS="arm64 arm64e arm64_32 armv7k"
         ARCHIVE="watchos"
         ;;
 
         "watchOS Simulator")
-        SCHEME="${PROJECT_NAME} watchOS"
-        ARCHS="i386 x86_64 arm64"
+        SCHEME="${SCHEME} watchOS"
+        ARCHS="x86_64 arm64"
         ARCHIVE="watchsimulator"
         ;;
     esac
@@ -307,14 +351,14 @@ for PLATFORM in "iOS" "iOS Simulator" "Mac Catalyst" "macOS" "tvOS" "tvOS Simula
     #
 
     if [ "$VERBOSE" == "1" ]; then
-        xcodebuild -project "${PROJECT_NAME}.xcodeproj" -scheme "$SCHEME" -destination "generic/platform=$PLATFORM" -archivePath "${BUILD_DIR}/$ARCHIVE.xcarchive" -configuration ${CONFIGURATION} SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ONLY_ACTIVE_ARCH=NO ARCHS="$ARCHS" "${BUILD_ARGS[@]}" archive
+        xcodebuild "${XCODEBUILD_ARGS[@]}" -scheme "$SCHEME" -destination "generic/platform=$PLATFORM" -archivePath "${BUILD_DIR}/$ARCHIVE.xcarchive" -configuration ${CONFIGURATION} SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ONLY_ACTIVE_ARCH=NO ARCHS="$ARCHS" "${BUILD_ARGS[@]}" archive
     else
         LOG="$(createlogfile "$ARCHIVE-build")"
         ERROR_MESSAGE="$(errormessage "$LOG")"
 
         #
 
-        xcodebuild -project "${PROJECT_NAME}.xcodeproj" -scheme "$SCHEME" -destination "generic/platform=$PLATFORM" -archivePath "${BUILD_DIR}/$ARCHIVE.xcarchive" -configuration ${CONFIGURATION} SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ONLY_ACTIVE_ARCH=NO ARCHS="$ARCHS" "${BUILD_ARGS[@]}" archive > "$LOG" 2>&1
+        xcodebuild "${XCODEBUILD_ARGS[@]}" -scheme "$SCHEME" -destination "generic/platform=$PLATFORM" -archivePath "${BUILD_DIR}/$ARCHIVE.xcarchive" -configuration ${CONFIGURATION} SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ONLY_ACTIVE_ARCH=NO ARCHS="$ARCHS" "${BUILD_ARGS[@]}" archive > "$LOG" 2>&1
     fi
 
     checkresult $? "$ERROR_MESSAGE"
@@ -326,19 +370,19 @@ if [[ -d "${OUTPUT}" ]]; then
     rm -rf "${OUTPUT}"
 fi
 
-ARGUMENTS=(-create-xcframework -output "${OUTPUT}")
+ARGUMENTS=(-create-xcframework -output "$(readlink -f "$(dirname "${OUTPUT}")")/$(basename "${OUTPUT}")")
 
 for ARCHIVE in ${BUILD_DIR}/*.xcarchive; do
-    ARGUMENTS=(${ARGUMENTS[@]} -framework "${ARCHIVE}/Products/Library/Frameworks/${PROJECT_NAME}.framework")
+    ARGUMENTS=(${ARGUMENTS[@]} -framework "$(readlink -f "${ARCHIVE}/Products/Library/Frameworks/${PRODUCT_NAME}.framework")")
 
     if [ "$EXCLUDE_DSYMS" != "1" ]; then
-        if [[ -d "${ARCHIVE}/dSYMs/${PROJECT_NAME}.framework.dSYM" ]]; then
-            ARGUMENTS=(${ARGUMENTS[@]} -debug-symbols "${ARCHIVE}/dSYMs/${PROJECT_NAME}.framework.dSYM")
+        if [[ -d "${ARCHIVE}/dSYMs/${PRODUCT_NAME}.framework.dSYM" ]]; then
+            ARGUMENTS=(${ARGUMENTS[@]} -debug-symbols "$(readlink -f "${ARCHIVE}/dSYMs/${PRODUCT_NAME}.framework.dSYM")")
         fi
 
         if [[ -d "${ARCHIVE}/BCSymbolMaps" ]]; then
             for SYMBOLMAP in ${ARCHIVE}/BCSymbolMaps/*.bcsymbolmap; do
-                ARGUMENTS=(${ARGUMENTS[@]} -debug-symbols "${SYMBOLMAP}")
+                ARGUMENTS=(${ARGUMENTS[@]} -debug-symbols "$(readlink -f "${SYMBOLMAP}")")
             done
         fi
     fi
