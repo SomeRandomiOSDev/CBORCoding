@@ -1282,3 +1282,5 @@ class CBORParserTests: XCTestCase {
         return Calendar.current.date(from: components)!
     }
 }
+
+// swiftlint:enable function_body_length force_cast comma force_try implicitly_unwrapped_optional number_separator force_unwrapping

@@ -26,16 +26,26 @@ jobs:
     strategy:
       matrix:
         linttype: [Dynamic, Static]
+        os: [macOS-13]
+        xcode: ['15.0']
+
 
     name: Lint
-    runs-on: macOS-11
+    runs-on: ${{ matrix.os }}
     env:
       LOGSDIR: /tmp/.cborcoding.cocoapods/Logs/${{ matrix.linttype }}
       LINT_TYPE: ${{ matrix.linttype }}
 
     steps:
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ matrix.xcode }}
+
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Setup Cocoapods
       uses: maxim-lobanov/setup-cocoapods@v1
@@ -55,7 +65,7 @@ jobs:
         fi
 
     - name: Upload Logs
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: always()
       with:
         name: ${{ matrix.linttype }}Logs

@@ -24,7 +24,8 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macOS-11, ubuntu-latest]
+        os: [macOS-13, ubuntu-latest]
+        xcode: ['15.0']
 
     name: Build
     runs-on: ${{ matrix.os }}
@@ -32,8 +33,16 @@ jobs:
       LOGSDIR: /tmp/.cborcoding.swiftpm/Logs/Build
 
     steps:
+    - name: Select Xcode Version
+      if: ${{ runner.os == 'macOS' }}
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ matrix.xcode }}
+
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Setup Environment
       run: |
@@ -45,7 +54,7 @@ jobs:
         swift build --verbose | tee -a "$LOGSDIR/Build.log"
 
     - name: Upload Logs
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: always()
       with:
         name: BuildLogs-${{ runner.os }}
@@ -54,7 +63,8 @@ jobs:
   test:
     strategy:
       matrix:
-        os: [macOS-11, ubuntu-latest]
+        os: [macOS-13, ubuntu-latest]
+        xcode: ['15.0']
 
     name: Test
     runs-on: ${{ matrix.os }}
@@ -63,8 +73,16 @@ jobs:
       LOGSDIR: /tmp/.cborcoding.swiftpm/Logs/Test
 
     steps:
+    - name: Select Xcode Version
+      if: ${{ runner.os == 'macOS' }}
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ matrix.xcode }}
+
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Setup Environment
       run: |
@@ -88,7 +106,7 @@ jobs:
         verbose: true
 
     - name: Upload Logs
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: always()
       with:
         name: TestLogs-${{ runner.os }}

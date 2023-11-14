@@ -5,7 +5,7 @@
 //  Copyright © 2021 SomeRandomiOSDev. All rights reserved.
 //
 
-// swiftlint:disable nesting function_body_length force_cast identifier_name opening_brace comma implicitly_unwrapped_optional number_separator force_unwrapping
+// swiftlint:disable nesting function_body_length force_cast identifier_name opening_brace comma implicitly_unwrapped_optional number_separator force_unwrapping closure_spacing
 
 @testable import CBORCoding
 import Half
@@ -1248,3 +1248,5 @@ class CBORDecoderTests: XCTestCase {
         return Calendar.current.date(from: components)!
     }
 }
+
+// swiftlint:enable nesting function_body_length force_cast identifier_name opening_brace comma implicitly_unwrapped_optional number_separator force_unwrapping closure_spacing

@@ -1434,3 +1434,5 @@ class CBOREncoderTests: XCTestCase {
         return Calendar.current.date(from: components)!
     }
 }
+
+// swiftlint:enable comma nesting function_body_length identifier_name force_try force_cast number_separator force_unwrapping

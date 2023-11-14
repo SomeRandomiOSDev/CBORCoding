@@ -8,15 +8,27 @@ on:
 
 jobs:
   publish:
+    strategy:
+      matrix:
+        os: [macOS-13]
+        xcode: ['15.0']
+
     name: Publish CocoaPods
-    runs-on: macOS-11
+    runs-on: ${{ matrix.os }}
     env:
       LOGSDIR: /tmp/.cborcoding.cocoapods/Logs
       COCOAPODS_TRUNK_TOKEN: ${{ secrets.COCOAPODS_TRUNK_TOKEN }}
 
     steps:
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ matrix.xcode }}
+
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Setup CocoaPods
       uses: maxim-lobanov/setup-cocoapods@v1
@@ -32,7 +44,7 @@ jobs:
         pod trunk push CBORCoding.podspec --verbose 2>&1 | tee "$LOGSDIR/CocoaPods.log"
 
     - name: Upload Logs
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: always()
       with:
         name: Logs

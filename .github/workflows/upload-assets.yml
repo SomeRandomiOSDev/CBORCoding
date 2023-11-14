@@ -8,14 +8,26 @@ on:
 
 jobs:
   xcframework:
+    strategy:
+      matrix:
+        os: [macOS-13]
+        xcode: ['15.0']
+
     name: Upload XCFramework Assets
-    runs-on: macOS-11
+    runs-on: ${{ matrix.os }}
     env:
       TMPDIR: /tmp/.cborcoding.assets-xcframework.build
 
     steps:
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ matrix.xcode }}
+
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Setup Environment
       run: |
@@ -57,7 +69,7 @@ jobs:
         asset_content_type: application/gzip
 
     - name: Upload Logs
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: always()
       with:
         name: XCFrameworkLogs
@@ -66,14 +78,26 @@ jobs:
 
 
   documentation:
+    strategy:
+      matrix:
+        os: [macOS-13]
+        xcode: ['15.0']
+
     name: Upload Documentation Assets
-    runs-on: macOS-11
+    runs-on: ${{ matrix.os }}
     env:
       TMPDIR: /tmp/.cborcoding.assets-documentation.build
 
     steps:
+    - name: Select Xcode Version
+      uses: maxim-lobanov/setup-xcode@v1
+      with:
+        xcode-version: ${{ matrix.xcode }}
+
     - name: Checkout Code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
 
     - name: Setup Environment
       run: |
@@ -118,7 +142,7 @@ jobs:
         asset_content_type: application/gzip
 
     - name: Upload Logs
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3
       if: always()
       with:
         name: DocumentationLogs
