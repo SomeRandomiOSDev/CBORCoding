@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -e -o pipefail
 #
 # https://gist.github.com/SomeRandomiOSDev/798406a4a15f6b5d78b010599865c04f
 #

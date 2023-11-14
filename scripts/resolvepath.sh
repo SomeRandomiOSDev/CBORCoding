@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -e -o pipefail
 #
 # resolvepath.sh
 # Usage example: ./resolvepath.sh "./some/random/path/../../"

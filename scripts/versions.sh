@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env bash -e -o pipefail
 #
 # versions.sh
 # Usage example: ./versions.sh "1.4.15" "1.7.0"
