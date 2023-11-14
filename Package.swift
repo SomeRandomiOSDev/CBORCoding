@@ -11,14 +11,14 @@ let macCatalyst = SupportedPlatform.macCatalyst(.v14)
 
 #if (os(macOS) || targetEnvironment(macCatalyst)) && arch(x86_64)
 // We still need Half
+let halfTarget: [Target.Dependency] = ["Half"]
+#else
+let halfTarget: [Target.Dependency] = []
+#endif
+
 let halfPackage: [Package.Dependency] = [
   .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.3.1")
 ]
-let halfTarget: [Target.Dependency] = ["Half"]
-#else
-let halfPackage: [Package.Dependency] = []
-let halfTarget: [Target.Dependency] = []
-#endif
 
 let package = Package(
     name: "CBORCoding",
