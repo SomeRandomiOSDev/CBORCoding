@@ -77,6 +77,61 @@ function printhelp() {
     exit $EXIT_CODE
 }
 
+# Function Declarations
+
+function cleanup() {
+    cd "$CURRENT_DIR"
+    if [[ "$VERBOSE" != "1" && "$BUILD_DIR_IS_TEMP" == "1" && ("$NO_CLEAN" == "1" || ("$NO_CLEAN_ON_FAIL" == "1" && "$EXIT_CODE" != "0")) ]]; then
+        if [ "$EXIT_CODE" == "0" ]; then
+            "$SCRIPTS_DIR/printformat.sh" "foreground:yellow" "Build Directory: $BUILD_DIR"
+        fi
+    elif [ "$BUILD_DIR_IS_TEMP" == "1" ]; then
+        rm -rf "$BUILD_DIR"
+    fi
+
+    #
+
+    if [ "${#EXIT_MESSAGE}" != 0 ]; then
+        echo -e "$EXIT_MESSAGE" 1>&2
+    fi
+
+    exit $EXIT_CODE
+}
+
+function checkresult() {
+    if [ "$1" != "0" ]; then
+        if [ "${#2}" != "0" ]; then
+            EXIT_MESSAGE="$("$SCRIPTS_DIR/printformat.sh" "foreground:red" "$2")"
+        fi
+
+        EXIT_CODE=$1
+        cleanup
+    fi
+}
+
+function createlogfile() {
+    if [ ! -d "$BUILD_DIR/Logs" ]; then
+        mkdir -p "$BUILD_DIR/Logs"
+    fi
+
+    local LOG="$BUILD_DIR/Logs/$1.log"
+    touch "$LOG"
+
+    echo "$LOG"
+}
+
+function errormessage() {
+    local ERROR_MESSAGE=""
+
+    if [[ "$NO_CLEAN" == "1" ]] || [[ "$NO_CLEAN_ON_FAIL" == "1" ]]; then
+        ERROR_MESSAGE="$("$SCRIPTS_DIR/printformat.sh" "foreground:default" "Build Failed. See xcodebuild log for more details: $("$SCRIPTS_DIR/printformat.sh" "foreground:yellow" "$1")")"
+    elif [ "$VERBOSE" != "1" ]; then
+        ERROR_MESSAGE="$("$SCRIPTS_DIR/printformat.sh" "foreground:default" "Build Failed. Use the '--no-clean' or '--no-clean-on-fail' flag to inspect the logs.")"
+    fi
+
+    echo "$ERROR_MESSAGE"
+}
+
 # Parse Arguments
 
 while [[ $# -gt 0 ]]; do
@@ -158,11 +213,39 @@ done
 if [ "${#WORKSPACE_NAME}" != 0 ]; then
     USE_WORKSPACE=1
     WORKSPACE_NAME="$("$SCRIPTS_DIR/findworkspace.sh" --workspace-name "$WORKSPACE_NAME")"
-    FRAMEWORK_NAME="$WORKSPACE_NAME"
+
+    checkresult $?
 elif [ "${#PROJECT_NAME}" != 0 ]; then
     USE_WORKSPACE=0
     PROJECT_NAME="$("$SCRIPTS_DIR/findproject.sh" --project-name "$PROJECT_NAME")"
-    FRAMEWORK_NAME="$PROJECT_NAME"
+
+    checkresult $?
+else
+    WORKSPACE_NAME="$("$SCRIPTS_DIR/findworkspace.sh")" 2> /dev/null
+    RESULT=$?
+
+    if [[ "$RESULT" == 0 ]] && [[ "${#WORKSPACE_NAME}" != 0 ]]; then
+        USE_WORKSPACE=1
+    else
+        PROJECT_NAME="$("$SCRIPTS_DIR/findproject.sh")" 2> /dev/null
+        RESULT=$?
+
+        if [[ "$RESULT" == 0 ]] && [[ "${#PROJECT_NAME}" != 0 ]]; then
+            USE_WORKSPACE=0
+        else
+            checkresult 1 "Unable to find specific Xcode project or workspace in the root directory. Try specifying a project or workspace name:\n"
+        fi
+    fi
+fi
+
+if [ "$USE_WORKSPACE" == "1" ]; then
+    PRODUCT_NAME="$WORKSPACE_NAME"
+    FULL_PRODUCT_NAME="$WORKSPACE_NAME.xcworkspace"
+    XCODEBUILD_ARGS=(-workspace "$FULL_PRODUCT_NAME")
+else
+    PRODUCT_NAME="$PROJECT_NAME"
+    FULL_PRODUCT_NAME="$PROJECT_NAME.xcodeproj"
+    XCODEBUILD_ARGS=(-project "$FULL_PRODUCT_NAME")
 fi
 
 EXIT_CODE=$?
@@ -174,12 +257,12 @@ fi
 #
 
 if [ -z ${OUTPUT+x} ]; then
-    OUTPUT="$SCRIPTS_DIR/build/$FRAMEWORK_NAME.xcframework"
+    OUTPUT="$SCRIPTS_DIR/build/$PRODUCT_NAME.xcframework"
 elif [ "${OUTPUT##*.}" != "xcframework" ]; then
     if [ "${OUTPUT: -1}" == "/" ]; then
-        OUTPUT="${OUTPUT}${FRAMEWORK_NAME}.xcframework"
+        OUTPUT="${OUTPUT}${PRODUCT_NAME}.xcframework"
     else
-        OUTPUT="${OUTPUT}/${FRAMEWORK_NAME}.xcframework"
+        OUTPUT="${OUTPUT}/${PRODUCT_NAME}.xcframework"
     fi
 fi
 
@@ -190,7 +273,7 @@ if [ -z ${CONFIGURATION+x} ]; then
 fi
 
 if [ -z ${BUILD_DIR+x} ]; then
-    BUILD_DIR="$(mktemp -d -t ".$(echo "$FRAMEWORK_NAME" | tr '[:upper:]' '[:lower:]').xcframework.build")"
+    BUILD_DIR="$(mktemp -d -t ".$(echo "$PRODUCT_NAME" | tr '[:upper:]' '[:lower:]').xcframework.build")"
     BUILD_DIR_IS_TEMP=1
 else
     mkdir -p "$BUILD_DIR"
@@ -202,61 +285,6 @@ else
     fi
 fi
 
-# Function Declarations
-
-function cleanup() {
-    cd "$CURRENT_DIR"
-    if [[ "$VERBOSE" != "1" && "$BUILD_DIR_IS_TEMP" == "1" && ("$NO_CLEAN" == "1" || ("$NO_CLEAN_ON_FAIL" == "1" && "$EXIT_CODE" != "0")) ]]; then
-        if [ "$EXIT_CODE" == "0" ]; then
-            "$SCRIPTS_DIR/printformat.sh" "foreground:yellow" "Build Directory: $BUILD_DIR"
-        fi
-    elif [ "$BUILD_DIR_IS_TEMP" == "1" ]; then
-        rm -rf "$BUILD_DIR"
-    fi
-
-    #
-
-    if [ "${#EXIT_MESSAGE}" != 0 ]; then
-        echo -e "$EXIT_MESSAGE" 1>&2
-    fi
-
-    exit $EXIT_CODE
-}
-
-function checkresult() {
-    if [ "$1" != "0" ]; then
-        if [ "${#2}" != "0" ]; then
-            EXIT_MESSAGE="$("$SCRIPTS_DIR/printformat.sh" "foreground:red" "$2")"
-        fi
-
-        EXIT_CODE=$1
-        cleanup
-    fi
-}
-
-function createlogfile() {
-    if [ ! -d "$BUILD_DIR/Logs" ]; then
-        mkdir -p "$BUILD_DIR/Logs"
-    fi
-
-    local LOG="$BUILD_DIR/Logs/$1.log"
-    touch "$LOG"
-
-    echo "$LOG"
-}
-
-function errormessage() {
-    local ERROR_MESSAGE=""
-
-    if [[ "$NO_CLEAN" == "1" ]] || [[ "$NO_CLEAN_ON_FAIL" == "1" ]]; then
-        ERROR_MESSAGE="$("$SCRIPTS_DIR/printformat.sh" "foreground:default" "Build Failed. See xcodebuild log for more details: $("$SCRIPTS_DIR/printformat.sh" "foreground:yellow" "$1")")"
-    elif [ "$VERBOSE" != "1" ]; then
-        ERROR_MESSAGE="$("$SCRIPTS_DIR/printformat.sh" "foreground:default" "Build Failed. Use the '--no-clean' or '--no-clean-on-fail' flag to inspect the logs.")"
-    fi
-
-    echo "$ERROR_MESSAGE"
-}
-
 # Build Platforms
 
 cd "$ROOT_DIR"
@@ -264,14 +292,9 @@ cd "$ROOT_DIR"
 #
 
 for PLATFORM in "iOS" "iOS Simulator" "Mac Catalyst" "macOS" "tvOS" "tvOS Simulator" "watchOS" "watchOS Simulator"; do
-    if [ "$USE_WORKSPACE" == "1" ]; then
-        SCHEME="${WORKSPACE_NAME}"
-        echo -e "$("$SCRIPTS_DIR/printformat.sh" "foreground:blue" "***") Building $("$SCRIPTS_DIR/printformat.sh" "foreground:green" "$PLATFORM") architecture(s) of $("$SCRIPTS_DIR/printformat.sh" "bold" "${WORKSPACE_NAME}.xcworkspace")"
-    else
-        SCHEME="${PROJECT_NAME}"
-        echo -e "$("$SCRIPTS_DIR/printformat.sh" "foreground:blue" "***") Building $("$SCRIPTS_DIR/printformat.sh" "foreground:green" "$PLATFORM") architecture(s) of $("$SCRIPTS_DIR/printformat.sh" "bold" "${PROJECT_NAME}.xcodeproj")"
-    fi
+    echo -e "$("$SCRIPTS_DIR/printformat.sh" "foreground:blue" "***") Building $("$SCRIPTS_DIR/printformat.sh" "foreground:green" "$PLATFORM") architecture(s) of $("$SCRIPTS_DIR/printformat.sh" "bold" "$FULL_PRODUCT_NAME")"
 
+    SCHEME="${PRODUCT_NAME}"
     ARCHIVE=""
     ARCHS=""
 
@@ -328,22 +351,14 @@ for PLATFORM in "iOS" "iOS Simulator" "Mac Catalyst" "macOS" "tvOS" "tvOS Simula
     #
 
     if [ "$VERBOSE" == "1" ]; then
-        if [ "$USE_WORKSPACE" == "1" ]; then
-            xcodebuild -workspace "${WORKSPACE_NAME}.xcworkspace" -scheme "$SCHEME" -destination "generic/platform=$PLATFORM" -archivePath "${BUILD_DIR}/$ARCHIVE.xcarchive" -configuration ${CONFIGURATION} SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ONLY_ACTIVE_ARCH=NO ARCHS="$ARCHS" "${BUILD_ARGS[@]}" archive
-        else
-            xcodebuild -project "${PROJECT_NAME}.xcodeproj" -scheme "$SCHEME" -destination "generic/platform=$PLATFORM" -archivePath "${BUILD_DIR}/$ARCHIVE.xcarchive" -configuration ${CONFIGURATION} SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ONLY_ACTIVE_ARCH=NO ARCHS="$ARCHS" "${BUILD_ARGS[@]}" archive
-        fi
+        xcodebuild "${XCODEBUILD_ARGS[@]}" -scheme "$SCHEME" -destination "generic/platform=$PLATFORM" -archivePath "${BUILD_DIR}/$ARCHIVE.xcarchive" -configuration ${CONFIGURATION} SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ONLY_ACTIVE_ARCH=NO ARCHS="$ARCHS" "${BUILD_ARGS[@]}" archive
     else
         LOG="$(createlogfile "$ARCHIVE-build")"
         ERROR_MESSAGE="$(errormessage "$LOG")"
 
         #
 
-        if [ "$USE_WORKSPACE" == "1" ]; then
-            xcodebuild -workspace "${WORKSPACE_NAME}.xcworkspace" -scheme "$SCHEME" -destination "generic/platform=$PLATFORM" -archivePath "${BUILD_DIR}/$ARCHIVE.xcarchive" -configuration ${CONFIGURATION} SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ONLY_ACTIVE_ARCH=NO ARCHS="$ARCHS" "${BUILD_ARGS[@]}" archive > "$LOG" 2>&1
-        else
-            xcodebuild -project "${PROJECT_NAME}.xcodeproj" -scheme "$SCHEME" -destination "generic/platform=$PLATFORM" -archivePath "${BUILD_DIR}/$ARCHIVE.xcarchive" -configuration ${CONFIGURATION} SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ONLY_ACTIVE_ARCH=NO ARCHS="$ARCHS" "${BUILD_ARGS[@]}" archive > "$LOG" 2>&1
-        fi
+        xcodebuild "${XCODEBUILD_ARGS[@]}" -scheme "$SCHEME" -destination "generic/platform=$PLATFORM" -archivePath "${BUILD_DIR}/$ARCHIVE.xcarchive" -configuration ${CONFIGURATION} SKIP_INSTALL=NO BUILD_LIBRARY_FOR_DISTRIBUTION=YES ONLY_ACTIVE_ARCH=NO ARCHS="$ARCHS" "${BUILD_ARGS[@]}" archive > "$LOG" 2>&1
     fi
 
     checkresult $? "$ERROR_MESSAGE"
@@ -358,11 +373,11 @@ fi
 ARGUMENTS=(-create-xcframework -output "$(readlink -f "$(dirname "${OUTPUT}")")/$(basename "${OUTPUT}")")
 
 for ARCHIVE in ${BUILD_DIR}/*.xcarchive; do
-    ARGUMENTS=(${ARGUMENTS[@]} -framework "$(readlink -f "${ARCHIVE}/Products/Library/Frameworks/${FRAMEWORK_NAME}.framework")")
+    ARGUMENTS=(${ARGUMENTS[@]} -framework "$(readlink -f "${ARCHIVE}/Products/Library/Frameworks/${PRODUCT_NAME}.framework")")
 
     if [ "$EXCLUDE_DSYMS" != "1" ]; then
-        if [[ -d "${ARCHIVE}/dSYMs/${FRAMEWORK_NAME}.framework.dSYM" ]]; then
-            ARGUMENTS=(${ARGUMENTS[@]} -debug-symbols "$(readlink -f "${ARCHIVE}/dSYMs/${FRAMEWORK_NAME}.framework.dSYM")")
+        if [[ -d "${ARCHIVE}/dSYMs/${PRODUCT_NAME}.framework.dSYM" ]]; then
+            ARGUMENTS=(${ARGUMENTS[@]} -debug-symbols "$(readlink -f "${ARCHIVE}/dSYMs/${PRODUCT_NAME}.framework.dSYM")")
         fi
 
         if [[ -d "${ARCHIVE}/BCSymbolMaps" ]]; then

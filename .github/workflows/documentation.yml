@@ -43,7 +43,7 @@ jobs:
 
     - name: Build Documentation
       run: |
-        xcodebuild docbuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -destination "generic/platform=iOS" SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build.log"
+        xcodebuild docbuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding" -destination "generic/platform=iOS" SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build.log"
 
     - name: Upload Logs
       uses: actions/upload-artifact@v3

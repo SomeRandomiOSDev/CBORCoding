@@ -106,7 +106,7 @@ jobs:
 
     - name: Build
       run: |
-        xcodebuild docbuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -destination "generic/platform=iOS" -derivedDataPath "${TMPDIR}/.docbuild" 2>&1 | tee "${TMPDIR}/Logs/Build.log"
+        xcodebuild docbuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding" -destination "generic/platform=iOS" -derivedDataPath "${TMPDIR}/.docbuild" 2>&1 | tee "${TMPDIR}/Logs/Build.log"
 
         DOCC_ARCHIVE="$(find "${TMPDIR}/.docbuild" -type d -name "CBORCoding.doccarchive")"
         mv "${DOCC_ARCHIVE%/}" "${TMPDIR}/Output/CBORCoding.doccarchive"

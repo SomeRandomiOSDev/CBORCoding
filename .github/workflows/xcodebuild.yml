@@ -52,11 +52,11 @@ jobs:
 
     - name: Build iOS
       run: |
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -destination "generic/platform=iOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-ios.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding" -destination "generic/platform=iOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-ios.log"
 
     - name: Build iOS Simulator
       run: |
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -destination "generic/platform=iOS Simulator" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-iossimulator.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding" -destination "generic/platform=iOS Simulator" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-iossimulator.log"
 
     - name: Test
       run: |
@@ -65,7 +65,7 @@ jobs:
             IOS_SIM="iPhone 12 Pro" # Fallback Simulator
         fi
 
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -testPlan "CBORCodingTests" -destination "platform=iOS Simulator,name=$IOS_SIM" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-ios.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding" -testPlan "CBORCodingTests" -destination "platform=iOS Simulator,name=$IOS_SIM" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-ios.log"
 
     - name: Upload Logs
       uses: actions/upload-artifact@v3
@@ -102,11 +102,11 @@ jobs:
 
     - name: Build
       run: |
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -destination "generic/platform=macOS,variant=Mac Catalyst" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-maccatalyst.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding" -destination "generic/platform=macOS,variant=Mac Catalyst" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-maccatalyst.log"
 
     - name: Test
       run: |
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding" -testPlan "CBORCodingTests" -destination "platform=macOS,variant=Mac Catalyst" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-maccatalyst.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding" -testPlan "CBORCodingTests" -destination "platform=macOS,variant=Mac Catalyst" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-maccatalyst.log"
 
     - name: Upload Logs
       uses: actions/upload-artifact@v3
@@ -143,11 +143,11 @@ jobs:
 
     - name: Build
       run: |
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding macOS" -destination "generic/platform=macOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-macos.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding macOS" -destination "generic/platform=macOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-macos.log"
 
     - name: Test
       run: |
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding macOS" -testPlan "CBORCoding macOS Tests" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-macos.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding macOS" -testPlan "CBORCoding macOS Tests" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-macos.log"
 
     - name: Upload Logs
       uses: actions/upload-artifact@v3
@@ -184,11 +184,11 @@ jobs:
 
     - name: Build tvOS
       run: |
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding tvOS" -destination "generic/platform=tvOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-tvos.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding tvOS" -destination "generic/platform=tvOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-tvos.log"
 
     - name: Build tvOS Simulator
       run: |
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding tvOS" -destination "generic/platform=tvOS Simulator" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-tvossimulator.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding tvOS" -destination "generic/platform=tvOS Simulator" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-tvossimulator.log"
 
     - name: Test
       run: |
@@ -197,7 +197,7 @@ jobs:
             TVOS_SIM="Apple TV" # Fallback Simulator
         fi
 
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding tvOS" -testPlan "CBORCoding tvOS Tests" -destination "platform=tvOS Simulator,name=$TVOS_SIM" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-tvos.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding tvOS" -testPlan "CBORCoding tvOS Tests" -destination "platform=tvOS Simulator,name=$TVOS_SIM" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-tvos.log"
 
     - name: Upload Logs
       uses: actions/upload-artifact@v3
@@ -234,11 +234,11 @@ jobs:
 
     - name: Build watchOS
       run: |
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding watchOS" -destination "generic/platform=watchOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-watchos.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding watchOS" -destination "generic/platform=watchOS" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-watchos.log"
 
     - name: Build watchOS Simulator
       run: |
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding watchOS" -destination "generic/platform=watchOS Simulator" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-watchossimulator.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding watchOS" -destination "generic/platform=watchOS Simulator" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES 2>&1 | tee "$LOGSDIR/build-watchossimulator.log"
 
     - name: Test
       run: |
@@ -247,7 +247,7 @@ jobs:
             WATCHOS_SIM="Apple Watch Series 6 - 44mm" # Fallback Simulator
         fi
 
-        xcodebuild -project "CBORCoding.xcodeproj" -scheme "CBORCoding watchOS" -testPlan "CBORCoding watchOS Tests" -destination "platform=watchOS Simulator,name=$WATCHOS_SIM" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-watchos.log"
+        xcodebuild -workspace "CBORCoding.xcworkspace" -scheme "CBORCoding watchOS" -testPlan "CBORCoding watchOS Tests" -destination "platform=watchOS Simulator,name=$WATCHOS_SIM" -configuration Debug RUN_DOCUMENTATION_COMPILER=NO SKIP_SWIFTLINT=YES ONLY_ACTIVE_ARCH=YES test 2>&1 | tee "$LOGSDIR/test-watchos.log"
 
     - name: Upload Logs
       uses: actions/upload-artifact@v3
