@@ -504,7 +504,7 @@ class CBORTests: XCTestCase {
     func testDirectlyEncodeCBOREncoded() {
         struct Test: Encodable {
 
-            static var value: Data = {
+            static let value: Data = {
                 try! CBOREncoder().encode("CBOR")
             }()
 

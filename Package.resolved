@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "Half",
-        "repositoryURL": "https://github.com/SomeRandomiOSDev/Half",
-        "state": {
-          "branch": null,
-          "revision": "bb32fc7a5d5cfcee01e5442b1381450b1fcd4803",
-          "version": "1.4.1"
-        }
+  "pins" : [
+    {
+      "identity" : "half",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SomeRandomiOSDev/Half",
+      "state" : {
+        "revision" : "14b1ab35ffdf62c999ef1016ec0f8e745a6feed5",
+        "version" : "1.4.2"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }
