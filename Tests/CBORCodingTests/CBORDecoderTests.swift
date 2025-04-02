@@ -1192,6 +1192,29 @@ class CBORDecoderTests: XCTestCase {
 
         XCTAssertNoThrow(try CBORDecoder().decode(Test2.self, from: convertFromHexString("0xA2616101616202")))
     }
+    
+    func testDecodingNilValuesInArray() throws {
+        let arrayWithNilValues: [UInt?] = [nil, nil]
+        let arrayWithNilCborData = try CBOREncoder().encode(arrayWithNilValues)
+
+        XCTAssertNoThrow(try CBORDecoder().decode([UInt?].self, from: arrayWithNilCborData))
+    }
+
+    func testDecodingNilValuesInArray2() throws {
+        let arrayWithNilValues: [UInt?] = [nil, 2]
+        let arrayWithNilCborData = try CBOREncoder().encode(arrayWithNilValues)
+
+        XCTAssertNoThrow(try CBORDecoder().decode([UInt?].self, from: arrayWithNilCborData))
+    }
+
+    func testDecodingNilValuesInArray3() throws {
+        let arrayWithNilValues: [UInt?] = [nil, 2]
+        let arrayWithNilCborData = try CBOREncoder().encode(arrayWithNilValues)
+
+        let decodedValue = try CBORDecoder().decode([UInt?].self, from: arrayWithNilCborData)
+
+        XCTAssertEqual(decodedValue, [nil, 2])
+    }
 
     // MARK: Private Methods
 

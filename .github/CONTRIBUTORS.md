@@ -6,6 +6,8 @@ I would like to give a special thanks to all of the people below who have contri
 
 - [Jos Kuijpers](https://github.com/joskuijpers)
 - [Dave Abrahams](https://github.com/dabrahams)
+- [Amerigo Mancino](https://github.com/AmerigoM)
+- [Daniele Ceglia - Electrolux Professional](https://github.com/DanieleCeglia-EPR)
 
 ## I would like to join this list! How can I help the project?
 
