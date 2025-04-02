@@ -1,4 +1,4 @@
-// swift-tools-version:5.0
+// swift-tools-version:5.8
 import PackageDescription
 
 let package = Package(
@@ -16,11 +16,23 @@ let package = Package(
     ],
 
     dependencies: [
-        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.4.1")
+        .package(url: "https://github.com/SomeRandomiOSDev/Half", from: "1.4.2")
     ],
 
     targets: [
-        .target(name: "CBORCoding", dependencies: ["Half"]),
-        .testTarget(name: "CBORCodingTests", dependencies: ["CBORCoding", "Half"])
+        .target(
+            name: "CBORCoding",
+            dependencies: ["Half"],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]
+        ),
+        .testTarget(
+            name: "CBORCodingTests",
+            dependencies: ["CBORCoding", "Half"],
+            swiftSettings: [
+                .enableExperimentalFeature("StrictConcurrency")
+            ]
+        )
     ]
 )

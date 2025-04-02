@@ -17,11 +17,12 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target    = '12.0'
   s.watchos.deployment_target = '4.0'
 
-  s.source            = { :git => "https://github.com/SomeRandomiOSDev/CBORCoding.git", :tag => s.version.to_s }
-  s.source_files      = 'Sources/**/*.swift'
-  s.swift_versions    = ['5.0']
-  s.cocoapods_version = '>= 1.7.3'
+  s.source              = { :git => "https://github.com/SomeRandomiOSDev/CBORCoding.git", :tag => s.version.to_s }
+  s.source_files        = 'Sources/**/*.swift'
+  s.pod_target_xcconfig = { 'SWIFT_STRICT_CONCURRENCY' => 'complete' }
+  s.swift_versions      = ['5.0']
+  s.cocoapods_version   = '>= 1.7.3'
 
-  s.dependency 'Half', '~> 1.4'
+  s.dependency 'Half', '~> 1.4.2'
 
 end

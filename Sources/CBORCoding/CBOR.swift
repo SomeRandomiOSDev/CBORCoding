@@ -18,7 +18,7 @@ public enum CBOR {
      Type value for encoding/decoding Undefined values as outlined in [RFC 8949
      Section 5.7](https://datatracker.ietf.org/doc/html/rfc8949#section-5.7).
      */
-    public struct Undefined { }
+    public struct Undefined: Sendable { }
 
     /**
      CBOR supports encoding negative values normally outside of the range `Int64`.
@@ -35,7 +35,7 @@ public enum CBOR {
                            --------------Int64--------------
      ```
      */
-    public struct NegativeUInt64: RawRepresentable {
+    public struct NegativeUInt64: RawRepresentable, Sendable {
 
         // MARK: Public Constants
 
@@ -70,7 +70,7 @@ public enum CBOR {
      to any particular type/value. `SimpleValue` fills this gap by returning the
      exact encoded value for those codes that are unassigned or unused.
      */
-    public struct SimpleValue: RawRepresentable {
+    public struct SimpleValue: RawRepresentable, Sendable {
 
         // MARK: RawRepresentable Protocol Requirements
 
@@ -94,7 +94,7 @@ public enum CBOR {
      Type value for encoding/decoding Big numbers as outlined in [RFC 8949 Section
      3.4.3](https://datatracker.ietf.org/doc/html/rfc8949#section-3.4.3).
      */
-    public struct Bignum {
+    public struct Bignum: Sendable {
 
         // MARK: Public Properties
 
@@ -250,7 +250,7 @@ public enum CBOR {
      support for encoding byte data in this way. This may be useful for sending to
      decoders that expect byte data lengths to be undefined.
      */
-    public struct IndefiniteLengthData {
+    public struct IndefiniteLengthData: Sendable {
 
         // MARK: Public Properties
 
@@ -310,7 +310,7 @@ public enum CBOR {
      provides support for encoding byte strings in this way. This may be useful for
      sending to decoders that expect byte string lengths to be undefined.
      */
-    public struct IndefiniteLengthString {
+    public struct IndefiniteLengthString: Sendable {
 
         // MARK: Public Properties
 
@@ -394,7 +394,7 @@ public enum CBOR {
      A type that asserts its data is already in CBOR encoded format. No additional
      encoding is done on the contained byte data.
      */
-    public struct CBOREncoded {
+    public struct CBOREncoded: Sendable {
 
         // MARK: - Properties
 
@@ -424,15 +424,15 @@ extension CBOR {
     // MARK: Internal Types
 
     /// `Null` type for encoding
-    internal struct Null: Encodable { }
+    internal struct Null: Encodable, Sendable { }
 
     /// `Break` code for ending indefinite length types. This is only used for
     /// type-mismatch error messages
-    internal struct Break { }
+    internal struct Break: Sendable { }
 
     /// A byte mask used for splitting the major type bits from the additional
     /// information bits
-    internal enum ByteMask: UInt8 {
+    internal enum ByteMask: UInt8, Sendable {
 
         // MARK: Cases
 
@@ -441,7 +441,7 @@ extension CBOR {
     }
 
     /// CBOR Major Type
-    internal enum MajorType: UInt8 {
+    internal enum MajorType: UInt8, Sendable {
 
         // MARK: Cases
 
@@ -456,7 +456,7 @@ extension CBOR {
     }
 
     /// Major Type 7 defined bits
-    internal enum Bits: UInt8 {
+    internal enum Bits: UInt8, Sendable {
 
         // MARK: Cases
 
@@ -474,7 +474,7 @@ extension CBOR {
      Optional CBOR Tags described by [RFC 8949 Section
      3.4](https://datatracker.ietf.org/doc/html/rfc8949#section-3.4).
      */
-    internal enum Tag: CustomStringConvertible {
+    internal enum Tag: CustomStringConvertible, Sendable {
 
         // MARK: Cases
 
@@ -590,7 +590,7 @@ extension CBOR {
      constructing the `codingPath` property of the `__CBOREncoder` and
      `__CBORDecoder` instances
      */
-    internal struct CodingKey: Swift.CodingKey {
+    internal struct CodingKey: Swift.CodingKey, Sendable {
 
         // MARK: Swift.CodingKey Protocol Requirements
 
@@ -696,3 +696,19 @@ extension DecodingError {
         }
     }
 }
+
+// MARK: - CBOR.DecimalFraction Extension
+
+extension CBOR.DecimalFraction: Sendable where I1: Sendable, I2: Sendable { }
+
+// MARK: - CBOR.Bigfloat Extension
+
+extension CBOR.Bigfloat: Sendable where I1: Sendable, I2: Sendable { }
+
+// MARK: - CBOR.IndefiniteLengthArray Extension
+
+extension CBOR.IndefiniteLengthArray: Sendable where Element: Sendable { }
+
+// MARK: - CBOR.IndefiniteLengthMap Extension
+
+extension CBOR.IndefiniteLengthMap: Sendable where Key: Sendable, Value: Sendable { }
